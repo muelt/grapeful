@@ -54,4 +54,13 @@ class User extends Authenticatable
     public function ChatRoomUsers(){
         return $this->hasMany('App\ChatRoomUsers', 'user_id', 'id');
     }
+
+    // 多分いらない
+    // public function type(){
+    //     return $this->type('App\type');
+    // } 
+
+    // public function variaty(){
+    //     return $this->variaty('App\variaty');
+    // }
 }

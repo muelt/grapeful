@@ -34,7 +34,10 @@ Route::get('/home', 'HomeController@index')->name('index');
 
 Route::group(['middleware' => 'auth'], function(){
 Route::get('/matching', 'MatchingController@index')->name('matching');
+Route::get('/like_from', 'MatchingController@like_from')->name('like_from');
+Route::get('/like_to', 'MatchingController@like_to')->name('like_to');
 });
+
 
 Route::group(['prefix' => 'chat', 'middleware' => 'auth'], function(){
     Route::post('show', 'ChatController@show')->name('chat.show');
@@ -46,6 +49,8 @@ Route::get('/restaurants/gurunavi', 'RestaurantsController@gurunavi');
 Route::post('/restaurants/search', 'RestaurantsController@search')->name('restaurant');
 
 // Route::get('/restaurant', 'RestaurantsController@index');
+
+
 
 
 

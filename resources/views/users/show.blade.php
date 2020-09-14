@@ -7,7 +7,7 @@
     <header class="header">
       <p class='header_logo'>
       <a href="{{ route('index') }}">
-      <img src="/storage/images/techpit-match-icon.png">
+      <li class="appIcon" style="list-style: none;"><a href="{{route('index')}}"><i class="fas fa-wine-glass fa-2x"></i></a></li>
       </a>
       </p>
     </header>

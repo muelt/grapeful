@@ -41,4 +41,43 @@ class MatchingController extends Controller
 
         return view('users.index', compact('matching_users', 'match_users_count'));
     }
+
+
+    // 自分にいいねしてくれた人のIDを取得
+    public function like_from(){
+        $send_like_ids = Like::where([
+            ['from_user_id', Auth::id()],
+            ['status', Status::LIKE]
+        ])->pluck('to_user_id');//pluckでID情報のみ取得できる
+        Log::debug('$send_like_ids→自分がいいねした人のID');
+        Log::debug($send_like_ids);
+
+        $like_to_users = User::whereIn('id', $send_like_ids)->get();
+        Log::debug('$like_to_users->自分にいいねしてくれた人の情報');
+        Log::debug($like_to_users);
+        // dd($like_to_users);
+
+        return view('users.like_to', compact('like_to_users', 'like_to_users'));
+
+
+    }
+
+    // 自分がいいねした人のIDを取得
+    public function like_to(){
+        $got_like_ids = Like::where([
+            ['to_user_id', Auth::id()],
+            ['status', Status::LIKE]
+        ])->pluck('from_user_id');//pluckでID情報のみ取得できる
+        Log::debug('$got_like_ids→自分がいいねした人のID');
+        Log::debug($got_like_ids);
+
+        $like_from_users = User::whereIn('id', $got_like_ids)->get();
+        Log::debug('$like_from_users->自分がいいねした人の情報');
+        Log::debug($like_from_users);
+        // dd($like_from_users);
+
+        return view('users.like_from', compact('like_from_users', 'like_from_users'));
+
+
+    }
 }

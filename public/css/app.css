@@ -17253,7 +17253,7 @@ body {
 }
 
 .search_wrapper {
-  width: 800px;
+  width: 880px;
   height: 60px;
   margin: 50px auto 50px;
   box-sizing: border-box;
@@ -17282,6 +17282,32 @@ body {
 
 .search_wrapper .btn i {
   font-size: 20px;
+}
+
+.restaurants-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: space-between;
+  width: 880px;
+  margin: 0 auto;
+}
+
+.restaurants-wrapper .restaurant {
+  height: 258px;
+  width: 200px;
+  box-sizing: border-box;
+  margin-left: 20px;
+}
+
+.restaurants-wrapper .restaurant_image {
+  display: block;
+  width: 200px;
+  height: 185px;
+}
+
+.restaurants-wrapper button {
+  float: left;
 }
 
 html,

@@ -13,12 +13,10 @@ class RestaurantsController extends Controller
         return view('restaurants.gurunavi');
     }
 
-
     public function search(Request $request){
         // Gurunaviクラスをインスタンス化
         $gurunavi = new Gurunavi();
-        // getTextメソッドでユーザーからのメッセージのテキストを取り出す。検索結果の連想配列が$gurunaviResponseに入る
-        // dd($request->freeword);
+        // $request->freewordでユーザーが入力したキーワードを取り出す。検索結果の連想配列が$gurunaviResponseに入る
         $gurunaviResponse = $gurunavi->searchRestaurants($request->freeword);
 
         // ぐるなびAPIのレスポンスがエラーだった場合の処理
@@ -29,28 +27,71 @@ class RestaurantsController extends Controller
         //     continue;
         // }
 
-        $replyText = '';
+        $array = [];
         foreach($gurunaviResponse['rest'] as $restaurant) {
           // dd($gurunaviResponse['rest']);
           
-            $replyText .=
-                $restaurant['name'] . "\n" .
-                $restaurant['image_url']['shop_image1'] . "\n" .
-                $restaurant['url'] . "\n" .
-                $restaurant['tel'] . "\n" .
-                $restaurant['address'] . "\n" .
-                "\n";
-      
-     
+            // $replyText .=
+            //     $restaurant['name'] . "\n" .
+            //     $restaurant['image_url']['shop_image1'] . "\n" .
+            //     $restaurant['url'] . "\n" .
+            //     $restaurant['tel'] . "\n" .
+            //     $restaurant['address'] . "\n" .
+            //     "\n";
+            $array[] = [
+              'name' => $restaurant['name'],
+              'url' => $restaurant['url'],
+              'image_url' => $restaurant['image_url']['shop_image1'],
+              'tel' =>  $restaurant['tel'],
+              'address' => $restaurant['address'],
+            ];
           }
 
-        // $replyTextは取得した全店舗のまとまったデータであるため、店舗1つ1つのまとまりとして抽出ができない。どうすれば良いか？
-        dd($replyText);
-
-
-        return view('restaurants.search', compact('replyText', 'request'));
+        // dd($array);
+        return view('restaurants.search', compact('array', 'request'));
         
+  }
+
+  
+ // ユーザーが店舗を選択し登録ボタンをおした際、その店舗データをDBに保存する処理
+//  引数に選択した店舗名が入ってくるようにする
+  public function save(Request $request){
+    // Gurunaviクラスをインスタンス化
+    $gurunavi = new Gurunavi();
+    $gurunaviResponse = $gurunavi->searchRestaurants($request->name);
+
+    $array = [];
+    foreach($gurunaviResponse['rest'] as $restaurant) {
+      // dd($gurunaviResponse['rest']);
+      
+        // $replyText .=
+        //     $restaurant['name'] . "\n" .
+        //     $restaurant['image_url']['shop_image1'] . "\n" .
+        //     $restaurant['url'] . "\n" .
+        //     $restaurant['tel'] . "\n" .
+        //     $restaurant['address'] . "\n" .
+        //     "\n";
+        $array[] = [
+          'name' => $restaurant['name'],
+          'url' => $restaurant['url'],
+          'image_url' => $restaurant['image_url']['shop_image1'],
+          'tel' =>  $restaurant['tel'],
+          'address' => $restaurant['address'],
+        ];
+      }
+
+      // ぐるなびAPIで取得してきた情報は、DBには保存していない。
+      // どうやってユーザーが選択した値と一致する情報(店舗)のみ取り出してDBへ保存するのか
+      // if($restaurant['name'] == '京都 瓢斗 東急プラザ渋谷店'){
+      //   $favorite = SELECT * FROM  WHERE '京都 瓢斗 東急プラザ渋谷店' == $restaurant['name'];
+      // }
+
+      // dd($favorite);
+
+
 
   }
+
+
 }
 

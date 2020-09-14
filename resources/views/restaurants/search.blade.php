@@ -11,19 +11,16 @@
   </button>
 </form>
 
-<div>
-  <span>{{ $replyText }}</span>
+<div class="restaurants-wrapper">
+    @foreach($array as $restaurant)
+      <div class="restaurant">
+          <img src="{{ $restaurant['image_url'] }}" class="restaurant_image">
+          <div style="display: inline-block">{{ $restaurant['name'] }}</div>
+          <input type="checkbox">
+      </div>  
+    @endforeach
 </div>
 
-<!-- 取得した店舗の情報を1つ1つ取り出して表示したい -->
-<!-- <div class="container">
-    <div class="restaurants">
-    @foreach($replyText as $restaurant)
-      <img src="{{ $restaurant->image_url }}">
-      <div>{{ $restaurant->name }}</div>
-    @endforeach
-    </div>
-</div> -->
-
+<button type="submit" class="btn submitBtn">お店を登録する</button>
 
 @endsection
