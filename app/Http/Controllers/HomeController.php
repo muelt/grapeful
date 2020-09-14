@@ -41,4 +41,8 @@ class HomeController extends Controller
         // compactメソッドで複数の変数をビュー側(home.blade.php)へ渡す
         return view('home', compact('users', 'userCount', 'from_user_id'));
     }
+
+    public function top(){
+        return view('top');
+    }
 }

@@ -53230,7 +53230,7 @@ function parseHTML (html, options) {
         }
       }
     } else {
-      // If no tag name is provided, clean restaurant
+      // If no tag name is provided, clean shop
       pos = 0;
     }
 

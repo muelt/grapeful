@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Restaurant;
 use App\Services\Gurunavi;
+use App\Restaurant;
 
 class RestaurantsController extends Controller
 {
 
-    public function show(){
-        return view('restaurants.show');
+    public function gurunavi(){
+        return view('restaurants.gurunavi');
     }
 
 
@@ -31,26 +31,26 @@ class RestaurantsController extends Controller
 
         $replyText = '';
         foreach($gurunaviResponse['rest'] as $restaurant) {
+          // dd($gurunaviResponse['rest']);
+          
             $replyText .=
                 $restaurant['name'] . "\n" .
+                $restaurant['image_url']['shop_image1'] . "\n" .
                 $restaurant['url'] . "\n" .
-                $restaurant['url'] . "\n" .
-                $restaurant['url'] . "\n" .
-                $restaurant['url'] . "\n" .
-                $restaurant['url'] . "\n" .
-                $restaurant['url'] . "\n" .
-                $restaurant['url'] . "\n" .
-                $restaurant['url'] . "\n" .
-                $restaurant['url'] . "\n" .
-                $restaurant['url'] . "\n" .
-                $restaurant['url'] . "\n" .
+                $restaurant['tel'] . "\n" .
+                $restaurant['address'] . "\n" .
                 "\n";
-            }   
+      
+     
+          }
 
-        // dd($replyText);
-        return view('restaurants.search', compact('replyText'));
+        // $replyTextは取得した全店舗のまとまったデータであるため、店舗1つ1つのまとまりとして抽出ができない。どうすれば良いか？
+        dd($replyText);
+
+
+        return view('restaurants.search', compact('replyText', 'request'));
         
-    }
 
+  }
 }
 

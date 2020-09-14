@@ -6,7 +6,7 @@
   <div class='container'>
     <header class="header">
       <p class='header_logo'>
-      <a href="{{ route('home') }}">
+      <a href="{{ route('index') }}">
       <img src="/storage/images/techpit-match-icon.png">
       </a>
       </p>

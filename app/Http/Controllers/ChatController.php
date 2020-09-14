@@ -74,6 +74,8 @@ class ChatController extends Controller
         Log::debug($chat_room_user_name);
         return view('chat.show', compact('chat_room_id', 'chat_room_user', 'chat_messages', 'chat_room_user_name'));
 
+
+        return view('chat.show');
     }
 
     // チャットが投稿されたらデータベースに保存した後、イベント発火する

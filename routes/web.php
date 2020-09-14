@@ -26,16 +26,22 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth'], function(){
 // %php artisan ui bootstrap --authで生成された。この1行によって、最終的にvendor/laravel/framework/src/Illuminate/Routing/Router.phpの以下のメソッドが呼ばれている(ログイン、ログアウト、登録、パスワードリセットなどの記載)
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', function () {
+    return view('top');
+})->name('top');
 
+Route::get('/home', 'HomeController@index')->name('index');
+
+Route::group(['middleware' => 'auth'], function(){
 Route::get('/matching', 'MatchingController@index')->name('matching');
+});
 
 Route::group(['prefix' => 'chat', 'middleware' => 'auth'], function(){
     Route::post('show', 'ChatController@show')->name('chat.show');
     Route::post('chat', 'ChatController@chat')->name('chat.chat');
 });
 
-Route::get('/restaurants/show', 'RestaurantsController@show');
+Route::get('/restaurants/gurunavi', 'RestaurantsController@gurunavi');
 
 Route::post('/restaurants/search', 'RestaurantsController@search')->name('restaurant');
 

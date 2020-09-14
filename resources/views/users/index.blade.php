@@ -5,7 +5,7 @@
 <div class="matchingPage">
   <header class="header">
     <i class="fas fa-comments fa-3x"></i>
-    <div class="header_logo"><a href="{{route('home')}}"><img src="/storage/images/techpit-match-icon.png"></a></div>
+    <div class="header_logo"><a href="{{ route('index') }}"><i class="fas fa-wine-glass fa-3x"></i></a></div>
   </header>
   <div class="container">
     <div class="mt-5">
