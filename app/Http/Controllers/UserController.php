@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 // これはupdateメソッドの引数として使い、フォームリクエスト(バリデーション)を適用させる
 use App\Http\Requests\ProfileRequest;
@@ -23,7 +24,13 @@ class UserController extends Controller
         $user = User::findorFail($id);
 
         // 情報を変数に入れてviewに渡してあげる
-        return view('users.show', compact('user'));
+        // 自分自身だった場合は自分のプロフィールページ（編集、ログアウト可能）
+        if($id == Auth::id()){
+            return view('users.show', compact('user'));
+        //  他のユーザーのページに飛ぶ場合は、閲覧のみページ   
+        }else{
+            return view('users.users_show', compact('user'));
+        }
     }
 
     public function edit($id){

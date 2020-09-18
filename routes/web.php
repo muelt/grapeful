@@ -18,24 +18,19 @@ use Illuminate\Support\Facades\Route;
 // Route::groupの引数として'prefix' => 'users'という表記をすることで、Urlの先頭にusersを付与する
 Route::group(['prefix' => 'users', 'middleware' => 'auth'], function(){
     Route::get('show/{id}', 'UserController@show')->name('users.show');
+    Route::get('show/{id}', 'UserController@show')->name('users.show');
     Route::get('edit/{id}', 'UserController@edit')->name('users.edit');
     Route::post('update/{id}', 'UserController@update')->name('users.update');
     
 });
 
-// %php artisan ui bootstrap --authで生成された。この1行によって、最終的にvendor/laravel/framework/src/Illuminate/Routing/Router.phpの以下のメソッドが呼ばれている(ログイン、ログアウト、登録、パスワードリセットなどの記載)
-Auth::routes();
 
-Route::get('/', function () {
-    return view('top');
-})->name('top');
 
-Route::get('/home', 'HomeController@index')->name('index');
 
 Route::group(['middleware' => 'auth'], function(){
-Route::get('/matching', 'MatchingController@index')->name('matching');
-Route::get('/like_from', 'MatchingController@like_from')->name('like_from');
-Route::get('/like_to', 'MatchingController@like_to')->name('like_to');
+    Route::get('/matching', 'MatchingController@index')->name('matching');
+    Route::get('/from_me', 'MatchingController@from_me')->name('from_me');
+    Route::get('/from_users', 'MatchingController@from_users')->name('from_users');
 });
 
 
@@ -44,14 +39,21 @@ Route::group(['prefix' => 'chat', 'middleware' => 'auth'], function(){
     Route::post('chat', 'ChatController@chat')->name('chat.chat');
 });
 
-Route::get('/restaurants/gurunavi', 'RestaurantsController@gurunavi');
+
+Route::get('/restaurants/gurunavi', 'RestaurantsController@gurunavi')->name('restaurants.gurunavi');
 
 Route::post('/restaurants/search', 'RestaurantsController@search')->name('restaurant');
+Route::post('/restaurants/save', 'RestaurantsController@save')->name('restaurant_save');
 
 // Route::get('/restaurant', 'RestaurantsController@index');
 
+// 最初に定義されるもの
+Route::get('/', function () {
+    return view('top');
+})->name('top');
 
+// %php artisan ui bootstrap --authで生成された。この1行によって、最終的にvendor/laravel/framework/src/Illuminate/Routing/Router.phpの以下のメソッドが呼ばれている(ログイン、ログアウト、登録、パスワードリセットなどの記載)
+Auth::routes();
 
-
-
-
+Route::get('/home', 'HomeController@index')->name('index');
+// ここまで

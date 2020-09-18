@@ -18,6 +18,7 @@ require('./chat');
 
 window.Vue = require('vue');
 
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -39,4 +40,20 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+});
+
+
+$(function(){
+  var imgHeight = $('.js-mainVisual').outerHeight(); //画像の高さを取得。これがイベント発火位置になる。
+  var header = $('.js-header'); //ヘッダーコンテンツ
+
+  $(window).on('load scroll', function(){
+     if ($(window).scrollTop() < header) {
+       //メインビジュアル内にいるので、クラスを外す。
+       header.removeClass('headerColor-default');
+     }else {
+       //メインビジュアルより下までスクロールしたので、クラスを付けて色を変える
+       header.addClass('headerColor-default');
+     }
+  });
 });

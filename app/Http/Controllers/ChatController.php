@@ -87,6 +87,7 @@ class ChatController extends Controller
         $chat->message = $request->message;
         $chat->save();
 
+        // events/ChatPusher.php(pusherに通知するためのイベント)にデータを送る)
         event(new ChatPusher($chat));
     }
 }

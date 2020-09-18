@@ -29,23 +29,20 @@ $(document).ready(function() {
         }
     });
 
-  // Pusherから通信が届いたら、ログインしているユーザーIDかどうかで判定し、それぞれ画面に表示するようにする
-  // チャネル名、イベント名を使用
     window.Echo.channel('ChatRoomChannel')
     .listen('ChatPusher', (e) => {
         console.log(e, e.message.user_id);
         if(e.message.user_id === user_id){
             console.log(true);
         $('.messages').append(
-            '<div class="message"><span>' + current_user_name + 
-            ':</span><div class="commonMessage"><div>' +
-            e.message.message + '</div></div></div>');
+            '<div class="message"><div class="message-right">' + '<div class="commonMessage"><div>' + 
+            e.message.message + '</div></div>' + '<span>' + current_user_name + ':</span>' + '</div></div>');
         }else{
             console.log(false);
         $('.messages').append(
-            '<div class="message"><span>' + chat_room_user_name + 
+            '<div class="message"><div class="message-right"><span>' + chat_room_user_name + 
             ':</span><div class="commonMessage"><div>' +
-            e.message.message + '</div></div></div>');    
+            e.message.message + '</div></div></div></div>');    
         }
     });
 

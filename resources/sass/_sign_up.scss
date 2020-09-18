@@ -11,11 +11,15 @@ body {
 }
 
 .signupPage {
+  width: 600px;
+  margin: 0 auto;
+  margin-bottom: 70px;
   .header {
-    padding: 20px;
+    padding: 50px;
     text-align: center;
-    background: $main-color;
-    color: $main-text-color;
+    color: #444b4f;
+    height: 60px;
+    border-bottom: 1px solid #e8e8e8;
   }
   .userProfileImg {
     position: relative;
@@ -80,8 +84,30 @@ body {
       opacity: .6;
     }
   }
+  
   .errorMessage{
     color:#fd5068;
+  }
+
+  .register_form {
+    margin-bottom: 70px;
+  }
+
+
+  .form-group {
+    display: flex;
+    justify-content: space-between;
+    // label {
+    //   display: inline-block;
+    // }
+    input, select {
+      width: 200px;
+      color: #6d767d;
+      border-radius: 0.25rem;
+      line-height: 1.6;
+      padding: 6px 12px;
+      border: 1px solid #ced4da;
+    }
   }
 }
 
@@ -91,4 +117,7 @@ body {
   & > a {
     color:#fd5068;
   }
+
+
+
 }

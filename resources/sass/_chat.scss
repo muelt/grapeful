@@ -35,82 +35,82 @@
       }
     }
   }
+
+
+// ここからメッセージエリア
   .messagesArea {
     overflow: scroll;
     height: 72vh;
     .message {
-      &.selfMessage {
+      // 自分が送ったメッセージ
+      .message-right {
         display: flex;
-        flex-direction: row-reverse;
+        justify-content: flex-end;
+        margin-right: 35px;
+        // flex-direction: row-reverse;
         .commonMessage {
+          position: relative;
+          display: inline-block;
           margin: 1.5em 15px 1.5em 0;
           padding: 7px 10px;
           max-width: 100%;
           color: #555;
           font-size: 16px;
-          background: #e0edff;
+          border-radius: 7px;
+          background: #f1f1f1;
+          // & > p {
+          //   margin: 0;
+          // }
           &:before {
             content: "";
             position: absolute;
             top: 50%;
-            left: 100%;
+            right: -20px;
             margin-top: -10px;
             border: 10px solid transparent;
-            border-left: 10px solid #e0edff;
+            border-left: 10px solid #f1f1f1;
           }
         }
       }
-      .commonMessage {
-        position: relative;
-        display: inline-block;
-        margin: 1.5em 0 1.5em 15px;
-        padding: 7px 10px;
-        max-width: 100%;
-        color: #555;
-        font-size: 16px;
-        border-radius: 7px;
-        background: #f1f1f1;
-        & > p {
-          margin: 0;
-        }
-        &:before {
-          content: "";
-          position: absolute;
-          top: 50%;
-          left: -20px;
-          margin-top: -10px;
-          border: 10px solid transparent;
-          border-right: 10px solid #f1f1f1;
-        }
-        &.selfMessage {
-          margin: 1.5em 15px 1.5em 0;
+
+      // 相手からのメッセージ
+      .message-left {
+        .commonMessage {
+          position: relative;
+          display: inline-block;
+          margin: 1.5em 0 1.5em 15px;
           padding: 7px 10px;
           max-width: 100%;
           color: #555;
           font-size: 16px;
-          background: #e0edff;
+          border-radius: 7px;
+          background: #f1f1f1;
+          & > p {
+            margin: 0;
+          }
           &:before {
             content: "";
             position: absolute;
             top: 50%;
-            left: 100%;
+            left: -20px;
             margin-top: -10px;
             border: 10px solid transparent;
-            border-left: 10px solid #e0edff;
+            border-right: 10px solid #f1f1f1;
           }
         }
       }
     }
   }
-  .messageInputForm {
-    position: fixed;
-    bottom:0;
-    border-top: 1px solid #e8e8e8;
-    padding: 30px 0;
-    width: 100%;
-    &_input {
+
+    .messageInputForm {
+      position: fixed;
+      bottom:0;
+      border-top: 1px solid #e8e8e8;
+      padding: 30px 0;
       width: 100%;
-      border: none;
+      &_input {
+        width: 100%;
+        border: none;
+      }
     }
   }
-}

@@ -16,20 +16,30 @@
   <div class="container">
     <div class="messagesArea messages">
     @foreach($chat_messages as $message)
+
     <div class="message">
       <!-- dd($message); -->
       @if($message->user_id == Auth::id())
-        <span>{{Auth::user()->name}}</span>
+      <div class="message-right">
+        <div class="commonMessage">
+          <div>
+          {{$message->message}}
+          </div>
+        </div>
+        <span style="padding-top:30px; padding-right:15px">{{Auth::user()->name}}</span>
+      </div>
       @else
+      <div class="message-left">
         <span>{{$chat_room_user_name}}</span>
-      @endif
-      
-      <div class="commonMessage">
-        <div>
-        {{$message->message}}
+        <div class="commonMessage">
+          <div>
+          {{$message->message}}
+          </div>
         </div>
       </div>
+      @endif
     </div>
+
     @endforeach
     </div>
   </div>
@@ -41,6 +51,7 @@
     </div>
   </form>
 </div>
+
 
 <script>
 var chat_room_id = {{ $chat_room_id }};

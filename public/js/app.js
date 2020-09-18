@@ -55821,6 +55821,21 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
+$(function () {
+  var imgHeight = $('.js-mainVisual').outerHeight(); //画像の高さを取得。これがイベント発火位置になる。
+
+  var header = $('.js-header'); //ヘッダーコンテンツ
+
+  $(window).on('load scroll', function () {
+    if ($(window).scrollTop() < header) {
+      //メインビジュアル内にいるので、クラスを外す。
+      header.removeClass('headerColor-default');
+    } else {
+      //メインビジュアルより下までスクロールしたので、クラスを付けて色を変える
+      header.addClass('headerColor-default');
+    }
+  });
+});
 
 /***/ }),
 
@@ -55903,18 +55918,16 @@ $(document).ready(function () {
         event.target.value = '';
       });
     }
-  }); // Pusherから通信が届いたら、ログインしているユーザーIDかどうかで判定し、それぞれ画面に表示するようにする
-  // チャネル名、イベント名を使用
-
+  });
   window.Echo.channel('ChatRoomChannel').listen('ChatPusher', function (e) {
     console.log(e, e.message.user_id);
 
     if (e.message.user_id === user_id) {
       console.log(true);
-      $('.messages').append('<div class="message"><span>' + current_user_name + ':</span><div class="commonMessage"><div>' + e.message.message + '</div></div></div>');
+      $('.messages').append('<div class="message"><div class="message-right">' + '<div class="commonMessage"><div>' + e.message.message + '</div></div>' + '<span>' + current_user_name + ':</span>' + '</div></div>');
     } else {
       console.log(false);
-      $('.messages').append('<div class="message"><span>' + chat_room_user_name + ':</span><div class="commonMessage"><div>' + e.message.message + '</div></div></div>');
+      $('.messages').append('<div class="message"><div class="message-right"><span>' + chat_room_user_name + ':</span><div class="commonMessage"><div>' + e.message.message + '</div></div></div></div>');
     }
   });
 });

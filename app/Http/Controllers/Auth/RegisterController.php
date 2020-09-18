@@ -8,10 +8,11 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Log;
 
 // サービスファイルの読み込み
 use App\Services\CheckExtensionServices;
-use APP\Services\FileUploadServices;
+use App\Services\FileUploadServices;
 
 //これ追記（画像アップロード・保存）
 // インストールしたIntervention/ImageがImageクラスとして使用できるようになる
@@ -72,7 +73,7 @@ class RegisterController extends Controller
             'producing_area'=> ['required', 'string', 'max:255'],//この行を追加
             'favorite_food'=> ['required', 'string', 'max:255'],//この行を追加
             'price_range'=> ['required', 'string', 'max:255'],//この行を追加
-            'favorite_restaurant'=> ['required', 'string', 'max:255'],//この行を追加
+            // 'favorite_restaurant'=> ['required', 'string', 'max:255'],//この行を追加
         ]);
     }
 
@@ -105,21 +106,26 @@ class RegisterController extends Controller
 
 
         // $dataに入力された情報が入ってくるのでusersテーブルに詰める
-        return User::create([
+        return User::insert([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'self_introduction' => $data['self_introduction'],
             'sex' => $data['sex'],
-            'image' => $fileNameToStore,
             'age' => $data['age'],
-            'address' =>$data['address'], 
+            'address' => $data['address'], 
+            'married' => $data['married'],
             'type_of_wine' => $data['type_of_wine'], 
             'verify_of_wine' => $data['verify_of_wine'],
             'producing_area' => $data['producing_area'],
             'favorite_food' => $data['favorite_food'],
             'price_range' => $data['price_range'],
-            'favorite_restaurant' => $data['favorite_restaurant'],
-        ]);
+            // 'favorite_restaurant' => $data['favorite_restaurant'],
+            'image' => $fileNameToStore,
+            'self_introduction' => $data['self_introduction'],
+            ]);
+
+        return redirect('/home');
     }
+
+        
 }

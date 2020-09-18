@@ -2,38 +2,40 @@
 
 @section('content')
 
+
+
 <div class="topPage">
-  <nav class="nav">
-    <ul>
-      <li class="personIcon">
-        <a href="/users/show/{{Auth::id()}}"><i class="fas fa-user fa-2x"></i></a></li>
-      <li class="appIcon"><a href="{{route('index')}}"><i class="fas fa-wine-glass fa-2x"></i></a></li>
-      
-      <!-- ここの行を追加 -->
-      <li class="messageIcon"><a href="{{route('matching')}}"><i class="fas fa-2x fa-comments"></a></i></li>
-      
-    </ul>
-  </nav>
+<!-- ユーザーが入力したキーワードで絞り込み -->
+  <form class="searchBox" action="" method="POST">
+    <i class="fas fa-search" style="color:gray"></i>
+    <input type="search" placeholder="ワインの（タイプ・品種・生産地）でさがす" class="searchText" name="type_of_wine">
+  </form>
   <div id="tinderslide">
     <ul>
+    
         @foreach($users as $user)
-          @if( $user->id == Auth::id())
+          @if(in_array($user->id, $array))
             @continue
-            @endif 
+          @endif 
             <li data-user_id="{{ $user->id }}">
-              <div class="userName">{{ $user->name }}</div>
               <img src="/storage/images/{{ $user->image }}">
-              <div class="like"></div>
-              <div class="dislike"></div>
+              <div style="text-align:center">
+                <div class="userName" style="display:inline-block"><a href=" {{ route('users.show', ['id' => $user->id]) }} ">{{ $user->name }}</a></div>
+                <div class="verify_of_wine" style="display:inline-block">{{ $user->age }}歳</div>
+              <div>
+              <div>{{ $user->verify_of_wine }}がすき</div>
+              <!-- <div class="like"></div>
+              <div class="dislike"></div> -->
+              <!-- <div class="actions" id="actionBtnArea">
+                <a href="#" class="dislike"><i class="fas fa-times fa-2x"></i></a>
+                <a href="#" class="like"><i class="far fa-thumbs-up" style="font-size:25px"></i ></a>
+              </div> -->
             </li>
         @endforeach
     </ul>
-    <div class="noUser">近くにお相手がいません。</div>
+    <!-- <div class="noUser">スキップしたお相手をみる</div> -->
   </div>
-  <div class="actions" id="actionBtnArea">
-      <a href="#" class="dislike"><i class="fas fa-times fa-2x"></i></a>
-      <a href="#" class="like"><i class="fas fa-heart fa-2x"></i></a>
-  </div>
+
 </div>
 
 <script>

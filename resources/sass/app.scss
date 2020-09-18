@@ -23,7 +23,6 @@ $fa-font-path: "../webfonts"; //追記
 @import "show";
 @import "edit";
 @import "gurunavi";
-@import "search";
 
 // jTinder用のCSSを読み込む
 @import "jTinder";
@@ -34,12 +33,36 @@ $fa-font-path: "../webfonts"; //追記
 
 
 .navbar {
+  // background: #563e7b;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-top: 5px #563e7b solid;
+  border-bottom: 1px #d9d9d9 solid;
+  box-shadow: 0 0 3px 3px #d9d9d9;
+  z-index: 20;
   .header-left {
-    font-size: 30px;  
+    font-size: 25px;
+    padding: 8px;
   }
-  .nav-item {
-    font-size: 20px;
-    margin-left: 20px;
-  }
+	.nav-item{
+		a{
+      color: #563e7b;
+      text-decoration: none;
+      display: inline-block;
+      margin: 0 25px 0 5px;
+      color: #563e7b;
+      font-size: 15px;
+		}
+	}
 }
 
+
+main {
+  margin: 130px;
+}
+
+.headerColor-default {
+  transition: .3s;
+  background: rgba(255, 255, 255, 0.9);
+  /* （画像よりも下までスクロールした時に変えたい文字色） */
+}

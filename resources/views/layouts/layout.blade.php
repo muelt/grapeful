@@ -12,38 +12,51 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="nav-link header-left" href="{{ route('top') }}">wine</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+<main class="js-mainVisual">
+  <nav class="navbar navbar-expand-lg navbar-light js-header" style="position:fixed; top:0px; left:0px; width:100%; height:70px">
+    <a class="navbar-brand" href="{{ route('top') }}" style="color:#563e7b; font-size:20px">wine</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="{{ route('index') }}">Home <span class="sr-only">(current)</span></a>
-        </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ route('index') }}"><i class="fas fa-user-friends" style="color: #563e7b; font-size:16px; font-weight:bold"></i>さがす</a>
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('matching') }}">一覧</a>
-        </li>
-        <!-- いいねしてくれた人一覧 -->
-        <li class="nav-item">
-          <a class="nav-link" href="#">いいね</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/users/show/{{Auth::id()}}">マイページ</a>
-        </li>
+          <!-- いいねドロップダウン -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #563e7b; font-size:16px; font-weight:bold">
+            <i class="far fa-thumbs-up">いいね</i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{{ route('from_users') }}">お相手から</a>
+              <a class="dropdown-item" href="{{ route('from_me') }}">自分から</a>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('matching')}}"><i class="far fa-comments" style="color: #563e7b; font-size:16px; font-weight:bold"></i>メッセージ</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/users/show/{{Auth::id()}}"><i class="fas fa-user-circle" style="color: #563e7b; font-size:16px; font-weight:bold"></i>マイページ</a>
+          </li>
       </ul>
     </div>
   </nav>
+</main>
 
+@yield('content')
 
-    @yield('content')
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}"></script>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

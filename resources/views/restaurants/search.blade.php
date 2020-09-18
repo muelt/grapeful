@@ -11,16 +11,20 @@
   </button>
 </form>
 
-<div class="restaurants-wrapper">
-    @foreach($array as $restaurant)
-      <div class="restaurant">
-          <img src="{{ $restaurant['image_url'] }}" class="restaurant_image">
-          <div style="display: inline-block">{{ $restaurant['name'] }}</div>
-          <input type="checkbox">
-      </div>  
-    @endforeach
-</div>
+<form action="{{ route('restaurant_save') }}" method="post">
+@csrf
+  <div class="restaurants-wrapper">
+  <input type="hidden" name="shop_name" value="{{ $request->freeword }}">
+      @foreach($array as $restaurant)
+        <div class="restaurant">
+            <img src="{{ $restaurant['image_url'] }}" class="restaurant_image">
+            <div style="display: inline-block">{{ $restaurant['shop_name'] }}</div>
+            <input type="checkbox" name="register_shop[]" value="{{ $restaurant['tel'] }}">
+        </div>  
+      @endforeach
+  <button type="submit" class="btn submitBtn" style="display:block; background:pink; width:150px; height:60px; border-radius:40px; margin:30px">お店を登録する</button>
+  </div>
+</form>
 
-<button type="submit" class="btn submitBtn">お店を登録する</button>
 
 @endsection
