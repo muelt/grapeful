@@ -13,8 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
 // Route::groupの引数として'prefix' => 'users'という表記をすることで、Urlの先頭にusersを付与する
 Route::group(['prefix' => 'users', 'middleware' => 'auth'], function(){
     Route::get('show/{id}', 'UserController@show')->name('users.show');
@@ -23,8 +21,6 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth'], function(){
     Route::post('update/{id}', 'UserController@update')->name('users.update');
     
 });
-
-
 
 
 Route::group(['middleware' => 'auth'], function(){

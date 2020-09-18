@@ -10,59 +10,6 @@
     <!-- 送信するとregisterコントローラに保存される 1つ1つの項目の処理についてはコントローラー内に書いていく -->
     <form class="form mt-5 register_form" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
     @csrf
-
-        <!-- 画像のアップロード -->
-        <label for="file_photo" class="rounded-circle userProfileImg">
-          <div class="userProfileImg_description">画像をアップロード</div>
-          <i class="fas fa-camera fa-3x"></i>
-          <input type="file" id="file_photo" name="image">
-        </label>
-        <div class="userImgPreview" id="userImgPreview">
-          <img id="thumbnail" class="userImgPreview_content" accept="image/*" src="">
-          <p class="userImgPreview_text">画像をアップロード済み</p>
-        </div>
-        <!-- 画像のアップロードはここまで -->
-
-
-
-        <div class="form-group @error('name')has-error @enderror">
-          <label>名前</label>
-          <input type="text" name="name" class="form-control" placeholder="名前を入力してください" value="{{ old('name') }}" >
-          <!-- バリデーション -->
-          @error('name')
-              <span class="errorMessage">
-                {{ $message }}
-              </span>
-          @enderror
-        </div>
-
-        <div class="form-group @error('email')has-error @enderror">
-          <label>メールアドレス</label>
-          <input type="email" name="email" class="form-control" placeholder="メールアドレスを入力してください" value="{{ old('email') }}" >
-          @error('email')
-          <!-- バリデーション -->
-            <span class="errorMessage">
-              {{ $message }}
-            </span>
-          @enderror
-        </div>
-
-        <div class="form-group @error('password')has-error @enderror">
-          <label>パスワード<em>  ※8文字以上</em></label>
-          <input type="password" name="password" class="form-control" placeholder="パスワードを入力してください">
-          <!-- バリデーション -->
-          @error('password')
-              <span class="errorMessage">
-                {{ $message }}
-              </span>
-          @enderror
-      </div>
-
-      <div class="form-group">
-        <label>確認用パスワード</label>
-        <input type="password" name="password_confirmation" class="form-control" placeholder="パスワードを再度入力してください">
-      </div>
-
       <div class="form-group">
         <div><label>性別</label></div>
         <div>
@@ -135,16 +82,12 @@
       <div class="form-group @error('name')has-error @enderror">
         <label>お気に入りのお店</label>
         <!-- お店の名前 -->
-        <input value="{{ $restaurant }}" name="restaurant">
-        </input>  
-          <a href="{{ route('restaurants.gurunavi') }}" style="display:block">ぐるなびで検索</a>
-          <div>{{ $shop_name }}</div>
-          <img src="{{ $image_url }}" alt="">
+        <a href="{{ route('restaurants.gurunavi') }}">ぐるなびで検索</a>
       </div>
 
       <div class="form-group">
         <label>自己紹介文</label>
-        <textarea class="form-control" name="self_introduction" rows="6" style="width:400px" value="{{ old('self_introduction') }}"></textarea>
+        <textarea class="form-control" name="self_introduction" rows="6" style="width:400px" name="self_introduction" value="{{ old('self_introduction') }}" ></textarea>
         <!-- バリデーション -->
           @error('self_introduction')
           <span class="errorMessage">

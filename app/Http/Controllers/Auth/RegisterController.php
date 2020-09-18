@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Restaurant;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Log;
+
 
 // サービスファイルの読み込み
 use App\Services\CheckExtensionServices;
@@ -32,6 +34,7 @@ class RegisterController extends Controller
     |
     */
 
+    // トレイト（RegisterUsers）を使っている
     use RegistersUsers;
 
     /**
@@ -84,7 +87,7 @@ class RegisterController extends Controller
      * @return \App\User
      */
 
-    
+
     protected function create(array $data)
     {
 
@@ -106,7 +109,7 @@ class RegisterController extends Controller
 
 
         // $dataに入力された情報が入ってくるのでusersテーブルに詰める
-        return User::insert([
+        return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -119,13 +122,13 @@ class RegisterController extends Controller
             'producing_area' => $data['producing_area'],
             'favorite_food' => $data['favorite_food'],
             'price_range' => $data['price_range'],
+            'favorite_restaurant' => $data['restaurant'],
             // 'favorite_restaurant' => $data['favorite_restaurant'],
             'image' => $fileNameToStore,
             'self_introduction' => $data['self_introduction'],
             ]);
 
-        return redirect('/home');
     }
 
-        
+
 }

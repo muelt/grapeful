@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\Gurunavi;
 use App\Restaurant;
+use Auth;
+
 
 use Illuminate\Support\Facades\DB;
 
@@ -15,7 +17,7 @@ class RestaurantsController extends Controller
       return view('restaurants.gurunavi');
   }
 
-  // =====================================================================
+  
   // ユーザーが入力した値を元にぐるなびAPIから店舗データを取得して表示させる処理
   public function search(Request $request){
     // Gurunaviクラスをインスタンス化
@@ -42,7 +44,7 @@ class RestaurantsController extends Controller
           'tel' =>  $restaurant['tel'],
           'address' => $restaurant['address'],
           'access' => $restaurant['access'],
-          'open_time' => $restaurant['open_time'],
+          // 'open_time' => $restaurant['open_time'],
           // 'close_time' => $restaurant['close_time'],
           'holiday' => $restaurant['holiday'],
           // 'category_name' => $restaurant['category_name'],
@@ -67,30 +69,43 @@ class RestaurantsController extends Controller
     // dd($request->register_shop);
     foreach($gurunaviResponse['rest'] as $restaurant) {
       if(in_array($restaurant['tel'], $request->register_shop)){
-      $param = [
+
+      // []がないと連想配列になってしまうため、結果的に多重配列になり保存ができない。必ずつける
+      $id = DB::getPdo()->lastInsertId();
+      $param[] = [
+        // 配列になっているものもあるので注意
         'shop_name' => $restaurant['name'],
         'url' => $restaurant['url'],
         'image_url' => $restaurant['image_url']['shop_image1'],
         'tel' =>  $restaurant['tel'],
         'address' => $restaurant['address'],
-        'access' => $restaurant['access'],
+        'access' => $restaurant['access']['station'],
         'open_time' => $restaurant['opentime'],
         // 'close_time' => $restaurant['close_time'],
         'holiday' => $restaurant['holiday'],
         // 'category_name' => $restaurant['category_name'],
         ];
+        // dd($param);
       }
-      // dd($param);
       
-      // 下記の記載だとArray to string conversionのエラーがでる
-
-      DB::table('restaurants')->insert($param);
-      // ユーザーが選択した１店舗のみをデータベースに保存したい
-      DB::insert('insert into restaurants (shop_name, url, image_url, tel, address, access, open_time, holiday) values (:shop_name, :url, :image_url, :tel, :address, :access, :open_time, :holiday)', $param);
     }
 
-    return redirect('/home');
-
+    // 下記の記載だとArray to string conversionのエラーがでる
+  if(isset($param)){
+    DB::table('restaurants')->insert($param);
+  }
+    $restaurant = DB::getPdo()->lastInsertId();
+    // dd($restaurant);
+    // $restaurant_info = DB::select('select * from restaurants where id = (string)$restaurant');
+    $restaurant_info = Restaurant::find((string)$restaurant);
+    // dd($restaurant_info);
+    $shop_name = $restaurant_info->shop_name;
+    // dd($shop_name);
+    $image_url = $restaurant_info->image_url;
+    $url = $restaurant_info->url;
+  // dd($param[0]->shop_name);
+    // return redirect('/register');
+    return view('auth.register', compact('restaurant', 'shop_name', 'image_url', 'url'));
   }
 
 }

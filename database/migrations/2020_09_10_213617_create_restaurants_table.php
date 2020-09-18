@@ -24,6 +24,9 @@ class CreateRestaurantsTable extends Migration
             $table->string('open_time');
             $table->string('holiday');
             $table->string('category_name');
+            $table->unsignedBigInteger('user_id');
+            // 外部キーを主テーブル（usersテーブル）のidとひもづくようにする
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

@@ -55,6 +55,11 @@ class User extends Authenticatable
         return $this->hasMany('App\ChatRoomUsers', 'user_id', 'id');
     }
 
+    public function restaurant(){
+        return $this->hasOne('App\restaurant');
+    } 
+
+
     // 多分いらない
     // public function type(){
     //     return $this->type('App\type');

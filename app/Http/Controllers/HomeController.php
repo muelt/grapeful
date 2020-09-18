@@ -59,10 +59,9 @@ class HomeController extends Controller
 
         // dd($array);
 
+        
         // compactメソッドで複数の変数をビュー側(home.blade.php)へ渡す
         return view('home', compact('users', 'userCount', 'from_user_id', 'array'));
-       
-       
     }
 
 

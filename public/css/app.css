@@ -17424,6 +17424,12 @@ body {
   margin: 0 auto;
 }
 
+@media screen and (max-width: 768px) {
+  .topPage #tinderslide ul {
+    display: block;
+  }
+}
+
 .topPage #tinderslide ul li {
   width: 155px;
   height: 215px;
@@ -17687,6 +17693,7 @@ body {
 
 main {
   margin: 130px;
+  width: 880px;
 }
 
 .headerColor-default {
