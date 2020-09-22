@@ -16,15 +16,20 @@
     @enderror
 
       <label for="file_photo" class="rounded-circle userProfileImg">
-        <div class="userProfileImg_description">画像をアップロード</div>
-        <i class="fas fa-camera fa-3x"></i>
+        <div class="userProfileImg_description">画像を編集</div>
+        @if(isset($user->image))
+        <img src="/storage/images/{{ $user->image }}">
         <input type="file" id="file_photo" name="image">
-
+        @else
+        <div class="userProfileImg_description" style="font-size:14px; opacity:0">画像をアップロード</div>
+        <i class="fas fa-camera fa-3x"></i>
+        @endif
       </label>
       <div class="userImgPreview" id="userImgPreview">
         <img id="thumbnail" class="userImgPreview_content" accept="image/*" src="">
         <p class="userImgPreview_text">画像をアップロード済み</p>
       </div>
+
       <div class="form-group">
         <label>名前</label>
         <input type="text" name="name" class="form-control" value="{{ $user->name }}">
@@ -71,8 +76,8 @@
         <label for="married">婚姻の有無</label>
           <select id="married" type="text" class="form-married" name="married" style="margin-left:15px;" value="{{ old('married') }}" >
             <option value="">未選択</option>
-            <option value="0">有</option>
-            <option value="1">無</option>
+            <option value="あり">あり</option>
+            <option value="なし">なし</option>
           </select>
         </label>
       </div>

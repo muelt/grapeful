@@ -32,7 +32,7 @@ class HomeController extends Controller
 
 
     // Route::get('/home', 'HomeController@index')->name('home');でルーティング設定しているトップ画面
-    public function index()
+    public function index(Request $request)
     {
         // ユーザーの情報を全て取ってきて(Eloquent: User::all())、ビューファイルに渡す
         $users = User::all();
@@ -50,11 +50,14 @@ class HomeController extends Controller
         Log::debug($send_like_ids);
 
         $from_users_users = User::whereIn('id', $send_like_ids)->get();
-
         $array = [];
         foreach($from_users_users as $from_users_user){
             $array[] = $from_users_user['id'];
         }
+
+        // dd($request->input('type_of_wine'));
+        $freeword = $request->input('type_of_wine');
+        $users_selected = User::where('type_of_wine', 'like', '%$freeword%');
         $array[] = Auth::id();
 
         // dd($array);
@@ -63,6 +66,14 @@ class HomeController extends Controller
         // compactメソッドで複数の変数をビュー側(home.blade.php)へ渡す
         return view('home', compact('users', 'userCount', 'from_user_id', 'array'));
     }
+
+    // public function index(Request $request){
+
+    //     dd($request->input('type_of_wine'));
+    //     $freeword = $request->input('type_of_wine');
+    //     $users_selected = User::where('type_of_wine', 'like', '%$freeword%');
+
+    // }
 
 
 

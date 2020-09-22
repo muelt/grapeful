@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Services\Gurunavi;
 use App\Restaurant;
 use Auth;
+use App\User;
 
 
 use Illuminate\Support\Facades\DB;
@@ -72,6 +73,9 @@ class RestaurantsController extends Controller
 
       // []がないと連想配列になってしまうため、結果的に多重配列になり保存ができない。必ずつける
       $id = DB::getPdo()->lastInsertId();
+      // restaurantsテーブルに保存する時、user_idも一緒に保存をしたい(ぐるなび検索段階だとまだDBに保存していない)
+      $user_id = DB::select('select lastInsertId() from users');
+      dd($user_id);
       $param[] = [
         // 配列になっているものもあるので注意
         'shop_name' => $restaurant['name'],
@@ -84,6 +88,7 @@ class RestaurantsController extends Controller
         // 'close_time' => $restaurant['close_time'],
         'holiday' => $restaurant['holiday'],
         // 'category_name' => $restaurant['category_name'],
+        // 'user_id' => ,
         ];
         // dd($param);
       }

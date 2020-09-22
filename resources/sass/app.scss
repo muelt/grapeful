@@ -32,6 +32,25 @@ $fa-font-path: "../webfonts"; //追記
 @import "chat";
 
 
+// メディアクエリのブレークポイント設定
+$breakpoints: (
+  'sm': 'screen and (max-width: 414px)',
+  'md': 'screen and (max-width: 768px)',
+  'lg': 'screen and (max-width: 992px)',
+  'xl': 'screen and (max-width: 1200px)',
+) !default;
+
+// ==============================
+// mixin
+// ==============================
+@mixin mq($breakpoint: sm) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+// ====================================================================
+
+
 .navbar {
   // background: #563e7b;
   padding-top: 12px;
@@ -45,6 +64,17 @@ $fa-font-path: "../webfonts"; //追記
     padding: 8px;
   }
 	.nav-item{
+    &.active {
+      @include mq(lg){
+      padding-top: 50px;
+      }
+    }
+    @include mq(lg) {
+      background: white; 
+      // height: 50px; 
+      padding-bottom: 60px;
+    }
+
 		a{
       color: #563e7b;
       text-decoration: none;

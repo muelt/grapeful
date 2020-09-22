@@ -53,8 +53,8 @@
       <!-- 後で修正する -->
       <div class="user_info_group">
         <label for="favorite_restaurant">お気に入りのお店</label>
-        <img src="{{ $restaurant->image_url }}">
-        <span>{{ $restaurant->shop_name }}</span>
+        <img src="{{ }}">
+        <span>{{ }}</span>
       </div>
 
       <div class="user_info_group">

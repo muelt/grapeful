@@ -49,7 +49,7 @@
       <!-- 後で修正する -->
       <div class="user_info_group">
         <label for="favorite_restaurant">お気に入りのお店</label>
-        <div class="userInfo_favorite_restaurant">{{ $user -> favorite_restaurant }}</div>
+        <div class="userInfo_favorite_restaurant"></div>
         <span></span>
       </div>
 

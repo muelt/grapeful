@@ -11,6 +11,9 @@
         <h1>Wine Match</h1>
       </div>
 
+    
+
+
       <div class="btn loginPage_contents_btn"><a class="text-white" href="{{ route('login') }}">メールアドレスでログインする</a></div>
       </div>
     </div>

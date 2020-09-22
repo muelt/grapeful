@@ -6,10 +6,14 @@
 
 <div class="topPage">
 <!-- ユーザーが入力したキーワードで絞り込み -->
-  <form class="searchBox" action="" method="POST">
-    <i class="fas fa-search" style="color:gray"></i>
+  <form class="searchBox" action="{{ route('index') }}" method="POST">
+    @csrf
     <input type="search" placeholder="ワインの（タイプ・品種・生産地）でさがす" class="searchText" name="type_of_wine">
+    <button class="btn" type="submit" name="button">
+      <i class="fas fa-search" aria-hidden="true"></i>
+    </button>
   </form>
+
   <div id="tinderslide">
     <ul>
     
@@ -19,17 +23,16 @@
           @endif 
             <li data-user_id="{{ $user->id }}">
               <img src="/storage/images/{{ $user->image }}">
-              <div style="text-align:center">
-                <div class="userName" style="display:inline-block"><a href=" {{ route('users.show', ['id' => $user->id]) }} ">{{ $user->name }}</a></div>
-                <div class="verify_of_wine" style="display:inline-block">{{ $user->age }}歳</div>
+              <div class="userInfo">
+                <div class="userName"><a href=" {{ route('users.show', ['id' => $user->id]) }} ">{{ $user->name }}</a></div>
+                <div class="age">{{ $user->age }}歳</div>
+                <div class="verify_of_wine">{{ $user->verify_of_wine }}がすき</div>
               <div>
-              <div>{{ $user->verify_of_wine }}がすき</div>
-              <!-- <div class="like"></div>
-              <div class="dislike"></div> -->
-              <!-- <div class="actions" id="actionBtnArea">
+
+              <div class="actions" id="actionBtnArea">
                 <a href="#" class="dislike"><i class="fas fa-times fa-2x"></i></a>
                 <a href="#" class="like"><i class="far fa-thumbs-up" style="font-size:25px"></i ></a>
-              </div> -->
+              </div>
             </li>
         @endforeach
     </ul>

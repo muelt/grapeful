@@ -122,7 +122,7 @@ class RegisterController extends Controller
             'producing_area' => $data['producing_area'],
             'favorite_food' => $data['favorite_food'],
             'price_range' => $data['price_range'],
-            'favorite_restaurant' => $data['restaurant'],
+            // 'favorite_restaurant' => $data['restaurant'],
             // 'favorite_restaurant' => $data['favorite_restaurant'],
             'image' => $fileNameToStore,
             'self_introduction' => $data['self_introduction'],

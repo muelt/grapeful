@@ -10,15 +10,21 @@ use App\Http\Requests\ProfileRequest;
 
 // App\User.phpのUserモデルを呼び出せるようにする
 use App\User;
-
+use App\Restaurant;
 use Intervention\Image\Facades\Image;
 
 // サービスファイルの読み込み
 use App\Services\CheckExtensionServices;
-use App\Services\FileUploadServices; 
+use App\Services\FileUploadServices;
+
 
 class UserController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
+    
     public function show($id){
         // EloquentでDB情報を取得=>Userモデル内に指定のidがあれば取得
         $user = User::findorFail($id);
@@ -26,11 +32,13 @@ class UserController extends Controller
         // 情報を変数に入れてviewに渡してあげる
         // 自分自身だった場合は自分のプロフィールページ（編集、ログアウト可能）
         if($id == Auth::id()){
+            // dd($user);
             return view('users.show', compact('user'));
-        //  他のユーザーのページに飛ぶ場合は、閲覧のみページ   
+            //  他のユーザーのページに飛ぶ場合は、閲覧のみページ   
         }else{
             return view('users.users_show', compact('user'));
         }
+     
     }
 
     public function edit($id){
@@ -65,6 +73,8 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->sex = $request->sex;
+        $user->age = $request->age;
+        $user->married = $request->married;
         $user->self_introduction = $request->self_introduction;
         $user->age = $request->age;
         $user->address = $request->address;
