@@ -62,6 +62,14 @@ class RestaurantsController extends Controller
  // ユーザーが店舗を選択し登録ボタンをおした際、その店舗データをDBに保存する処理
 //  引数に選択した店舗名が入ってくるようにする
   public function save(Request $request){
+
+    // 既にお店を登録済みの場合には、restaurantsテーブルから一旦削除する
+    $user_id = DB::table('restaurants')->where('user_id', Auth::id())->get();
+    // dd($user_id);
+    if($user_id){
+      DB::table('restaurants')->where('user_id', Auth::id())->delete();
+    }
+
     // Gurunaviクラスをインスタンス化
     $gurunavi = new Gurunavi();
     $gurunaviResponse = $gurunavi->searchRestaurants($request->shop_name);
@@ -72,12 +80,8 @@ class RestaurantsController extends Controller
       if(in_array($restaurant['tel'], $request->register_shop)){
 
       // []がないと連想配列になってしまうため、結果的に多重配列になり保存ができない。必ずつける
-      $id = DB::getPdo()->lastInsertId();
-      // restaurantsテーブルに保存する時、user_idも一緒に保存をしたい(ぐるなび検索段階だとまだDBに保存していない)
-      $user_id = DB::select('select lastInsertId() from users');
-      dd($user_id);
       $param[] = [
-        // 配列になっているものもあるので注意
+       // 配列になっているものもあるので注意
         'shop_name' => $restaurant['name'],
         'url' => $restaurant['url'],
         'image_url' => $restaurant['image_url']['shop_image1'],
@@ -88,7 +92,7 @@ class RestaurantsController extends Controller
         // 'close_time' => $restaurant['close_time'],
         'holiday' => $restaurant['holiday'],
         // 'category_name' => $restaurant['category_name'],
-        // 'user_id' => ,
+        'user_id' => Auth::id(),
         ];
         // dd($param);
       }
@@ -96,9 +100,12 @@ class RestaurantsController extends Controller
     }
 
     // 下記の記載だとArray to string conversionのエラーがでる
+    // user_idがnullだから？
   if(isset($param)){
     DB::table('restaurants')->insert($param);
   }
+
+    // saveした店舗情報を変数に入れる（register.balde.phpで表示させるために）
     $restaurant = DB::getPdo()->lastInsertId();
     // dd($restaurant);
     // $restaurant_info = DB::select('select * from restaurants where id = (string)$restaurant');
@@ -108,9 +115,12 @@ class RestaurantsController extends Controller
     // dd($shop_name);
     $image_url = $restaurant_info->image_url;
     $url = $restaurant_info->url;
-  // dd($param[0]->shop_name);
-    // return redirect('/register');
-    return view('auth.register', compact('restaurant', 'shop_name', 'image_url', 'url'));
+    // dd($param[0]->shop_name);
+
+    // 登録画面に戻る(リダイレクトでないとだめ。viewに値を渡すにはどうすれば良いか)
+    return redirect()->route('users.register', ['id' => Auth::id()]);
+    // return view('users.register_add', compact('restaurant', 'shop_name', 'image_url', 'url', 'user'));
+
   }
 
 }

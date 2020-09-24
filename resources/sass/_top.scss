@@ -1,12 +1,17 @@
-.loginPage {
+.beginningPage {
   &_contents {
-    height: 50vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: center;
+    height: 400px;
     &_title {
-      margin-top: 12vh;
+      margin-top: 30vh;
+      float: left;
+      text-align: left;
+      .sub-title {
+        font-size: 20px;
+
+      }
+      .title {
+        font-size: 30px;
+      }
     }
     &_btn {
       display: block;
@@ -14,8 +19,38 @@
       padding: 20px;
       margin: 0 auto;
       border-radius: 30px;
-      background: #fd5068;
+      background: #A173E6;
       color: #fff;
+    }
+  }
+
+  .question_contents {
+    width: 100%;
+    .container{
+      background: #CEBBEA;
+      border-radius: 20px;
+      padding: 48px 72px;
+      .question_contents_title{
+        padding-bottom: 4px;
+        display: inline-block;
+        border-bottom: 4px solid #7AE5E6;
+        font-size: 32px;
+        text-align: center;
+        margin: 0 auto 30px;
+      }
+      .question_contents_wrapper {
+        .question_contents_item{
+          list-style: none;
+          text-align: left;
+          margin-bottom: 24px;
+          h3 {
+            font-size:24px;
+          }
+          p {
+            font-size: 18px;
+          }
+        }
+      }
     }
   }
 }

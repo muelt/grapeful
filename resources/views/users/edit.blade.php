@@ -54,10 +54,10 @@
 
       <div class="form-group">
         <label for="age">年齢</label>
-        <select id="age" type="text" class="form-age" name="age" style="margin-left:30px;" value="{{ $user->age }}">
+        <select id="age" type="text" class="form-age" name="age" style="margin-left:30px;">
           <option value="">未選択</option>
           @foreach(range(20,100) as $year)
-          <option value="{{ $year }}">{{ $year }}</option>
+          <option value="{{ $year }}" @if($user->age == $year) selected @endif>{{ $year }}</option>
           <span>歳</span>
           @endforeach
         </select>
@@ -65,19 +65,19 @@
 
       <div class="form-group">
         <label for="address">都道府県</label>
-          <select id="address" type="text" class="form-address" name="address" style="margin-left:15px;" value="{{ old('address') }}">
-            @foreach(config('pref') as $key => $score)
-            <option value="{{ $key }}">{{ $score }}</option>
+          <select id="address" type="text" class="form-address" name="address" style="margin-left:15px;">
+          @foreach(config('pref') as $index => $name)
+            <option value="{{ $index }}" @if($user->address == $name) selected @endif>{{ $name }}</option>
             @endforeach
           </select>
       </div>
       
       <div class="form-group">
         <label for="married">婚姻の有無</label>
-          <select id="married" type="text" class="form-married" name="married" style="margin-left:15px;" value="{{ old('married') }}" >
+          <select id="married" type="text" class="form-married" name="married" style="margin-left:15px;">
             <option value="">未選択</option>
-            <option value="あり">あり</option>
-            <option value="なし">なし</option>
+            <option value="あり" @if($user->married == 'あり') selected @endif>あり</option>
+            <option value="なし" @if($user->married == 'なし') selected @endif>なし</option>
           </select>
         </label>
       </div>
@@ -108,10 +108,12 @@
       </div>
 
       <div class="form-group @error('name')has-error @enderror">
+      <a href="{{ route('restaurants.gurunavi') }}" style="display:block">ぐるなびで検索</a>
         <label>お気に入りのお店</label>
-        <img src="">
-        <!-- お店の名前 -->
-        <span></span>
+        <div class="userInfo_favorite_restaurant">
+          <div>{{ $user->restaurant->shop_name }}</div>
+          <img src="{{ $user->restaurant->image_url }}" alt="">
+        </div>
       </div>
 
       <div class="form-group">

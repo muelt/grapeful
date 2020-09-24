@@ -16999,26 +16999,65 @@ readers do not read off random characters that represent icons */
   font-weight: 400;
 }
 
-.loginPage_contents {
-  height: 50vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: center;
+.beginningPage_contents {
+  height: 400px;
 }
 
-.loginPage_contents_title {
-  margin-top: 12vh;
+.beginningPage_contents_title {
+  margin-top: 30vh;
+  float: left;
+  text-align: left;
 }
 
-.loginPage_contents_btn {
+.beginningPage_contents_title .sub-title {
+  font-size: 20px;
+}
+
+.beginningPage_contents_title .title {
+  font-size: 30px;
+}
+
+.beginningPage_contents_btn {
   display: block;
   max-width: 400px;
   padding: 20px;
   margin: 0 auto;
   border-radius: 30px;
-  background: #fd5068;
+  background: #A173E6;
   color: #fff;
+}
+
+.beginningPage .question_contents {
+  width: 100%;
+}
+
+.beginningPage .question_contents .container {
+  background: #CEBBEA;
+  border-radius: 20px;
+  padding: 48px 72px;
+}
+
+.beginningPage .question_contents .container .question_contents_title {
+  padding-bottom: 4px;
+  display: inline-block;
+  border-bottom: 4px solid #7AE5E6;
+  font-size: 32px;
+  text-align: center;
+  margin: 0 auto 30px;
+}
+
+.beginningPage .question_contents .container .question_contents_wrapper .question_contents_item {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.beginningPage .question_contents .container .question_contents_wrapper .question_contents_item h3 {
+  font-size: 24px;
+}
+
+.beginningPage .question_contents .container .question_contents_wrapper .question_contents_item p {
+  font-size: 18px;
 }
 
 body {
@@ -17070,7 +17109,7 @@ body {
 
 .signupPage .userProfileImg_description {
   transition: opacity 0.5s;
-  opacity: 0.4;
+  opacity: 0.6;
   width: 100%;
   height: 100%;
   border-radius: 50%;
@@ -17987,8 +18026,7 @@ body {
 }
 
 main {
-  margin: 130px;
-  width: 880px;
+  margin-top: 130px;
 }
 
 .headerColor-default {

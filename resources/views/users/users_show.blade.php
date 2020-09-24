@@ -9,7 +9,9 @@
       <img src="/storage/images/{{$user -> image}}">
       </div>
       <div class='userInfo_name'>{{ $user -> name }}</div>
-      
+      <div class="actions" id="actionBtnArea">
+        <a href="#" class="like"><i class="far fa-thumbs-up" style="font-size:25px"></i ></a>
+      </div>
       <div class="actions" id="actionBtnArea">
         <a href="#" class="like"><i class="far fa-thumbs-up" style="font-size:25px"></i >いいね！</a>
       </div>
@@ -53,8 +55,12 @@
       <!-- 後で修正する -->
       <div class="user_info_group">
         <label for="favorite_restaurant">お気に入りのお店</label>
-        <img src="{{ }}">
-        <span>{{ }}</span>
+        <div class="userInfo_favorite_restaurant">
+          @if($user->restaurant)
+          <div>{{ $user->restaurant->shop_name }}</div>
+          <img src="{{ $user->restaurant->image_url }}" alt="">
+          @endif
+        </div>
       </div>
 
       <div class="user_info_group">

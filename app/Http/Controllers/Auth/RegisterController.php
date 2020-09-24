@@ -44,6 +44,7 @@ class RegisterController extends Controller
      */
     protected $redirectTo = RouteServiceProvider::HOME;
 
+
     /**
      * Create a new controller instance.
      *
@@ -67,16 +68,17 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'image' => ['file', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2000'], //この行を追加
-            'self_introduction' => ['string', 'max:255'], //この行を追加
             'age'=> ['required', 'string', 'max:255'],//この行を追加
-            'married'=> ['required', 'string', 'max:255'],//この行を追加
-            'address'=> ['required', 'string', 'max:255'],//この行を追加
-            'type_of_wine'=> ['required', 'string', 'max:255'],//この行を追加v
-            'verify_of_wine'=> ['required', 'string', 'max:255'],//この行を追加
-            'producing_area'=> ['required', 'string', 'max:255'],//この行を追加
-            'favorite_food'=> ['required', 'string', 'max:255'],//この行を追加
-            'price_range'=> ['required', 'string', 'max:255'],//この行を追加
-            // 'favorite_restaurant'=> ['required', 'string', 'max:255'],//この行を追加
+            'sex'=> ['required', 'string', 'max:255'],//この行を追加
+            // 'self_introduction' => ['string', 'max:255'], //この行を追加
+            // 'married'=> ['string', 'max:255'],//この行を追加
+            // 'address'=> ['string', 'max:255'],//この行を追加
+            // 'type_of_wine'=> ['string', 'max:255'],//この行を追加v
+            // 'verify_of_wine'=> ['string', 'max:255'],//この行を追加
+            // 'producing_area'=> ['string', 'max:255'],//この行を追加
+            // 'favorite_food'=> ['string', 'max:255'],//この行を追加
+            // 'price_range'=> ['string', 'max:255'],//この行を追加
+            // 'favorite_restaurant'=> ['string', 'max:255'],//この行を追加
         ]);
     }
 
@@ -90,7 +92,6 @@ class RegisterController extends Controller
 
     protected function create(array $data)
     {
-
         //引数 $data から name='image'を取得(アップロードするファイル情報)
         $imageFile = $data['image'];
 
@@ -109,24 +110,27 @@ class RegisterController extends Controller
 
 
         // $dataに入力された情報が入ってくるのでusersテーブルに詰める
-        return User::create([
+            $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'sex' => $data['sex'],
             'age' => $data['age'],
-            'address' => $data['address'], 
-            'married' => $data['married'],
-            'type_of_wine' => $data['type_of_wine'], 
-            'verify_of_wine' => $data['verify_of_wine'],
-            'producing_area' => $data['producing_area'],
-            'favorite_food' => $data['favorite_food'],
-            'price_range' => $data['price_range'],
+            'image' => $fileNameToStore,
+            // 'address' => $data['address'],
+            // 'married' => $data['married'],
+            // 'type_of_wine' => $data['type_of_wine'], 
+            // 'verify_of_wine' => $data['verify_of_wine'],
+            // 'producing_area' => $data['producing_area'],
+            // 'favorite_food' => $data['favorite_food'],
+            // 'price_range' => $data['price_range'],
             // 'favorite_restaurant' => $data['restaurant'],
             // 'favorite_restaurant' => $data['favorite_restaurant'],
-            'image' => $fileNameToStore,
-            'self_introduction' => $data['self_introduction'],
+            // 'self_introduction' => $data['self_introduction'],
             ]);
+
+           $this->redirectTo = '/users/register/'.$user->id;
+           return $user;
 
     }
 

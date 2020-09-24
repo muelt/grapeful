@@ -49,8 +49,12 @@
       <!-- 後で修正する -->
       <div class="user_info_group">
         <label for="favorite_restaurant">お気に入りのお店</label>
-        <div class="userInfo_favorite_restaurant"></div>
-        <span></span>
+        <div class="userInfo_favorite_restaurant">
+          @if($user->restaurant)
+          <a href="{{ $user->restaurant->url }}">{{ $user->restaurant->shop_name }}</a>
+          <img src="{{ $user->restaurant->image_url }}" alt="">
+          @endif
+        </div>
       </div>
 
       <div class="user_info_group">

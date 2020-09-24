@@ -28,11 +28,11 @@ class UserController extends Controller
     public function show($id){
         // EloquentでDB情報を取得=>Userモデル内に指定のidがあれば取得
         $user = User::findorFail($id);
+        // dd(Auth::id());
 
         // 情報を変数に入れてviewに渡してあげる
         // 自分自身だった場合は自分のプロフィールページ（編集、ログアウト可能）
         if($id == Auth::id()){
-            // dd($user);
             return view('users.show', compact('user'));
             //  他のユーザーのページに飛ぶ場合は、閲覧のみページ   
         }else{
@@ -89,4 +89,28 @@ class UserController extends Controller
 
         return redirect('home');
     }
+
+    public function register($id){
+        $user = User::findorFail($id);
+
+        return view('users.register_add', compact('user'));
+    }
+
+    public function register_update($id, Request $request){
+        $user = User::findorFail($id);
+
+        $user->address = $request->address;
+        $user->married = $request->married;
+        $user->type_of_wine = $request->type_of_wine;
+        $user->verify_of_wine = $request->verify_of_wine;
+        $user->producing_area = $request->producing_area;
+        $user->favorite_food = $request->favorite_food;
+        $user->price_range = $request->price_range;
+        $user->self_introduction = $request->self_introduction;
+        
+        $user->save();
+        // dd($user);
+        return redirect('/home');
+    }
+
 }

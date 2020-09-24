@@ -79,80 +79,15 @@
 
       <div class="form-group">
         <label for="age">年齢</label>
-        <select id="age" type="text" class="form-age" name="age" style="margin-left:30px;" value="{{ old('age') }}" >
+        <select id="age" type="text" class="form-age" name="age" style="margin-left:30px;">
           <option value="">未選択</option>
           @foreach(range(20,100) as $year)
-          <option value="{{ $year }}">{{ $year }}</option>
+          <option value="{{ $year }}" @if(old('age') == $year) selected @endif>{{ $year }}</option>
           <span>歳</span>
           @endforeach
         </select>
       </div>
 
-      <div class="form-group">
-        <label for="address">都道府県</label>
-          <select id="address" type="text" class="form-address" name="address" style="margin-left:15px;">
-            @foreach(config('pref') as $index => $name)
-            <option value="{{ $index }}">{{ $name }}</option>
-            @endforeach
-          </select>
-      </div>
-        
-      <div class="form-group">
-        <label for="married">婚姻の有無</label>
-          <select id="married" type="text" class="form-married" name="married" style="margin-left:15px;" value="{{ old('married') }}" >
-            <option value="">未選択</option>
-            <option value="あり">あり</option>
-            <option value="なし">なし</option>
-          </select>
-        </label>
-      </div>
-
-      <div class="form-group @error('name')has-error @enderror">
-        <label>好きなワインのタイプ</label>
-        <input type="text" class="form-control" placeholder="赤・白・泡・ロゼ・オレンジ・ポートワイン etc…" name="type_of_wine" value="{{ old('type_of_wine') }}" >
-      </div>
-
-      <div class="form-group @error('name')has-error @enderror">
-        <label>好きな品種</label>
-        <input type="text" class="form-control ac" placeholder="カベルネソーヴィニョン・シャルドネ・ピノノワールetc…" name="verify_of_wine" value="{{ old('verify_of_wine') }}">
-      </div>
-
-      <div class="form-group @error('name')has-error @enderror">
-        <label>好きな生産地</label>
-        <input type="text" class="form-control ac" placeholder="ボルドー・ブルゴーニュ・カルフォルニアetc…" name="producing_area" value="{{ old('producing_area') }}">
-      </div>
-
-      <div class="form-group @error('name')has-error @enderror">
-        <label>好きな食べ物/ジャンル</label>
-        <input type="text" class="form-control ac" placeholder="フレンチ・中華・イタリアン・和食 etc…" name="favorite_food" value="{{ old('favorite_food') }}">
-      </div>
-
-      <div class="form-group @error('name')has-error @enderror">
-        <label>飲みに行く場合の予算</label>
-        <div><input type="text" class="form-control" placeholder="(例) 7000" name="price_range" value="{{ old('price_range') }}" style="display:inline-block"> 円</div>
-      </div>
-
-      <div class="form-group @error('name')has-error @enderror">
-        <label>お気に入りのお店</label>
-        <!-- お店の名前 -->
-          <a href="{{ route('restaurants.gurunavi') }}" style="display:block">ぐるなびで検索</a>
-          @if(isset($shop_name))
-            <div>{{ $shop_name }}</div>
-            <img src="{{ $image_url }}" alt="">
-          @endif
-      </div>
-
-      <div class="form-group">
-        <label>自己紹介文</label>
-        <textarea class="form-control" name="self_introduction" rows="6" style="width:400px" value="{{ old('self_introduction') }}" ></textarea>
-        <!-- バリデーション -->
-          @error('self_introduction')
-          <span class="errorMessage">
-            {{ $message }}
-          </span>
-          @enderror
-        </div> 
-      </div>
 
       <div class="text-center">
         <button type="submit" class="btn submitBtn">はじめる</button>
@@ -167,30 +102,19 @@
 
 <script type="text/javascript">
 
-// $(function(){
-//   var type = [
-//     '赤', '白', 'ロゼ', 
-//     '泡', 'オレンジ', 
-//     'ポートワイン', 'デザートワイン'
-//     'agree',
-//   ];
-
-//   $(".ac").autocomplete({
-//     source:type
-//   });
-// });
-
-
-$(document).ready( function() {
-  $( ".ac" ).autocomplete({
-    source: [ 
+$( function() {
+    var availableTags = [
       '赤', '白', 'ロゼ', 
       '泡', 'オレンジ', 
-      'ポートワイン', 'デザートワイン' 
-    ]
-  }
-);
-
+      'ポートワイン', 'デザートワイン', 
+      'シャルドネ', 'カベルネ・ソーヴィニョン', 'メルロー', 'シラー', 'サンジョベーゼ', 'テンプラリーニョ', 'グルナッシュ', 'ピノ・ノワール', 'シャルドネ', 'リースリング', 'ソーヴィニョン・ブラン', 'ゲウェルツ・トラミネール', 'ヴィオニエ', 'セミヨン', 'ピノ・ブラン', '甲州', 'ケルナー',
+      'ボルドー', 'ブルゴーニュ', 'ローヌ', 'ロワール', 'シャンパーニュ', 'アルザス', 'ドイツ', 'アメリカ', 'カルフォルニア', 'オーストラリア', '日本', 'フランス', 'スペイン', 'イタリア', 'シチリア', 'トスカーナ', 'チリ',
+      'フレンチ', '中華', 'イタリアン', '和食', 'スパニッシュ', '韓国料理', 'エスニック',
+    ];
+    $( ".ac" ).autocomplete({
+      source: availableTags
+    });
+  } );
 </script>
 
 @endsection

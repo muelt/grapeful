@@ -19,6 +19,9 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth'], function(){
     Route::get('show/{id}', 'UserController@show')->name('users.show');
     Route::get('edit/{id}', 'UserController@edit')->name('users.edit');
     Route::post('update/{id}', 'UserController@update')->name('users.update');
+
+    Route::get('register/{id}', 'UserController@register')->name('users.register');
+    Route::post('register_update/{id}', 'UserController@register_update')->name('users.register_update');
     
 });
 
@@ -52,5 +55,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('index');
+
+Route::post('/home', 'HomeController@searched')->name('index_searched');
 
 // ここまで

@@ -17,10 +17,10 @@
   <div id="tinderslide">
     <ul>
     
-        @foreach($users as $user)
-          @if(in_array($user->id, $array))
+        @foreach($users_selected as $user)
+          <!-- @if(in_array($user->id, $array))
             @continue
-          @endif 
+          @endif  -->
             <li data-user_id="{{ $user->id }}">
               <img src="/storage/images/{{ $user->image }}">
               <div class="userInfo">
