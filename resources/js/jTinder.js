@@ -43,8 +43,11 @@ $("#tinderslide").jTinder({
   likeSelector: '.like',
   dislikeSelector: '.dislike'
 });
+
 $('.actions .like, .actions .dislike').click(function (e) {
+  // ここではサーバーへの通信を止める
   e.preventDefault();
+
   $("#tinderslide").jTinder($(this).attr('class'));
 });
 

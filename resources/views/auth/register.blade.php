@@ -18,7 +18,7 @@
           <input type="file" id="file_photo" name="image">
         </label>
         <div class="userImgPreview" id="userImgPreview">
-          <img id="thumbnail" class="userImgPreview_content" accept="image/*" src="">
+          <img id="thumbnail" class="userImgPreview_content" accept="image/*" src="{{ old('image') }}">
           <p class="userImgPreview_text">画像をアップロード済み</p>
         </div>
         <!-- 画像のアップロードはここまで -->
@@ -27,35 +27,41 @@
 
         <div class="form-group @error('name')has-error @enderror">
           <label>名前</label>
-          <input type="text" name="name" class="form-control" placeholder="名前を入力してください" value="{{ old('name') }}" >
-          <!-- バリデーション -->
-          @error('name')
+          <div>
+            <!-- バリデーション -->
+            @error('name')
               <span class="errorMessage">
                 {{ $message }}
               </span>
-          @enderror
+            @enderror
+            <input type="text" name="name" class="form-control" placeholder="名前を入力してください" value="{{ old('name') }}" >
+          </div>
         </div>
 
         <div class="form-group @error('email')has-error @enderror">
           <label>メールアドレス</label>
-          <input type="email" name="email" class="form-control" placeholder="メールアドレスを入力してください" value="{{ old('email') }}" >
-          @error('email')
-          <!-- バリデーション -->
-            <span class="errorMessage">
-              {{ $message }}
-            </span>
-          @enderror
+          <div>
+            @error('email')
+            <!-- バリデーション -->
+              <span class="errorMessage">
+                {{ $message }}
+              </span>
+            @enderror
+            <input type="email" name="email" class="form-control" placeholder="メールアドレスを入力してください" value="{{ old('email') }}" >
+          </div>  
         </div>
 
         <div class="form-group @error('password')has-error @enderror">
           <label>パスワード<em>  ※8文字以上</em></label>
-          <input type="password" name="password" class="form-control" placeholder="パスワードを入力してください">
-          <!-- バリデーション -->
-          @error('password')
+          <div>
+            <!-- バリデーション -->
+            @error('password')
               <span class="errorMessage">
                 {{ $message }}
               </span>
-          @enderror
+            @enderror
+            <input type="password" name="password" class="form-control" placeholder="パスワードを入力してください">
+          </div>
       </div>
 
       <div class="form-group">
@@ -90,7 +96,7 @@
 
 
       <div class="text-center">
-        <button type="submit" class="btn submitBtn">はじめる</button>
+        <button type="submit" class="btn submitBtn">登録をする</button>
         <div class="linkToLogin">
           <a href="{{ route('login') }}">ログインはこちら</a>
         </div>  

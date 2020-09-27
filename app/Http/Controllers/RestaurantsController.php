@@ -75,9 +75,11 @@ class RestaurantsController extends Controller
     $gurunaviResponse = $gurunavi->searchRestaurants($request->shop_name);
 
     $param = [];
-    // dd($request->register_shop);
+    // 選択された最初の一つだけ取り出す
+    // dd($request->register_shop[0]);
+    $register_shop[] = $request->register_shop[0];
     foreach($gurunaviResponse['rest'] as $restaurant) {
-      if(in_array($restaurant['tel'], $request->register_shop)){
+      if(in_array($restaurant['tel'], $register_shop)){
 
       // []がないと連想配列になってしまうため、結果的に多重配列になり保存ができない。必ずつける
       $param[] = [
@@ -118,7 +120,10 @@ class RestaurantsController extends Controller
     // dd($param[0]->shop_name);
 
     // 登録画面に戻る(リダイレクトでないとだめ。viewに値を渡すにはどうすれば良いか)
-    return redirect()->route('users.register', ['id' => Auth::id()]);
+    // return redirect()->route('users.register', ['id' => Auth::id()]);
+    return redirect()->route('users.show', ['id' => Auth::id()]);
+
+    
     // return view('users.register_add', compact('restaurant', 'shop_name', 'image_url', 'url', 'user'));
 
   }

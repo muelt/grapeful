@@ -9,11 +9,9 @@
       <img src="/storage/images/{{$user -> image}}">
       </div>
       <div class='userInfo_name'>{{ $user -> name }}</div>
+
       <div class="actions" id="actionBtnArea">
-        <a href="#" class="like"><i class="far fa-thumbs-up" style="font-size:25px"></i ></a>
-      </div>
-      <div class="actions" id="actionBtnArea">
-        <a href="#" class="like"><i class="far fa-thumbs-up" style="font-size:25px"></i >いいね！</a>
+        <a href="#" class="good"><i class="far fa-thumbs-up" style="color:white"></i >いいね！</a>
       </div>
 
         <!-- ここから -->
@@ -52,17 +50,6 @@
           <div class='userInfo_favorite_food'>{{ $user -> favorite_food }}</div>
         </div>
 
-      <!-- 後で修正する -->
-      <div class="user_info_group">
-        <label for="favorite_restaurant">お気に入りのお店</label>
-        <div class="userInfo_favorite_restaurant">
-          @if($user->restaurant)
-          <div>{{ $user->restaurant->shop_name }}</div>
-          <img src="{{ $user->restaurant->image_url }}" alt="">
-          @endif
-        </div>
-      </div>
-
       <div class="user_info_group">
         <label for="price_range">飲みに行く場合の予算</label>
         <div class='userInfo_price_range'>{{ $user -> price_range }}円</div>
@@ -70,9 +57,20 @@
 
       <div class="user_info_group">
         <label for="self_introduction">自己紹介</label>
-        <div class='userInfo_self_introduction' style="width:300px">{{ $user -> self_introduction }}</div>
+        <div class='userInfo_self_introduction' style="width:300px padding:10px 20px; text-align:left">{{ $user -> self_introduction }}</div>
       </div>
       
+
+      <!-- 後で修正する -->
+      <div class="user_info_group shop">
+        <label for="favorite_restaurant">お気に入りのお店</label>
+        <div class="userInfo_favorite_restaurant">
+          @if($user->restaurant)
+          <div class="shop_name"><a href="{{ $user->restaurant->url }}">{{ $user->restaurant->shop_name }}</a></div>
+          <img class="shop_image" src="{{ $user->restaurant->image_url }}" alt="">
+          @endif
+        </div>
+      </div>
   </div>
 </div>
 

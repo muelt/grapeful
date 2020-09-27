@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Log;
 
 // api向けのルーティングファイル
 // Ajax(非同期通信)でlike, dislike を取得したいため、web.phpではなく、api.phpにpost通信を追記する
@@ -22,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 // このファイルにルーティングを記載すると自動的に/apiというURLが付与される。この場合、/api/like
 Route::post('/like', 'LikeController@create');
-
+Log::debug('Likeコントローラーです');
 
 // ぐるなびAPIを呼び出すためのルート
 //このルートを書くことで"http://localhost:8000/api/restaurant"というエンドポイント(APIへの入り口)ができて、これを使用することでAPIを利用することができる

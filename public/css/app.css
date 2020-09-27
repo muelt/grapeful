@@ -17069,38 +17069,23 @@ body {
   display: none;
 }
 
-.signupPage {
-  width: 600px;
-  margin: 0 auto;
-  margin-bottom: 70px;
-}
-
 .signupPage .header {
-  padding: 50px;
-  font-size: 20px;
+  padding: 20px;
   text-align: center;
-  color: #444b4f;
-  height: 60px;
-  border-bottom: 1px solid #e8e8e8;
+  background: #C3ACE6;
+  color: #fff;
 }
 
 .signupPage .userProfileImg {
   position: relative;
-  margin: 0 auto 40px auto;
-  width: 170px;
-  height: 170px;
-  background: #776399;
+  margin: 0 auto 10px auto;
+  width: 100px;
+  height: 100px;
+  background: #f85a6f;
   display: flex;
   cursor: pointer;
   align-items: center;
   justify-content: center;
-}
-
-.signupPage .userProfileImg img {
-  width: 170px;
-  height: 170px;
-  border-radius: 50%;
-  margin: auto;
 }
 
 .signupPage .userProfileImg:hover .userProfileImg_description {
@@ -17109,7 +17094,7 @@ body {
 
 .signupPage .userProfileImg_description {
   transition: opacity 0.5s;
-  opacity: 0.6;
+  opacity: 0;
   width: 100%;
   height: 100%;
   border-radius: 50%;
@@ -17120,7 +17105,6 @@ body {
   justify-content: center;
   background: rgba(5, 5, 5, 0.5);
   color: #fff;
-  font-size: 16px;
 }
 
 .signupPage .userProfileImg .fa-camera {
@@ -17154,7 +17138,7 @@ body {
 }
 
 .signupPage .submitBtn {
-  background: #fd5068;
+  background: #C3ACE6;
   color: #fff;
   width: 200px;
   padding: 10px;
@@ -17168,25 +17152,6 @@ body {
 
 .signupPage .errorMessage {
   color: #fd5068;
-}
-
-.signupPage .register_form {
-  margin-bottom: 70px;
-}
-
-.signupPage .form-group {
-  display: flex;
-  justify-content: space-between;
-}
-
-.signupPage .form-group input,
-.signupPage .form-group select {
-  width: 200px;
-  color: #6d767d;
-  border-radius: 0.25rem;
-  line-height: 1.6;
-  padding: 6px 12px;
-  border: 1px solid #ced4da;
 }
 
 .linkToLogin {
@@ -17248,6 +17213,18 @@ body {
   margin-bottom: 50px;
 }
 
+@media screen and (max-width: 768px) {
+  .usershowPage {
+    width: 414px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .usershowPage {
+    width: 300px;
+  }
+}
+
 .usershowPage .header {
   padding: 50px;
   text-align: center;
@@ -17263,34 +17240,24 @@ body {
 
 .usershowPage .form-group input,
 .usershowPage .form-group select {
-  width: 200px;
+  width: 300px;
   color: #6d767d;
   border-radius: 0.25rem;
   line-height: 1.6;
   padding: 6px 12px;
   border: 1px solid #ced4da;
+  display: block;
+  margin-right: 0;
 }
 
 .usershowPage .userInfo {
   margin-top: 60px;
 }
 
-.usershowPage .userInfo #actionBtnArea {
-  margin: 0 auto;
-  width: 300px;
-  height: 48px;
-  background: #563e7b;
-  border-radius: 20px;
-  padding-top: 10px;
-  padding-left: 100px;
-  margin-bottom: 50px;
-}
-
 .usershowPage .userInfo #actionBtnArea a {
-  color: white;
+  color: #C3ACE6;
+  text-align: center;
   display: inline-block;
-  margin-top: 20px;
-  width: 100px;
   margin: 0 auto;
 }
 
@@ -17324,9 +17291,15 @@ body {
   border-bottom: 1px solid #e8e8e8;
 }
 
+@media screen and (max-width: 414px) {
+  .usershowPage .userInfo .user_info_group.shop {
+    display: block;
+  }
+}
+
 .usershowPage .userInfo .user_info_group input,
 .usershowPage .userInfo .user_info_group select {
-  width: 200px;
+  width: 300px;
   color: #6d767d;
   border-radius: 0.25rem;
   line-height: 1.6;
@@ -17334,12 +17307,26 @@ body {
   border: 1px solid #ced4da;
 }
 
+@media screen and (max-width: 414px) {
+  .usershowPage .userInfo .user_info_group .shop_image {
+    width: 200px;
+    height: 150px;
+  }
+}
+
 .usershowPage .userAction {
   display: flex;
   justify-content: space-between;
-  width: 250px;
-  margin: 5vh auto 0;
+  width: 400px;
+  margin: 10vh auto 15vh;
   color: #c3c7d0;
+}
+
+@media screen and (max-width: 414px) {
+  .usershowPage .userAction {
+    width: 280px;
+    margin: 7vh auto 10vh;
+  }
 }
 
 .usershowPage .userAction_common > a {
@@ -17348,31 +17335,24 @@ body {
   border-radius: 50%;
   display: flex;
   align-items: center;
+  text-align: center;
   justify-content: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   color: #c3c7d0;
   text-decoration: none;
   box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
   transition: color 0.5s;
 }
 
+@media screen and (max-width: 414px) {
+  .usershowPage .userAction_common > a {
+    width: 60px;
+    height: 60px;
+  }
+}
+
 .usershowPage .userAction_common > a:hover {
   color: #fd5068;
-}
-
-.usershowPage .form-group {
-  display: flex;
-  justify-content: space-between;
-}
-
-.usershowPage .form-group input,
-.usershowPage .form-group select {
-  width: 200px;
-  color: #6d767d;
-  border-radius: 0.25rem;
-  line-height: 1.6;
-  padding: 6px 12px;
-  border: 1px solid #ced4da;
 }
 
 .userEditPage .header {
@@ -17396,17 +17376,29 @@ body {
   opacity: 0.6;
 }
 
-.search_wrapper {
-  width: 880px;
+.restaurants-page {
+  margin: 0 auto;
+}
+
+.restaurants-page .search_wrapper {
+  width: 75%;
   height: 60px;
   margin: 50px auto 50px;
   box-sizing: border-box;
   display: flex;
 }
 
-.search_wrapper #freeword {
+@media screen and (max-width: 414px) {
+  .restaurants-page .search_wrapper {
+    width: 80%;
+    height: 40px;
+  }
+}
+
+.restaurants-page .search_wrapper #freeword {
   width: 93%;
   height: 100%;
+  margin: 0 auto;
   float: right;
   border: none;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
@@ -17414,41 +17406,81 @@ body {
   font-size: 20px;
 }
 
-.search_wrapper .btn {
+@media screen and (max-width: 768px) {
+  .restaurants-page .search_wrapper #freeword {
+    width: 85%;
+  }
+}
+
+.restaurants-page .search_wrapper .btn {
   background: #776399;
   width: 7%;
   height: 100%;
 }
 
-.search_wrapper .btn i {
+@media screen and (max-width: 768px) {
+  .restaurants-page .search_wrapper .btn {
+    width: 15%;
+  }
+}
+
+.restaurants-page .search_wrapper .btn i {
   font-size: 20px;
   color: white;
   width: 100%;
 }
 
-.restaurants-wrapper {
+.restaurants-page .restaurants-wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-content: space-between;
-  width: 880px;
+  width: 80%;
   margin: 0 auto;
 }
 
-.restaurants-wrapper .restaurant {
+@media screen and (max-width: 768px) {
+  .restaurants-page .restaurants-wrapper {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .restaurants-page .restaurants-wrapper {
+    display: block;
+    width: 100%;
+  }
+}
+
+.restaurants-page .restaurants-wrapper .restaurant {
   height: 258px;
   width: 200px;
   box-sizing: border-box;
   margin-left: 20px;
 }
 
-.restaurants-wrapper .restaurant_image {
+@media screen and (max-width: 414px) {
+  .restaurants-page .restaurants-wrapper .restaurant {
+    width: 80%;
+    height: 250px;
+    margin: 0 auto 30px;
+    display: block;
+  }
+}
+
+.restaurants-page .restaurants-wrapper .restaurant_image {
   display: block;
   width: 200px;
   height: 185px;
 }
 
-.restaurants-wrapper button {
+@media screen and (max-width: 414px) {
+  .restaurants-page .restaurants-wrapper .restaurant_image {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
+
+.restaurants-page .restaurants-wrapper button {
   float: left;
 }
 
@@ -17702,21 +17734,27 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  .actions a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f7f7f7;
-    background-image: -o-linear-gradient(top, #f7f7f7, #e7e7e7);
-    width: 80px;
-    height: 80px;
+  .actions div {
     position: relative;
-    text-align: center;
-    line-height: 144px;
-    border-radius: 50%;
-    outline: none;
-    box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+    display: inline-block;
+    margin-right: -4px;
   }
+}
+
+.actions a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7f7f7;
+  background-image: -o-linear-gradient(top, #f7f7f7, #e7e7e7);
+  width: 80px;
+  height: 80px;
+  position: relative;
+  text-align: center;
+  line-height: 144px;
+  border-radius: 50%;
+  outline: none;
+  box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
 }
 
 @media screen and (max-width: 768px) {

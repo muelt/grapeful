@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-<div class="signupPage">
+<div class="signupPage userEditPage">
   <header class="header">
     <div>プロフィールを編集</div>
   </header>
@@ -107,26 +107,25 @@
         <input type="text" class="form-control" placeholder="(例) 7000円未満" name="price_range" value="{{ $user->price_range }}">
       </div>
 
-      <div class="form-group @error('name')has-error @enderror">
-      <a href="{{ route('restaurants.gurunavi') }}" style="display:block">ぐるなびで検索</a>
-        <label>お気に入りのお店</label>
-        <div class="userInfo_favorite_restaurant">
-          <div>{{ $user->restaurant->shop_name }}</div>
-          <img src="{{ $user->restaurant->image_url }}" alt="">
-        </div>
-      </div>
-
       <div class="form-group">
         <label>自己紹介文</label>
         <textarea class="form-control" name="self_introduction" rows="10" style="width:400px" value="{{ $user->self_introduction }}">{{$user->self_introduction}}
         </textarea>
-        </div>  
-    </div>
+      </div>
+        
+        <!-- <div class="form-group @error('name')has-error @enderror">
+          <label>お気に入りのお店</label>
+          @if($user->restaurant)
+          <div class="userInfo_favorite_restaurant">
+            <div>{{ $user->restaurant->shop_name }}<a href="{{ $user->restaurant->url }}">(ぐるなびで見る)</a></div>
+            <a href="{{ $user->restaurant->url }}"><img src="{{ $user->restaurant->image_url }}" alt=""></a>
+          </div>
+          @endif
+        </div> -->
 
-    <div class="text-center">
-    <button type="submit" class="btn submitBtn">変更する</button>
-    </div>
-
+      <div class="text-center">
+        <button type="submit" class="btn submitBtn">変更する</button>
+      </div>
     </form>
   </div>
 </div>

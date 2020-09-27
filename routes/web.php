@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +21,8 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth'], function(){
 
     Route::get('register/{id}', 'UserController@register')->name('users.register');
     Route::post('register_update/{id}', 'UserController@register_update')->name('users.register_update');
+    Route::get('register_shop/{id}', 'UserController@register_shop')->name('users.register_shop');
+    Route::post('shop_update/{id}', 'UserController@shop_update')->name('users.shop_update');
     
 });
 
