@@ -23,7 +23,6 @@ use Illuminate\Support\Facades\Route;
 // このファイルにルーティングを記載すると自動的に/apiというURLが付与される。この場合、/api/like
 Route::post('/like', 'LikeController@create');
 
-
 // ぐるなびAPIを呼び出すためのルート
 //このルートを書くことで"http://localhost:8000/api/restaurant"というエンドポイント(APIへの入り口)ができて、これを使用することでAPIを利用することができる
 Route::get('/restaurant', 'RestaurantsController@getGnaviApi');

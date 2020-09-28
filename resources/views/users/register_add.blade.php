@@ -15,7 +15,7 @@
         <label for="address">都道府県</label>
           <select id="address" type="text" class="form-address" name="address" style="margin-left:15px;">
             @foreach(config('pref') as $index => $name)
-            <option value="{{ $index }}" @if($user->address == $name) selected @else (old('address') == $name) selected @endif>{{ $name }}</option>
+            <option value="{{ $index }}" @if($user->address == $name) selected @elseif (old('address') == $name) selected @endif>{{ $name }}</option>
             @endforeach
           </select>
       </div>
@@ -25,7 +25,7 @@
           <select id="married" type="text" class="form-married" name="married" style="margin-left:15px;" value="{{ old('married') }}" >
             <option value="">未選択</option>
             <option value="あり" @if($user->married == 'あり') selected @else(old('married') == 'あり') selected @endif>あり</option>
-            <option value="なし" @if($user->married == 'あり') selected @else(old('married') == 'なし') selected @endif>なし</option>
+            <option value="なし" @if($user->married == 'あり') selected @elseif (old('married') == 'なし') selected @endif>なし</option>
           </select>
         </label>
       </div>
@@ -63,18 +63,18 @@
       </div>
 
       <div class="form-group @error('name')has-error @enderror">
-        <label>飲みに行く場合の予算</label>
+        <label>飲みに行く場合の予算(円)</label>
         @if($user->price_range)
-        <div><input type="text" class="form-control" placeholder="(例) 7000" name="price_range" value="{{ $user->price_range }}" style="display:inline-block"> 円</div>
+        <div><input type="text" class="form-control" placeholder="(例) 7000" name="price_range" value="{{ $user->price_range }}" style="display:inline-block"></div>
         @else
-        <div><input type="text" class="form-control" placeholder="(例) 7000" name="price_range" value="{{ old('price_range') }}" style="display:inline-block"> 円</div>
+        <div><input type="text" class="form-control" placeholder="(例) 7000" name="price_range" value="{{ old('price_range') }}" style="display:inline-block"></div>
         @endif
       </div>
 
-      <div class="form-group @error('name')has-error @enderror">
-        <label>お気に入りのお店</label>
+      <!-- <div class="form-group @error('name')has-error @enderror">
+        <label>お気に入りのお店</label> -->
         <!-- お店の名前 -->
-          @if($user->restaurant)
+          <!-- @if($user->restaurant)
           <div>
             <a href="{{ route('restaurants.gurunavi') }}" style="display:block">お店を変更(ぐるなび検索)</a>
             <div>{{ $user->restaurant->shop_name }}</div>
@@ -84,14 +84,14 @@
           <div>
             <a href="{{ route('restaurants.gurunavi') }}" style="display:block">ぐるなびで検索</a>
           </div>
-      </div>
+      </div> -->
 
       <div class="form-group">
         <label>自己紹介文</label>
         @if($user->self_introduction)
-        <textarea class="form-control" name="self_introduction" rows="6" style="width:400px" value="{{ $user->self_introduction }}"></textarea>
+        <textarea class="form-control" name="self_introduction" rows="6" value="{{ $user->self_introduction }}"></textarea>
         @else
-        <textarea class="form-control" name="self_introduction" rows="6" style="width:400px" value="{{ old('self_introduction') }}"></textarea>
+        <textarea class="form-control" name="self_introduction" rows="6" value="{{ old('self_introduction') }}"></textarea>
         @endif
         <!-- バリデーション -->
           @error('self_introduction')

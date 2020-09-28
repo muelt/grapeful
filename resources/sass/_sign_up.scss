@@ -1,4 +1,4 @@
-$main-color: #fd5068;
+$main-color: #C3ACE6;
 $main-text-color: #fff;
 
 body {
@@ -10,41 +10,31 @@ body {
   display: none;
 }
 
+// ユーザー登録画面
 .signupPage {
-  width: 600px;
-  margin: 0 auto;
-  margin-bottom: 70px;
   .header {
-    padding: 50px;
-    font-size:20px;
+    padding: 20px;
     text-align: center;
-    color: #444b4f;
-    height: 60px;
-    border-bottom: 1px solid #e8e8e8;
+    background: $main-color;
+    color: $main-text-color;
+    font-size: 20px;
   }
   .userProfileImg {
     position: relative;
-    margin: 0 auto 40px auto;
-    width: 170px;
-    height: 170px;
-    background: #776399;
+    margin: 0 auto 10px auto;
+    width: 100px;
+    height: 100px;
+    background: $main-color;
     display: flex;
     cursor: pointer;
     align-items: center;
     justify-content: center;
-    img {
-      width: 170px;
-      height: 170px;
-      border-radius: 50%;
-      margin: auto;
-    }
- 
     &:hover .userProfileImg_description {
       opacity: 1;
     }
     &_description {
       transition: opacity .5s;
-      opacity: 0.6;
+      opacity: 0;
       width: 100%;
       height: 100%;
       border-radius: 50%;
@@ -55,7 +45,6 @@ body {
       justify-content: center;
       background: rgba(5, 5, 5, .5);
       color: #fff;
-      font-size:16px;
     }
     .fa-camera {
       color: #fff;
@@ -89,34 +78,14 @@ body {
     padding: 10px;
     border-radius: 90px;
     transition: opacity .5s;
+    margin-bottom: 70px;
+    margin-top: 30px;
     &:hover {
       opacity: .6;
     }
   }
-  
   .errorMessage{
     color:#fd5068;
-  }
-
-  .register_form {
-    margin-bottom: 70px;
-  }
-
-
-  .form-group {
-    display: flex;
-    justify-content: space-between;
-    // label {
-    //   display: inline-block;
-    // }
-    input, select {
-      width: 200px;
-      color: #6d767d;
-      border-radius: 0.25rem;
-      line-height: 1.6;
-      padding: 6px 12px;
-      border: 1px solid #ced4da;
-    }
   }
 }
 
@@ -126,7 +95,4 @@ body {
   & > a {
     color:#fd5068;
   }
-
-
-
 }

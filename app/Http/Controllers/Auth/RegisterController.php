@@ -63,11 +63,12 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+            // return
+            return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'image' => ['file', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2000'], //この行を追加
+            'image' => ['required','file', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2000'], //この行を追加
             'age'=> ['required', 'string', 'max:255'],//この行を追加
             'sex'=> ['required', 'string', 'max:255'],//この行を追加
             // 'self_introduction' => ['string', 'max:255'], //この行を追加
@@ -80,7 +81,9 @@ class RegisterController extends Controller
             // 'price_range'=> ['string', 'max:255'],//この行を追加
             // 'favorite_restaurant'=> ['string', 'max:255'],//この行を追加
         ]);
+        // dd($validate->errors());
     }
+
 
     /**
      * Create a new user instance after a valid registration.

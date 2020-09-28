@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Collection;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Http\Request;
 use App\Services\Gurunavi;
 use App\Restaurant;
@@ -52,6 +54,12 @@ class RestaurantsController extends Controller
         ];
       }
 
+      // ぐるなび検索画面にページネーションを導入したい
+      // コレクションを生成する
+      $collection = collect($gurunaviResponse['rest']);
+      // dd($collection);
+      $restaurants = $collection->paginate(15);
+ 
     // dd($array);
     return view('restaurants.search', compact('array', 'request'));    
 }
@@ -75,9 +83,11 @@ class RestaurantsController extends Controller
     $gurunaviResponse = $gurunavi->searchRestaurants($request->shop_name);
 
     $param = [];
-    // dd($request->register_shop);
+    // 選択された最初の一つだけ取り出す
+    // dd($request->register_shop[0]);
+    $register_shop[] = $request->register_shop[0];
     foreach($gurunaviResponse['rest'] as $restaurant) {
-      if(in_array($restaurant['tel'], $request->register_shop)){
+      if(in_array($restaurant['tel'], $register_shop)){
 
       // []がないと連想配列になってしまうため、結果的に多重配列になり保存ができない。必ずつける
       $param[] = [
@@ -118,7 +128,10 @@ class RestaurantsController extends Controller
     // dd($param[0]->shop_name);
 
     // 登録画面に戻る(リダイレクトでないとだめ。viewに値を渡すにはどうすれば良いか)
-    return redirect()->route('users.register', ['id' => Auth::id()]);
+    // return redirect()->route('users.register', ['id' => Auth::id()]);
+    return redirect()->route('users.show', ['id' => Auth::id()]);
+
+    
     // return view('users.register_add', compact('restaurant', 'shop_name', 'image_url', 'url', 'user'));
 
   }

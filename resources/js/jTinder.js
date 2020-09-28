@@ -3,6 +3,8 @@
 // from_user_id ・・ ログインしているユーザー
 // status ・・ like か dislike
 
+$(function(){
+
 var currentUserIndex = 0;
 var postLike = function (to_user_id, like) {
   $.ajaxSetup({
@@ -43,8 +45,11 @@ $("#tinderslide").jTinder({
   likeSelector: '.like',
   dislikeSelector: '.dislike'
 });
-$('.actions .like, .actions .dislike').click(function (e) {
+
+$('.actions .like, .actions .dislike').on('click', function (e) {
+  window.console.log('aaaaa');
   e.preventDefault();
+
   $("#tinderslide").jTinder($(this).attr('class'));
 });
 
@@ -56,3 +61,5 @@ function checkUserNum() {
     return;
   }
 }
+
+});

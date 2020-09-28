@@ -16,7 +16,6 @@
 
   <div id="tinderslide">
     <ul>
-    
         @foreach($users_selected as $user)
           <!-- @if(in_array($user->id, $array))
             @continue
@@ -27,11 +26,13 @@
                 <div class="userName"><a href=" {{ route('users.show', ['id' => $user->id]) }} ">{{ $user->name }}</a></div>
                 <div class="age">{{ $user->age }}歳</div>
                 <div class="verify_of_wine">{{ $user->verify_of_wine }}がすき</div>
+                <div class="like"></div>
+                <div class="dislike"></div>     
               <div>
 
-              <div class="actions" id="actionBtnArea">
-                <a href="#" class="dislike"><i class="fas fa-times fa-2x"></i></a>
-                <a href="#" class="like"><i class="far fa-thumbs-up" style="font-size:25px"></i ></a>
+              <div class="actions" id="actionBtnArea" style="z-index: 200">
+                <a href="#" class="dislike" style="z-index: 200"><i class="fas fa-times fa-2x"></i></a>
+                <a href="#" class="like"><i class="far fa-thumbs-up"></i ></a>           
               </div>
             </li>
         @endforeach

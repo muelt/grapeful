@@ -110,7 +110,34 @@ class UserController extends Controller
         
         $user->save();
         // dd($user);
-        return redirect('/home');
+        // return redirect()->route('users.register_shop', ['id' => Auth::id()]);
+        return redirect()->route('restaurants.gurunavi');
+    }
+
+
+    public function register_shop($id){
+        $user = User::findorFail($id);
+
+        return view('users.register_shop', compact('user'));
+    }
+
+    public function shop_update($id, Request $request){
+        $user = User::findorFail($id);
+
+        $user->address = $request->address;
+        $user->married = $request->married;
+        $user->type_of_wine = $request->type_of_wine;
+        $user->verify_of_wine = $request->verify_of_wine;
+        $user->producing_area = $request->producing_area;
+        $user->favorite_food = $request->favorite_food;
+        $user->price_range = $request->price_range;
+        $user->self_introduction = $request->self_introduction;
+        
+        $user->save();
+        // dd($user);
+        $this->redirectTo = '/users/register_shop/'.$user->id;
+        return $user;
+        return redirect('/users/register_shop/{{ Auth::id() }}');
     }
 
 }

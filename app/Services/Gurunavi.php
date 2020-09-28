@@ -20,6 +20,7 @@ class Gurunavi
               'query' => [
                   
                   'keyid' => env('GURUNAVI_ACCESS_KEY'),//.envで設定したアクセスキー
+                  'hit_per_page' => 100,
                   'freeword' => str_replace(' ', ',', $word),// 引数で渡ってきた(ユーザーが入力した)$wordを加工(半角スペースあればカンマに変換)
               ],
               'http_errors' => false,
