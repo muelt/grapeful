@@ -39,7 +39,7 @@ html, body {
   box-sizing: border-box;
   margin-bottom: 50px;
   z-index: 10;
-  @include mq(md){
+  @include mq(sm){
     height: 40px;
     margin-bottom: 20px;
   }
@@ -86,7 +86,7 @@ html, body {
   max-width: 920px;
   margin: 100px auto;
   z-index: 0;
-  @include mq(md){
+  @include mq(sm){
     position: relative;
     background: #fff;
     width: 90vw;
@@ -95,12 +95,13 @@ html, body {
     margin: 0 auto;
   }
   ul {
+    padding: 0 20px;
     display: flex; 
     flex-wrap: wrap;
     justify-content: flex-start;
     list-style: none;
     margin: 0 auto;
-    @include mq(md){
+    @include mq(sm){
     margin: 0;
     position: relative;
     display: block;
@@ -111,7 +112,7 @@ html, body {
       height: 215px;
       margin-left: 20px;
       margin-bottom: 30px;
-      @include mq(md){
+      @include mq(sm){
       display: block;
       width: 100%;
       height: 100%;
@@ -141,7 +142,7 @@ html, body {
       }
       .userInfo{
         text-align: center;
-        @include mq(md){
+        @include mq(sm){
         width: 85%;
         box-sizing: border-box;
         position: absolute;
@@ -151,13 +152,13 @@ html, body {
         }
         .userName, .age {
           display: inline-block;
-          @include mq(md){
+          @include mq(sm){
             width: 100%;
             font-size: 15px;
           }
         }
         .verify_of_wine {
-          @include mq(md){
+          @include mq(sm){
             width: 100%;
             font-size: 15px;
             display: block;
@@ -166,8 +167,8 @@ html, body {
         }
 
         .self_introduction{
-          // display: none;
-          @include mq(md){
+          display: none;
+          @include mq(sm){
             width: 100%;
             font-size: 15px;
             display: block;
@@ -181,7 +182,7 @@ html, body {
       // }
 
       img {
-        @include mq(md){
+        @include mq(sm){
         width: 85%;
         height: 300px;
         position: absolute;
@@ -286,17 +287,34 @@ html, body {
 
 /* Action - buttons */
 .actions {
-  display: none;
-  @include mq(md){
+  // display: none;
+  // @include mq(sm){
   display: flex;
   justify-content: space-between;
   width: 200px;
   margin: 15px auto;
-  }
+  // }
   &.is-none {
     display: none;
   }
 }
+
+.usershowPage {
+  .reactions {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    margin: 15px auto;
+    @include mq(sm){
+    display: none;
+    }
+    &.is-none {
+      display: none;
+    }
+  }
+}
+
+
 
 .actions div {
   position: relative;

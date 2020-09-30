@@ -36,12 +36,12 @@ $(document).ready(function() {
             console.log(true);
         $('.messages').append(
             '<div class="message"><div class="message-right">' + '<div class="commonMessage"><div>' + 
-            e.message.message + '</div></div>' + '<span>' + current_user_name + ':</span>' + '</div></div>');
+            e.message.message + '</div></div>' + '<span style="padding-top:30px; padding-right:18px">' + current_user_name + '</span>' + '</div></div>');
         }else{
             console.log(false);
         $('.messages').append(
             '<div class="message"><div class="message-right"><span>' + chat_room_user_name + 
-            ':</span><div class="commonMessage"><div>' +
+            '</span><div class="commonMessage"><div>' +
             e.message.message + '</div></div></div></div>');    
         }
     });

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -95,6 +95,7 @@ class RegisterController extends Controller
 
     protected function create(array $data)
     {
+
         //引数 $data から name='image'を取得(アップロードするファイル情報)
         $imageFile = $data['image'];
 
@@ -132,7 +133,7 @@ class RegisterController extends Controller
             // 'self_introduction' => $data['self_introduction'],
             ]);
 
-           $this->redirectTo = '/users/register/'.$user->id;
+            $this->redirectTo = '/users/register/'.$user->id;
            return $user;
 
     }

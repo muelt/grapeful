@@ -4,6 +4,8 @@
     // border-color: orange;
   }
   .header {
+    z-index:100;
+    // position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;

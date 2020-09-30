@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="restaurants-page">
-  <form action="/restaurants/search" method="post" class="search_wrapper">
+  <form action="/restaurants/search" method="get" class="search_wrapper">
   @csrf
     <input type="text" name="freeword" id="freeword" value="{{ $request->freeword }}">
 
@@ -16,17 +16,19 @@
     @csrf
     <div class="restaurants-wrapper">
       <input type="hidden" name="shop_name" value="{{ $request->freeword }}">
-      @foreach($array as $restaurant)
+      @foreach($paginations as $restaurant)
         <div class="restaurant">
           <img src="{{ $restaurant['image_url'] }}" class="restaurant_image">
-          <div style="display: inline-block">{{ $restaurant['shop_name'] }}</div>
-          <input type="checkbox" name="register_shop[]" value="{{ $restaurant['tel'] }}">
+          <div style="display: inline-block"><a href="{{ $restaurant['url'] }}">{{ $restaurant['shop_name'] }}</a></div>
+          <input type="checkbox" name="register_shop[]" value="{{ $restaurant['tel'] }}" style="display:inline">
         </div>  
       @endforeach
       <button type="submit" class="btn submitBtn" style="display:block; width:150px; height:60px; border-radius:40px; margin:30px">お店を登録する</button>
     </div>
   </form>
 
+
+  <!-- {{ $pagination->links() }} -->
 
 </div>  
 

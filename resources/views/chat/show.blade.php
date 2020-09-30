@@ -4,7 +4,7 @@
 
 <!-- 相手のアイコン -->
 <div class="chatPage">
-  <header class="header">
+  <header class="header" style="width:100%">
   <a href="{{route('matching')}}" class="linkToMatching"></a>
     <div class="chatPartner">
       <div class="chatPartner_img"><img src="/storage/images/{{$chat_room_user -> image}}"></div>
@@ -26,7 +26,7 @@
           {{$message->message}}
           </div>
         </div>
-        <span style="padding-top:30px; padding-right:15px">{{Auth::user()->name}}</span>
+        <span style="padding-top:30px; padding-right:18px">{{Auth::user()->name}}</span>
       </div>
       @else
       <div class="message-left">

@@ -42,7 +42,7 @@ Route::group(['prefix' => 'chat', 'middleware' => 'auth'], function(){
 
 Route::get('/restaurants/gurunavi', 'RestaurantsController@gurunavi')->name('restaurants.gurunavi');
 
-Route::post('/restaurants/search', 'RestaurantsController@search')->name('restaurant');
+Route::get('/restaurants/search', 'RestaurantsController@search')->name('restaurant');
 Route::post('/restaurants/save', 'RestaurantsController@save')->name('restaurant_save');
 
 // Route::get('/restaurant', 'RestaurantsController@index');

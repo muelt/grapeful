@@ -24,7 +24,7 @@
         <label for="married">婚姻の有無</label>
           <select id="married" type="text" class="form-married" name="married" style="margin-left:15px;" value="{{ old('married') }}" >
             <option value="">未選択</option>
-            <option value="あり" @if($user->married == 'あり') selected @else(old('married') == 'あり') selected @endif>あり</option>
+            <option value="あり" @if($user->married == 'あり') selected @elseif(old('married') == 'あり') selected @endif>あり</option>
             <option value="なし" @if($user->married == 'あり') selected @elseif (old('married') == 'なし') selected @endif>なし</option>
           </select>
         </label>

@@ -54,14 +54,33 @@ class RestaurantsController extends Controller
         ];
       }
 
-      // ぐるなび検索画面にページネーションを導入したい
-      // コレクションを生成する
-      $collection = collect($gurunaviResponse['rest']);
-      // dd($collection);
-      $restaurants = $collection->paginate(15);
- 
-    // dd($array);
-    return view('restaurants.search', compact('array', 'request'));    
+      // ぐるなび検索画面にページネーションを導入したい。コレクションを生成する
+      $page = 1;
+      if($request->page){
+        $page = $request->page;
+      }
+      $pagination = new Paginator($gurunaviResponse['rest'], 15, $page, array('path'=>'/restaurants/search/?freeword='.$request->freeword));
+        
+      // view側で表示させるために成形する
+      dd($pagination->getCollection()->push());
+      foreach($pagination->getCollection()->push() as $page){
+        $paginations[] =  [
+          'shop_name' => $page['name'],
+          'url' => $page['url'],
+          'image_url' => $page['image_url']['shop_image1'],
+          'tel' =>  $page['tel'],
+          'address' => $page['address'],
+          'access' => $page['access'],
+          // 'open_time' => $page['open_time'],
+          // 'close_time' => $page['close_time'],
+          'holiday' => $page['holiday'],
+          // 'category_name' => $page['category_name'],
+        ];
+      } 
+      // dd($paginations);
+      // dd($array);
+
+    return view('restaurants.search', compact('array', 'request', 'paginations'));    
 }
 
 
@@ -127,12 +146,9 @@ class RestaurantsController extends Controller
     $url = $restaurant_info->url;
     // dd($param[0]->shop_name);
 
-    // 登録画面に戻る(リダイレクトでないとだめ。viewに値を渡すにはどうすれば良いか)
-    // return redirect()->route('users.register', ['id' => Auth::id()]);
+
     return redirect()->route('users.show', ['id' => Auth::id()]);
 
-    
-    // return view('users.register_add', compact('restaurant', 'shop_name', 'image_url', 'url', 'user'));
 
   }
 

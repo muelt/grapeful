@@ -3,18 +3,25 @@
 @section('content')
 
 <div class='usershowPage'>
-  <div class='container'>
+
+  <div class="reactions" id="actionBtnArea">
+  <!-- 設定する。任意の属性を付与 data-  this.data('to_user_id')で宣言すると値が取れる -->
+    <a href="#" class="like" data-to_user_id="{{ $user->id }}" data-from_user_id="{{ Auth::id() }}"><i class="far fa-thumbs-up"></i></a>
+  </div>
+
+  <!-- <div id="tinderslide"> -->
     <div class='userInfo'>
       <div class='userInfo_img'>
       <img src="/storage/images/{{$user -> image}}">
       </div>
       <div class='userInfo_name'>{{ $user -> name }}</div>
 
-      <div class="actions" id="actionBtnArea">
-        <a href="#" class="good"><i class="far fa-thumbs-up" style="color:white"></i >いいね！</a>
-      </div>
-
         <!-- ここから -->
+        <div class="user_info_group">
+          <label for="age">性別</label>
+          <div class='userInfo_age'>{{ $user -> sex }}</div>
+        </div>
+        
         <div class="user_info_group">
           <label for="age">年齢</label>
           <div class='userInfo_age'>{{ $user -> age }}歳</div>
@@ -59,9 +66,6 @@
         <label for="self_introduction">自己紹介</label>
         <div class='userInfo_self_introduction' style="width:300px padding:10px 20px; text-align:left">{{ $user -> self_introduction }}</div>
       </div>
-      
-
-      <!-- 後で修正する -->
       <div class="user_info_group shop">
         <label for="favorite_restaurant">お気に入りのお店</label>
         <div class="userInfo_favorite_restaurant">
@@ -71,7 +75,9 @@
           @endif
         </div>
       </div>
-  </div>
+    </div>
+  <!-- </div> -->
+        
 </div>
 
 @endsection

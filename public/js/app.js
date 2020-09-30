@@ -43473,10 +43473,10 @@ $(document).ready(function () {
 
     if (e.message.user_id === user_id) {
       console.log(true);
-      $('.messages').append('<div class="message"><div class="message-right">' + '<div class="commonMessage"><div>' + e.message.message + '</div></div>' + '<span>' + current_user_name + ':</span>' + '</div></div>');
+      $('.messages').append('<div class="message"><div class="message-right">' + '<div class="commonMessage"><div>' + e.message.message + '</div></div>' + '<span style="padding-top:30px; padding-right:18px">' + current_user_name + '</span>' + '</div></div>');
     } else {
       console.log(false);
-      $('.messages').append('<div class="message"><div class="message-right"><span>' + chat_room_user_name + ':</span><div class="commonMessage"><div>' + e.message.message + '</div></div></div></div>');
+      $('.messages').append('<div class="message"><div class="message-right"><span>' + chat_room_user_name + '</span><div class="commonMessage"><div>' + e.message.message + '</div></div></div></div>');
     }
   });
 });
@@ -43512,13 +43512,14 @@ $(function () {
         from_user_id: from_user_id,
         like: like
       },
-      success: function success(j_data) {
+      success: function success() {
         console.log("success");
       }
     });
   };
 
   $("#tinderslide").jTinder({
+    // 起動メソッド
     onDislike: function onDislike(item) {
       currentUserIndex++;
       checkUserNum();
@@ -43538,7 +43539,7 @@ $(function () {
     dislikeSelector: '.dislike'
   });
   $('.actions .like, .actions .dislike').on('click', function (e) {
-    window.console.log('aaaaa');
+    window.console.log('ajaxは動いてるよ');
     e.preventDefault();
     $("#tinderslide").jTinder($(this).attr('class'));
   });
@@ -43551,6 +43552,26 @@ $(function () {
       return;
     }
   }
+
+  $('.reactions .like').click(function () {
+    window.console.log('ajaxは動いてるよ');
+    $.ajax({
+      // POST通信で3つの情報を送信
+      type: "POST",
+      url: "/api/like",
+      data: {
+        to_user_id: $(this).data('to_user_id'),
+        from_user_id: $(this).data('from_user_id'),
+        like: 'like'
+      },
+      success: function success() {
+        console.log('成功');
+      },
+      error: function error() {
+        console.log('失敗');
+      }
+    });
+  });
 });
 
 /***/ }),

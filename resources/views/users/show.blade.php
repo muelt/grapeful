@@ -13,6 +13,11 @@
 
       <!-- ここから -->
       <div class="user_info_group">
+        <label for="age">性別</label>
+        <div class='userInfo_age'>{{ $user -> sex }}</div>
+      </div>
+
+      <div class="user_info_group">
         <label for="age">年齢</label>
         <div class='userInfo_age'>{{ $user -> age }}</div>
       </div>

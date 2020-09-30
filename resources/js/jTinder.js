@@ -21,12 +21,13 @@ var postLike = function (to_user_id, like) {
       from_user_id: from_user_id,
       like: like,
     },
-    success: function (j_data) {
+    success: function () {
       console.log("success")
     }
   });
 }
 $("#tinderslide").jTinder({
+  // 起動メソッド
   onDislike: function (item) {
     currentUserIndex++;
     checkUserNum();
@@ -47,7 +48,7 @@ $("#tinderslide").jTinder({
 });
 
 $('.actions .like, .actions .dislike').on('click', function (e) {
-  window.console.log('aaaaa');
+  window.console.log('ajaxは動いてるよ');
   e.preventDefault();
 
   $("#tinderslide").jTinder($(this).attr('class'));
@@ -61,5 +62,27 @@ function checkUserNum() {
     return;
   }
 }
+
+
+
+$('.reactions .like').click(function () {
+    window.console.log('ajaxは動いてるよ');
+    $.ajax({
+      // POST通信で3つの情報を送信
+      type: "POST",
+      url: "/api/like",
+      data: {
+        to_user_id: $(this).data('to_user_id'),
+        from_user_id: $(this).data('from_user_id'),
+        like: 'like',
+      },
+      success: function() {
+        console.log('成功');
+      },
+      error: function(){
+        console.log('失敗');
+      }
+    })
+  });  
 
 });

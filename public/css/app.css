@@ -17089,6 +17089,14 @@ body {
   justify-content: center;
 }
 
+.signupPage .userProfileImg img {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
 .signupPage .userProfileImg:hover .userProfileImg_description {
   opacity: 1;
 }
@@ -17358,27 +17366,6 @@ body {
   color: #fd5068;
 }
 
-.userEditPage .header {
-  padding: 20px;
-  margin-bottom: 40px;
-  text-align: center;
-  background: #C3ACE6;
-  color: #fff;
-}
-
-.userEditPage .submitBtn {
-  background: #C3ACE6;
-  color: #fff;
-  width: 200px;
-  padding: 10px;
-  border-radius: 90px;
-  transition: opacity 0.5s;
-}
-
-.userEditPage .submitBtn:hover {
-  opacity: 0.6;
-}
-
 .restaurants-page {
   margin: 0 auto;
 }
@@ -17510,7 +17497,7 @@ body {
   z-index: 10;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   .searchBox {
     height: 40px;
     margin-bottom: 20px;
@@ -17571,7 +17558,7 @@ body {
   z-index: 0;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   #tinderslide {
     position: relative;
     background: #fff;
@@ -17583,6 +17570,7 @@ body {
 }
 
 #tinderslide ul {
+  padding: 0 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -17590,7 +17578,7 @@ body {
   margin: 0 auto;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   #tinderslide ul {
     margin: 0;
     position: relative;
@@ -17606,7 +17594,7 @@ body {
   margin-bottom: 30px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   #tinderslide ul > li {
     display: block;
     width: 100%;
@@ -17637,7 +17625,7 @@ body {
   text-align: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   #tinderslide ul > li .userInfo {
     width: 85%;
     box-sizing: border-box;
@@ -17653,7 +17641,7 @@ body {
   display: inline-block;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   #tinderslide ul > li .userInfo .userName,
   #tinderslide ul > li .userInfo .age {
     width: 100%;
@@ -17661,7 +17649,7 @@ body {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   #tinderslide ul > li .userInfo .verify_of_wine {
     width: 100%;
     font-size: 15px;
@@ -17670,7 +17658,11 @@ body {
   }
 }
 
-@media screen and (max-width: 768px) {
+#tinderslide ul > li .userInfo .self_introduction {
+  display: none;
+}
+
+@media screen and (max-width: 414px) {
   #tinderslide ul > li .userInfo .self_introduction {
     width: 100%;
     font-size: 15px;
@@ -17685,7 +17677,7 @@ body {
   margin: auto;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   #tinderslide ul > li img {
     width: 85%;
     height: 300px;
@@ -17775,19 +17767,30 @@ body {
 /* Action - buttons */
 
 .actions {
-  display: none;
-}
-
-@media screen and (max-width: 768px) {
-  .actions {
-    display: flex;
-    justify-content: space-between;
-    width: 200px;
-    margin: 15px auto;
-  }
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  margin: 15px auto;
 }
 
 .actions.is-none {
+  display: none;
+}
+
+.usershowPage .reactions {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  margin: 15px auto;
+}
+
+@media screen and (max-width: 414px) {
+  .usershowPage .reactions {
+    display: none;
+  }
+}
+
+.usershowPage .reactions.is-none {
   display: none;
 }
 
@@ -17955,6 +17958,7 @@ body {
 }
 
 .chatPage .header {
+  z-index: 100;
   display: flex;
   justify-content: center;
   align-items: center;

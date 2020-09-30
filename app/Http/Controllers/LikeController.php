@@ -9,8 +9,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Like;
 use App\Constants\Status;// 好き嫌いを定数を設定しているファイル
-
-use Log;// Logファサードを使える様にする
+use Log;
 
 // class LikeController extends Controller
 // {
@@ -53,14 +52,15 @@ use Log;// Logファサードを使える様にする
 
 class LikeController extends Controller
 {
+    // Log::debug('likeコントローラーにきてるよ');
      // ここから追加
      public function create(Request $request)
      {
- 
+        //  Log::debug('likeコントローラーにきてるよ');
          $to_user_id = $request->to_user_id;
          $like_status = $request->like;
          $from_user_id = $request->from_user_id;
- 
+
          if ($like_status === 'like'){
              $status = Status::LIKE;
          }else{
@@ -82,7 +82,6 @@ class LikeController extends Controller
              
              $Like->save();
          }
- 
      }
      // ここまで追加
 }

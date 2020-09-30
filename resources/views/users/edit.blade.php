@@ -5,19 +5,22 @@
   <header class="header">
     <div>プロフィールを編集</div>
   </header>
-
+  <div class='container'>
     <form class="form mt-5" method="POST" action="/users/update/{{ $user->id }}" enctype="multipart/form-data">
     @csrf
 
-    @error('email')
-    <span class="errorMessage">
+
+    <!-- 画像のアップロード/バリデーション -->
+    @error('image')
+      <span class="errorMessage">
         {{ $message }}
-    </span>
+      </span>
     @enderror
 
       <label for="file_photo" class="rounded-circle userProfileImg">
         <div class="userProfileImg_description">画像を編集</div>
         @if(isset($user->image))
+
         <img src="/storage/images/{{ $user->image }}">
         <input type="file" id="file_photo" name="image">
         @else
@@ -33,9 +36,15 @@
       <div class="form-group">
         <label>名前</label>
         <input type="text" name="name" class="form-control" value="{{ $user->name }}">
-  
-    </div>
+      </div>
+
       <div class="form-group">
+        @error('email')
+          <span class="errorMessage">
+            {{ $message }}
+          </span>
+        @enderror
+
         <label>メールアドレス</label>
         <input type="email" name="email" class="form-control" value="{{ $user->email }}">
       </div>
@@ -112,16 +121,6 @@
         <textarea class="form-control" name="self_introduction" rows="10" style="width:400px" value="{{ $user->self_introduction }}">{{$user->self_introduction}}
         </textarea>
       </div>
-        
-        <!-- <div class="form-group @error('name')has-error @enderror">
-          <label>お気に入りのお店</label>
-          @if($user->restaurant)
-          <div class="userInfo_favorite_restaurant">
-            <div>{{ $user->restaurant->shop_name }}<a href="{{ $user->restaurant->url }}">(ぐるなびで見る)</a></div>
-            <a href="{{ $user->restaurant->url }}"><img src="{{ $user->restaurant->image_url }}" alt=""></a>
-          </div>
-          @endif
-        </div> -->
 
       <div class="text-center">
         <button type="submit" class="btn submitBtn">変更する</button>

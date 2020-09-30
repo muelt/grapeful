@@ -80,17 +80,23 @@
         <div><label>性別</label></div>
         <div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" name="sex" value="0" type="radio" id="inlineRadio1" checked style="width:20px" value="{{ old('sex') }}" >
-            <label class="form-check-label" for="inlineRadio1">男</label>
+            <input class="form-check-input" name="sex" value="男" type="radio" id="inlineRadio1" checked style="width:20px" @if(old('sex') == '男性') selected @endif>
+            <label class="form-check-label" for="inlineRadio1">男性</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" name="sex" value="1" type="radio" id="inlineRadio2" style="width:20px" value="{{ old('sex') }}" >
-            <label class="form-check-label" for="inlineRadio2">女</label>
+            <input class="form-check-input" name="sex" value="女" type="radio" id="inlineRadio2" style="width:20px" @if(old('sex') == '女性') selected @endif>
+            <label class="form-check-label" for="inlineRadio2">女性</label>
           </div>
         </div>
       </div>
 
       <div class="form-group">
+        @error('age')
+        <!-- バリデーション -->
+        <span class="errorMessage" style="display:block">
+          {{ $message }}
+        </span>
+        @enderror
         <label for="age">年齢</label>
         <select id="age" type="text" class="form-age" name="age" style="margin-left:30px;">
           <option value="">未選択</option>
