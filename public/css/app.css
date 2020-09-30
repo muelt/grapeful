@@ -17800,15 +17800,13 @@ body {
   display: none;
 }
 
-.actions div,
-.reactions div {
+.actions div {
   position: relative;
   display: inline-block;
   margin-right: -4px;
 }
 
-.actions a,
-.reactions a {
+.actions a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17824,19 +17822,31 @@ body {
   box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
 }
 
-.actions a.dislike,
-.reactions a.dislike {
+.actions a.dislike {
   color: #eb5f5f;
 }
 
-.actions a.like,
-.reactions a.like {
+.actions a.like {
   color: #e07474;
 }
 
-.reactions .like.is-liked {
+.reactions a {
+  width: 220px;
+  height: 40px;
+  border-radius: 15px;
+  background-color: #f7f7f7;
+  background-image: -o-linear-gradient(top, #f7f7f7, #e7e7e7);
+  outline: none;
+  box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+  display: inline-block;
+  text-align: center;
+  line-height: 40px;
+  color: #e07474;
+}
+
+.reactions a.is-liked {
   color: #fff;
-  background: gray;
+  background: #c3ade7;
 }
 
 .actions a:hover {
@@ -17957,7 +17967,7 @@ body {
 .matchingPage .matchingList .matchingPerson form .chatForm_btn {
   border: none;
   padding: 10px;
-  background: #fd5068;
+  background: #c3ade7;
   color: #fff;
   border-radius: 6px;
   cursor: pointer;

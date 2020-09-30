@@ -315,13 +315,13 @@ html, body {
 }
 
 
-.actions div, .reactions div {
+.actions div {
   position: relative;
   display: inline-block;
   margin-right: -4px;
 }
 
-.actions a, .reactions a {
+.actions a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -347,11 +347,26 @@ html, body {
   }
 }
 
-.reactions .like {
-  &.is-liked {
-  color: #fff;
-  background:gray;
-  }
+.reactions a {
+  width: 220px;
+  height: 40px;
+  border-radius: 15px;
+  background-color: #f7f7f7;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f7f7f7), to(#e7e7e7));
+  background-image: -webkit-linear-gradient(top, #f7f7f7, #e7e7e7);
+  background-image: -moz-linear-gradient(top, #f7f7f7, #e7e7e7);
+  background-image: -ms-linear-gradient(top, #f7f7f7, #e7e7e7);
+  background-image: -o-linear-gradient(top, #f7f7f7, #e7e7e7);
+  outline: none;
+  box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+  display: inline-block;
+  text-align: center;
+  line-height: 40px;
+  color: #e07474;
+    &.is-liked {
+    color: #fff;
+    background: #c3ade7;
+    }
 }
 
 .actions a:hover {

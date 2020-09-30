@@ -6,7 +6,7 @@
 
   <div class="reactions" id="actionBtnArea">
   <!-- 設定する。任意の属性を付与 data-  this.data('to_user_id')で宣言すると値が取れる -->
-    <a href="#" class="like" style="background:gray; color:#fff">いいね済<i class="far fa-thumbs-up" style="color:#fff"></i></a>
+    <a href="#" class="like" style="background:#c3ade7; color:#fff">いいね!済<i class="far fa-thumbs-up" style="color:#fff"></i></a>
   </div>
 
   <!-- <div id="tinderslide"> -->
