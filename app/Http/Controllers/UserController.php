@@ -11,7 +11,10 @@ use App\Http\Requests\ProfileRequest;
 // App\User.phpのUserモデルを呼び出せるようにする
 use App\User;
 use App\Restaurant;
+use App\Like;
+use App\Constants\Status;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Collection;
 
 // サービスファイルの読み込み
 use App\Services\CheckExtensionServices;
@@ -36,9 +39,24 @@ class UserController extends Controller
             return view('users.show', compact('user'));
             //  他のユーザーのページに飛ぶ場合は、閲覧のみページ   
         }else{
-            return view('users.users_show', compact('user'));
+            $send_like_ids = Like::where([
+                ['from_user_id', Auth::id()],
+                ['status', Status::LIKE]
+            ])->pluck('to_user_id');//pluckでID情報のみ取得できる
+           
+            // 値を整える(in_arrayで使う)
+           foreach ($send_like_ids as $item){
+                $sent_like_ids[] = $item;
+           }
+
+            // dd($sent_like_ids);
+            // 自分から既にいいね！済みのユーザーか否かチェック
+            if(in_array($id, $sent_like_ids)){
+                return view('users.users_show_liked', compact('user'));
+            }else{
+                return view('users.users_show', compact('user'));
+            }
         }
-     
     }
 
     public function edit($id){

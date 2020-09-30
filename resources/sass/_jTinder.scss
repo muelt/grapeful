@@ -287,13 +287,13 @@ html, body {
 
 /* Action - buttons */
 .actions {
-  // display: none;
-  // @include mq(sm){
+  display: none;
+  @include mq(sm){
   display: flex;
   justify-content: space-between;
   width: 200px;
   margin: 15px auto;
-  // }
+  }
   &.is-none {
     display: none;
   }
@@ -315,14 +315,13 @@ html, body {
 }
 
 
-
-.actions div {
+.actions div, .reactions div {
   position: relative;
   display: inline-block;
   margin-right: -4px;
 }
 
-.actions a {
+.actions a, .reactions a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -348,7 +347,14 @@ html, body {
   }
 }
 
-.actions a:hover{
+.reactions .like {
+  &.is-liked {
+  color: #fff;
+  background:gray;
+  }
+}
+
+.actions a:hover {
 text-decoration: none;
 color: #555;
 background: #f5f5f5;

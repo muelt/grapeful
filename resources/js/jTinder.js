@@ -67,6 +67,9 @@ function checkUserNum() {
 
 $('.reactions .like').click(function () {
     window.console.log('ajaxは動いてるよ');
+    $(this).addClass('is-liked');
+    document.getElementById("text").innerHTML ="いいね済";
+    
     $.ajax({
       // POST通信で3つの情報を送信
       type: "POST",

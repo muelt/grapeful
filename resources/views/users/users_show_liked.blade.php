@@ -6,7 +6,7 @@
 
   <div class="reactions" id="actionBtnArea">
   <!-- 設定する。任意の属性を付与 data-  this.data('to_user_id')で宣言すると値が取れる -->
-    <a href="#" class="like" data-to_user_id="{{ $user->id }}" data-from_user_id="{{ Auth::id() }}" id="text">いいね！<i class="far fa-thumbs-up"></i></a>
+    <a href="#" class="like" style="background:gray; color:#fff">いいね済<i class="far fa-thumbs-up" style="color:#fff"></i></a>
   </div>
 
   <!-- <div id="tinderslide"> -->

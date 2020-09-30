@@ -37,8 +37,8 @@ class RestaurantsController extends Controller
     // }
 
     $array = [];
+    dd($gurunaviResponse['rest']);
     foreach($gurunaviResponse['rest'] as $restaurant) {
-      // dd($gurunaviResponse['rest']);
       
         $array[] = [
           'shop_name' => $restaurant['name'],
@@ -82,8 +82,6 @@ class RestaurantsController extends Controller
 
     return view('restaurants.search', compact('array', 'request', 'paginations'));    
 }
-
-
 
   // ======ここからユーザーが選択した店舗を保存する@save======
  // ユーザーが店舗を選択し登録ボタンをおした際、その店舗データをDBに保存する処理
