@@ -56,10 +56,14 @@ class LikeController extends Controller
      // ここから追加
      public function create(Request $request)
      {
-        //  Log::debug('likeコントローラーにきてるよ');
+         Log::debug('likeコントローラーにきてるよ');
+
          $to_user_id = $request->to_user_id;
          $like_status = $request->like;
          $from_user_id = $request->from_user_id;
+         Log::debug($to_user_id);
+         Log::debug($like_status);
+         Log::debug($from_user_id);
 
          if ($like_status === 'like'){
              $status = Status::LIKE;
@@ -71,6 +75,8 @@ class LikeController extends Controller
          ['to_user_id', $to_user_id],
          ['from_user_id', $from_user_id]
          ])->get();
+
+         Log::debug($checkLike);
  
          if($checkLike->isEmpty()){
              
@@ -79,7 +85,7 @@ class LikeController extends Controller
              $Like->to_user_id = $to_user_id;
              $Like->from_user_id = $from_user_id; 
              $Like->status = $status;
-             
+             Log::debug($Like);
              $Like->save();
          }
      }

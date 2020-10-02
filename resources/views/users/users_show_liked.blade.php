@@ -14,7 +14,7 @@
       <div class='userInfo_img'>
       <img src="/storage/images/{{$user -> image}}">
       </div>
-      <div class='userInfo_name'>{{ $user -> name }}</div>
+      <div class='userInfo_name'>いいね済{{ $user -> name }}</div>
 
         <!-- ここから -->
         <div class="user_info_group">

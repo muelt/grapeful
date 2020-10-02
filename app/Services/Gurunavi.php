@@ -19,7 +19,7 @@ class Gurunavi
         ->get(self::RESTAURANTS_SEARCH_API_URL, [
               'query' => [
                   
-                  'keyid' => env('GURUNAVI_ACCESS_KEY'),//.envで設定したアクセスキー
+                  'keyid' => '5e848f2b1e9a1b9982c1da30221c745f',//.envで設定したアクセスキー
                   'hit_per_page' => 100,
                   'freeword' => str_replace(' ', ',', $word),// 引数で渡ってきた(ユーザーが入力した)$wordを加工(半角スペースあればカンマに変換)
               ],

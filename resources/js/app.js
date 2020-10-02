@@ -16,6 +16,8 @@ require('./jTinder');
 
 require('./chat');
 
+require('./restaurants');
+
 // window.Vue = require('vue');
 
 

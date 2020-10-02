@@ -39,6 +39,7 @@ class HomeController extends Controller
 
 
         $userCount = $users->count();//全ユーザーの数を取得
+        // dd($userCount);
         $from_user_id = Auth::id();//現在ログインしているユーザーのIDを取得
 
         // 自分からすでにいいねをした人のidを取得して$arrayにいれる。Viewに渡す
@@ -54,17 +55,14 @@ class HomeController extends Controller
         foreach($from_users_users as $from_users_user){
             $array[] = $from_users_user['id'];
         }
-
-        // dd($request->input('type_of_wine'));
-        $freeword = $request->input('type_of_wine');
-        $users_selected = User::where('type_of_wine', 'like', '%$freeword%');
         $array[] = Auth::id();
 
-        // dd($array);
-
+        // 表示させるユーザーの数をカウント(自分自身といいね済以外)
+        $countingSelected = collect($array)->count();
+        $userCountSelected = $userCount - $countingSelected;
         
         // compactメソッドで複数の変数をビュー側(home.blade.php)へ渡す
-        return view('home', compact('users', 'userCount', 'from_user_id', 'array'));
+        return view('home', compact('users', 'userCount', 'from_user_id', 'array',  'userCountSelected'));
     }
 
 
@@ -106,8 +104,17 @@ class HomeController extends Controller
         ->orWhere('verify_of_wine', 'like', "%$freeword%")
         ->orWhere('producing_area', 'like', "%$freeword%")
         ->orWhere('favorite_food', 'like', "%$freeword%")
+        ->orWhere('sex', 'like', "%$freeword%")
+        ->orWhere('age', 'like', "%$freeword%")
+        ->orWhere('address', 'like', "%$freeword%")
+        ->orWhere('self_introduction', 'like', "%$freeword%")
+        ->orWhere('price_range', 'like', "%$freeword%")
+        ->orWhere('married', 'like', "%$freeword%")
         ->get();
         
+        $userCountSelected = $users_selected->count();//キーワードに該当したユーザー
+        // dd($userCountSelected);
+        // dd($users);
 
         // 全てのユーザー($users)から検索されたキーワードに合致したユーザーのみで絞り込む
         // foreach($users_selected as $user_selected){
@@ -122,7 +129,7 @@ class HomeController extends Controller
         // }
         
         // compactメソッドで複数の変数をビュー側(home.blade.php)へ渡す
-        return view('home_searched', compact('users_selected', 'userCount', 'from_user_id', 'array'));
+        return view('home_searched', compact('users_selected', 'userCount', 'from_user_id', 'array', 'userCountSelected'));
     }
 
 

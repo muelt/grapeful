@@ -20,15 +20,14 @@
         <div class="restaurant">
           <img src="{{ $restaurant['image_url'] }}" class="restaurant_image">
           <div style="display: inline-block"><a href="{{ $restaurant['url'] }}">{{ $restaurant['shop_name'] }}</a></div>
-          <input type="checkbox" name="register_shop[]" value="{{ $restaurant['tel'] }}" style="display:inline">
+          <input type="checkbox" name="register_shop[]" value="{{ $restaurant['tel'] }}" style="display:inline" class="checkbox">
         </div>  
       @endforeach
       <button type="submit" class="btn submitBtn" style="display:block; width:150px; height:60px; border-radius:40px; margin:30px">お店を登録する</button>
     </div>
   </form>
 
-
-  <!-- {{ $pagination->links() }} -->
+  {{ $pagination->links() }}
 
 </div>  
 

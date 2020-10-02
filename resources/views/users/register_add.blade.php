@@ -71,21 +71,6 @@
         @endif
       </div>
 
-      <!-- <div class="form-group @error('name')has-error @enderror">
-        <label>お気に入りのお店</label> -->
-        <!-- お店の名前 -->
-          <!-- @if($user->restaurant)
-          <div>
-            <a href="{{ route('restaurants.gurunavi') }}" style="display:block">お店を変更(ぐるなび検索)</a>
-            <div>{{ $user->restaurant->shop_name }}</div>
-            <img src="{{ $user->restaurant->image_url }}" alt="">
-          </div>  
-          @endif
-          <div>
-            <a href="{{ route('restaurants.gurunavi') }}" style="display:block">ぐるなびで検索</a>
-          </div>
-      </div> -->
-
       <div class="form-group">
         <label>自己紹介文</label>
         @if($user->self_introduction)

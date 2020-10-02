@@ -37,7 +37,7 @@ class RestaurantsController extends Controller
     // }
 
     $array = [];
-    dd($gurunaviResponse['rest']);
+    // dd($gurunaviResponse);
     foreach($gurunaviResponse['rest'] as $restaurant) {
       
         $array[] = [
@@ -54,15 +54,16 @@ class RestaurantsController extends Controller
         ];
       }
 
-      // ぐるなび検索画面にページネーションを導入したい。コレクションを生成する
+      // ぐるなび検索画面にページネーションを導入したい。コレクションを生成する=====================
       $page = 1;
       if($request->page){
         $page = $request->page;
       }
       $pagination = new Paginator($gurunaviResponse['rest'], 15, $page, array('path'=>'/restaurants/search/?freeword='.$request->freeword));
+      // dd($pagination);リンク用
         
       // view側で表示させるために成形する
-      dd($pagination->getCollection()->push());
+      $page = $pagination->getCollection()->push();
       foreach($pagination->getCollection()->push() as $page){
         $paginations[] =  [
           'shop_name' => $page['name'],
@@ -79,8 +80,9 @@ class RestaurantsController extends Controller
       } 
       // dd($paginations);
       // dd($array);
+      // ページネーションはここまで============================================================
 
-    return view('restaurants.search', compact('array', 'request', 'paginations'));    
+    return view('restaurants.search', compact('array', 'request', 'paginations', 'pagination'));    
 }
 
   // ======ここからユーザーが選択した店舗を保存する@save======

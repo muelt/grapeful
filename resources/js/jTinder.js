@@ -49,6 +49,10 @@ $("#tinderslide").jTinder({
 
 $('.actions .like, .actions .dislike').on('click', function (e) {
   window.console.log('ajaxは動いてるよ');
+  window.console.log(currentUserIndex);
+  window.console.log(usersNum);
+  window.console.log(usersNumSelected );
+
   e.preventDefault();
 
   $("#tinderslide").jTinder($(this).attr('class'));
@@ -56,19 +60,17 @@ $('.actions .like, .actions .dislike').on('click', function (e) {
 
 function checkUserNum() {
   // スワイプするユーザー数とスワイプした回数が同じになればaddClassする
-  if (currentUserIndex === usersNum) {
+  if (currentUserIndex === usersNum || currentUserIndex === usersNumSelected ) {
     $(".noUser").addClass("is-active");
     $("#actionBtnArea").addClass("is-none")
     return;
   }
 }
 
-
-
 $('.reactions .like').click(function () {
     window.console.log('ajaxは動いてるよ');
     $(this).addClass('is-liked');
-    document.getElementById("text").innerHTML ="いいね済";
+    document.getElementById("text").innerHTML ="いいね済み";
     
     $.ajax({
       // POST通信で3つの情報を送信

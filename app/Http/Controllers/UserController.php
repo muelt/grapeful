@@ -14,7 +14,7 @@ use App\Restaurant;
 use App\Like;
 use App\Constants\Status;
 use Intervention\Image\Facades\Image;
-use Illuminate\Support\Collection;
+use Log;
 
 // サービスファイルの読み込み
 use App\Services\CheckExtensionServices;
@@ -32,6 +32,7 @@ class UserController extends Controller
         // EloquentでDB情報を取得=>Userモデル内に指定のidがあれば取得
         $user = User::findorFail($id);
         // dd(Auth::id());
+        // dd($id);
 
         // 情報を変数に入れてviewに渡してあげる
         // 自分自身だった場合は自分のプロフィールページ（編集、ログアウト可能）
@@ -39,24 +40,21 @@ class UserController extends Controller
             return view('users.show', compact('user'));
             //  他のユーザーのページに飛ぶ場合は、閲覧のみページ   
         }else{
-            $send_like_ids = Like::where([
-                ['from_user_id', Auth::id()],
-                ['status', Status::LIKE]
-            ])->pluck('to_user_id');//pluckでID情報のみ取得できる
-           
-            // 値を整える(in_arrayで使う)
-           foreach ($send_like_ids as $item){
-                $sent_like_ids[] = $item;
-           }
 
-            // dd($sent_like_ids);
-            // 自分から既にいいね！済みのユーザーか否かチェック
-            if(in_array($id, $sent_like_ids)){
-                return view('users.users_show_liked', compact('user'));
-            }else{
-                return view('users.users_show', compact('user'));
-            }
+            $checkLike = Like::where([
+                ['to_user_id', $id],
+                ['from_user_id', Auth::id()]
+                ])->get();
+
+                Log::debug($checkLike);
+        
+                if($checkLike->isEmpty()){
+                    return view('users.users_show', compact('user'));
+                }else{
+                    return view('users.users_show_liked', compact('user'));
+                }    
         }
+     
     }
 
     public function edit($id){
@@ -128,8 +126,12 @@ class UserController extends Controller
         
         $user->save();
         // dd($user);
-        // return redirect()->route('users.register_shop', ['id' => Auth::id()]);
-        return redirect()->route('restaurants.gurunavi');
+
+
+        // return redirect()->route('restaurants.gurunavi');
+
+        return redirect()->route('users.register_shop', ['id' => Auth::id()]);
+
     }
 
 

@@ -93,22 +93,22 @@
 
       <div class="form-group @error('name')has-error @enderror">
         <label>好きなワインのタイプ</label>
-        <input type="text" class="form-control" placeholder="赤・白・泡・ロゼ・オレンジ・ポートワイン etc…" name="type_of_wine" value="{{ $user->type_of_wine }}" >
+        <input type="text" class="form-control ac" placeholder="赤・白・泡・ロゼ・オレンジ・ポートワイン etc…" name="type_of_wine" value="{{ $user->type_of_wine }}" >
       </div>
 
       <div class="form-group @error('name')has-error @enderror">
         <label>好きな品種</label>
-        <input type="text" class="form-control" placeholder="カベルネソーヴィニョン・シャルドネ・ピノノワール・メルロー・リースリング etc…" name="verify_of_wine" value="{{ $user->verify_of_wine }}">
+        <input type="text" class="form-control ac" placeholder="カベルネソーヴィニョン・シャルドネ・ピノノワール・メルロー・リースリング etc…" name="verify_of_wine" value="{{ $user->verify_of_wine }}">
       </div>
 
       <div class="form-group @error('name')has-error @enderror">
         <label>好きな生産地</label>
-        <input type="text" class="form-control" placeholder="ボルドー・ブルゴーニュ・カルフォルニア・チリ・ドイツ・ローヌ etc…" name="producing_area" value="{{ $user->producing_area }}">
+        <input type="text" class="form-control ac" placeholder="ボルドー・ブルゴーニュ・カルフォルニア・チリ・ドイツ・ローヌ etc…" name="producing_area" value="{{ $user->producing_area }}">
       </div>
 
       <div class="form-group @error('name')has-error @enderror">
         <label>好きな食べ物/ジャンル</label>
-        <input type="text" class="form-control" placeholder="フレンチ・中華・イタリアン・和食 etc…" name="favorite_food" value="{{ $user->favorite_food }}">
+        <input type="text" class="form-control ac" placeholder="フレンチ・中華・イタリアン・和食 etc…" name="favorite_food" value="{{ $user->favorite_food }}">
       </div>
 
       <div class="form-group @error('name')has-error @enderror">
@@ -128,4 +128,23 @@
     </form>
   </div>
 </div>
+
+<script>
+
+$(function() {
+    var availableTags = [
+      '赤', '白', 'ロゼ', 
+      '泡', 'オレンジ', 
+      'ポートワイン', 'デザートワイン', 
+      'シャルドネ', 'カベルネ・ソーヴィニョン', 'メルロー', 'シラー', 'サンジョベーゼ', 'テンプラリーニョ', 'グルナッシュ', 'ピノ・ノワール', 'リースリング', 'ソーヴィニョン・ブラン', 'ゲウェルツ・トラミネール', 'ヴィオニエ', 'セミヨン', 'ピノ・ブラン', '甲州', 'ケルナー',
+      'ボルドー', 'ブルゴーニュ', 'ローヌ', 'ロワール', 'シャンパーニュ', 'アルザス', 'ドイツ', 'アメリカ', 'カルフォルニア', 'オーストラリア', '日本', 'フランス', 'スペイン', 'イタリア', 'シチリア', 'トスカーナ', 'チリ',
+      'フレンチ', '中華', 'イタリアン', '和食', 'スパニッシュ', '韓国料理', 'エスニック',
+    ];
+    $( ".ac" ).autocomplete({
+      source: availableTags
+    });
+  } );
+
+</script>
+
 @endsection

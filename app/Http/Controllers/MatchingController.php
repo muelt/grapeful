@@ -62,7 +62,6 @@ class MatchingController extends Controller
         Log::debug($from_me_users_count);
 
         return view('users.from_me', compact('from_me_users', 'from_me_users_count'));
-
     }
 
     //いいねしてくれた人のIDを取得
@@ -84,7 +83,5 @@ class MatchingController extends Controller
         Log::debug($from_users_count);
 
         return view('users.from_users', compact('from_users', 'from_users_count'));
-
-
     }
 }

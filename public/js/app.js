@@ -43347,7 +43347,9 @@ __webpack_require__(/*! ./jquery.transform2d */ "./resources/js/jquery.transform
 
 __webpack_require__(/*! ./jTinder */ "./resources/js/jTinder.js");
 
-__webpack_require__(/*! ./chat */ "./resources/js/chat.js"); // window.Vue = require('vue');
+__webpack_require__(/*! ./chat */ "./resources/js/chat.js");
+
+__webpack_require__(/*! ./restaurants */ "./resources/js/restaurants.js"); // window.Vue = require('vue');
 
 /**
  * The following block of code may be used to automatically register your
@@ -43540,13 +43542,16 @@ $(function () {
   });
   $('.actions .like, .actions .dislike').on('click', function (e) {
     window.console.log('ajaxは動いてるよ');
+    window.console.log(currentUserIndex);
+    window.console.log(usersNum);
+    window.console.log(usersNumSelected);
     e.preventDefault();
     $("#tinderslide").jTinder($(this).attr('class'));
   });
 
   function checkUserNum() {
     // スワイプするユーザー数とスワイプした回数が同じになればaddClassする
-    if (currentUserIndex === usersNum) {
+    if (currentUserIndex === usersNum || currentUserIndex === usersNumSelected) {
       $(".noUser").addClass("is-active");
       $("#actionBtnArea").addClass("is-none");
       return;
@@ -43556,7 +43561,7 @@ $(function () {
   $('.reactions .like').click(function () {
     window.console.log('ajaxは動いてるよ');
     $(this).addClass('is-liked');
-    document.getElementById("text").innerHTML = "いいね済";
+    document.getElementById("text").innerHTML = "いいね済み";
     $.ajax({
       // POST通信で3つの情報を送信
       type: "POST",
@@ -44271,6 +44276,23 @@ $(function () {
     centerOrigin: "margin"
   };
 })(jQuery, window, document, Math);
+
+/***/ }),
+
+/***/ "./resources/js/restaurants.js":
+/*!*************************************!*\
+  !*** ./resources/js/restaurants.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(function () {
+  $(".checkbox").on("click", function () {
+    $('.checkbox').prop('checked', false); //  全部のチェックを外す
+
+    $(this).prop('checked', true); //  押したやつだけチェックつける
+  });
+});
 
 /***/ }),
 

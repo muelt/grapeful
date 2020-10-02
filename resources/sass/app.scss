@@ -64,11 +64,32 @@ $main-text-color: #fff;
   border-bottom: 1px #d9d9d9 solid;
   box-shadow: 0 0 3px 3px #d9d9d9;
   z-index: 20;
+  @include mq(){
+    padding: 0;
+  }
+  .navbar-toggler {
+    @include mq(md){  
+    margin-right: 16px;
+    margin-top: 8px;
+    }
+  }
+
   .header-left {
     font-size: 25px;
     padding: 8px;
   }
+
+  .navbar-nav {
+    @include mq(md){
+    height: 667px;
+    background-color: #fff;
+    }
+  }
+  
 	.nav-item{
+    @include mq(md){
+      padding-left: 16px;
+    }
     &.active {
       @include mq(lg){
       padding-top: 50px;
@@ -95,6 +116,9 @@ $main-text-color: #fff;
 main {
   margin-top: 130px;
   // width: 880px;
+  @include mq(sm){
+    margin-top: 90px;
+  }
 }
 
 .headerColor-default {

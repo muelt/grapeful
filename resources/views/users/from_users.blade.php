@@ -11,15 +11,15 @@
       <div class="matchingList">
 				@foreach( $from_users as $user)
           <div class="matchingPerson">
-          <div class="matchingPerson_img"><img src="/storage/images/{{ $user->image}}"></div>
-            <div class="matchingPerson_name"><a href=" {{ route('users.show', ['id' => $user->id]) }} ">{{ $user->name }}</a></div>
-
-            <!-- <form method="POST" action="{{ route('chat.show') }}">
-            @csrf
-              <input name="user_id" type="hidden" value="{{$user->id}}">
-              <button type="submit" class="chatForm_btn">チャットを開く</button>
-            </form> -->
-
+            <div style="display:flex">
+              <div class="matchingPerson_img"><img src="/storage/images/{{ $user->image}}"></div>
+              <div class="matchingPerson_name"><a href=" {{ route('users.show', ['id' => $user->id]) }} ">{{ $user->name }}</a></div>
+            </div>  
+            @foreach ($user->fromUserIds as $obj)
+                @if($obj->to_user_id == Auth::id())
+                  <span>{{ $obj->created_at }}</span>
+                @endif
+            @endforeach
           </div>
         @endforeach
       </div>

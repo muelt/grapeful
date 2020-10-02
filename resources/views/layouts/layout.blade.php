@@ -22,7 +22,7 @@
 <body>
 <main class="js-mainVisual">
   <nav class="navbar navbar-expand-lg navbar-light js-header" style="position:fixed; top:0px; left:0px; width:100%; height:70px">
-    <a class="navbar-brand" href="{{ route('top') }}" style="color:#563e7b; font-size:20px">grapeful</a>
+    <a class="navbar-brand" href="{{ route('top') }}" style="color:#563e7b; font-size:20px; padding-left: 16px; margin-top:10px; padding-top:0">grapeful</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
@@ -53,7 +53,7 @@
             @else
             <a class="nav-link" href="/login"><i class="fas fa-user-circle" style="color: #563e7b; font-size:16px; font-weight:bold"></i>ログイン</a> 
             @endif
-          </li>
+          </li>      
       </ul>
     </div>
   </nav>
