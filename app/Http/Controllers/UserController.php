@@ -153,6 +153,7 @@ class UserController extends Controller
         $user->favorite_food = $request->favorite_food;
         $user->price_range = $request->price_range;
         $user->self_introduction = $request->self_introduction;
+
         
         $user->save();
         // dd($user);

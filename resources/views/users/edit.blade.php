@@ -18,13 +18,13 @@
     @enderror
 
       <label for="file_photo" class="rounded-circle userProfileImg">
+        @if($user->image)
         <div class="userProfileImg_description">画像を編集</div>
-        @if(isset($user->image))
-
         <img src="/storage/images/{{ $user->image }}">
         <input type="file" id="file_photo" name="image">
         @else
-        <div class="userProfileImg_description" style="font-size:14px; opacity:0">画像をアップロード</div>
+        <div class="userProfileImg_description">画像をアップロード</div>
+        <input type="file" id="file_photo" name="image">
         <i class="fas fa-camera fa-3x"></i>
         @endif
       </label>

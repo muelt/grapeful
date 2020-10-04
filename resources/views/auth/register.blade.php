@@ -13,11 +13,11 @@
 
       <!-- 画像のアップロード -->
         <!-- バリデーション -->
-          @error('image')
+          <!-- @error('image')
             <span class="errorMessage">
               {{ $message }}
             </span>
-          @enderror
+          @enderror -->
         <label for="file_photo" class="rounded-circle userProfileImg">
           <div class="userProfileImg_description">画像をアップロード</div>
           <i class="fas fa-camera fa-3x"></i>

@@ -110,6 +110,8 @@ class HomeController extends Controller
         ->orWhere('self_introduction', 'like', "%$freeword%")
         ->orWhere('price_range', 'like', "%$freeword%")
         ->orWhere('married', 'like', "%$freeword%")
+        ->orWhere('name', 'like', "%$freeword%")
+
         ->get();
         
         $userCountSelected = $users_selected->count();//キーワードに該当したユーザー

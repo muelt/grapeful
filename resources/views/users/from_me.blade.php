@@ -13,7 +13,11 @@
 				@foreach( $from_me_users as $user)
           <div class="matchingPerson">
             <div style="display:flex">
+            @if($user->image)
               <div class="matchingPerson_img"><img src="/storage/images/{{ $user->image}}"></div>
+            @else
+              <div class="matchingPerson_img"><img src="/storage/images/person.jpg"></div>
+            @endif  
               <div class="matchingPerson_name"><a href=" {{ route('users.show', ['id' => $user->id]) }} ">{{ $user->name }}</a></div>
             </div>
             @foreach ($user->toUserIds as $obj)

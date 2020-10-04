@@ -10,9 +10,14 @@
       <div class="matchingList">
 				@foreach( $matching_users as $user)
           <div class="matchingPerson">
-          <div class="matchingPerson_img"><img src="/storage/images/{{ $user->image}}"></div>
-            <div class="matchingPerson_name"><a href=" {{ route('users.show', ['id' => $user->id]) }} ">{{ $user->name }}</a></div>
-
+          <div style="display:flex">
+            @if($user->image)
+              <div class="matchingPerson_img"><img src="/storage/images/{{ $user->image}}"></div>
+            @else
+            <div class="matchingPerson_img"><img src="/storage/images/person.jpg"></div>
+            @endif
+                <div class="matchingPerson_name"><a href=" {{ route('users.show', ['id' => $user->id]) }} ">{{ $user->name }}</a></div>
+          </div> 
             <form method="POST" action="{{ route('chat.show') }}">
             @csrf
               <input name="user_id" type="hidden" value="{{$user->id}}">

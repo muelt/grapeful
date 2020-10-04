@@ -68,7 +68,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'image' => ['required','file', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2000'], //この行を追加
+            'image' => ['file', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2000'], //この行を追加
             'age'=> ['required', 'string', 'max:255'],//この行を追加
             'sex'=> ['required', 'string', 'max:255'],//この行を追加
             // 'self_introduction' => ['string', 'max:255'], //この行を追加
@@ -95,43 +95,63 @@ class RegisterController extends Controller
 
     protected function create(array $data)
     {
+        if(isset($data['image'])){
 
-        //引数 $data から name='image'を取得(アップロードするファイル情報)
-        $imageFile = $data['image'];
-
-        $list = FileUploadServices::fileUpload($imageFile);
-
-        // 3つの変数が配列でreturnされるので、PHPのlist関数を使い、元の3つの変数に分割しておく
-        list($extension, $fileNameToStore, $fileData) = $list;
-
-        $data_url = CheckExtensionServices::checkExtension($fileData,$extension);
-
-        //画像アップロード(Imageクラス makeメソッドを使用)
-        $image = Image::make($data_url);
-
-        //画像を横400px, 縦400pxにリサイズし保存
-        $image->resize(400,400)->save(storage_path() . '/app/public/images/' . $fileNameToStore );
-
-
-        // $dataに入力された情報が入ってくるのでusersテーブルに詰める
+            //引数 $data から name='image'を取得(アップロードするファイル情報)
+            $imageFile = $data['image'];
+            
+            $list = FileUploadServices::fileUpload($imageFile);
+            
+            // 3つの変数が配列でreturnされるので、PHPのlist関数を使い、元の3つの変数に分割しておく
+            list($extension, $fileNameToStore, $fileData) = $list;
+            
+            $data_url = CheckExtensionServices::checkExtension($fileData,$extension);
+            
+            //画像アップロード(Imageクラス makeメソッドを使用)
+            $image = Image::make($data_url);
+            
+            //画像を横400px, 縦400pxにリサイズし保存
+            $image->resize(400,400)->save(storage_path() . '/app/public/images/' . $fileNameToStore );
+            
+            // $dataに入力された情報が入ってくるのでusersテーブルに詰める
             $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'sex' => $data['sex'],
-            'age' => $data['age'],
-            'image' => $fileNameToStore,
-            // 'address' => $data['address'],
-            // 'married' => $data['married'],
-            // 'type_of_wine' => $data['type_of_wine'], 
-            // 'verify_of_wine' => $data['verify_of_wine'],
-            // 'producing_area' => $data['producing_area'],
-            // 'favorite_food' => $data['favorite_food'],
-            // 'price_range' => $data['price_range'],
-            // 'favorite_restaurant' => $data['restaurant'],
-            // 'favorite_restaurant' => $data['favorite_restaurant'],
-            // 'self_introduction' => $data['self_introduction'],
-            ]);
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'sex' => $data['sex'],
+                'age' => $data['age'],
+                'image' => $fileNameToStore,
+                // 'address' => $data['address'],
+                // 'married' => $data['married'],
+                // 'type_of_wine' => $data['type_of_wine'], 
+                // 'verify_of_wine' => $data['verify_of_wine'],
+                // 'producing_area' => $data['producing_area'],
+                // 'favorite_food' => $data['favorite_food'],
+                // 'price_range' => $data['price_range'],
+                // 'favorite_restaurant' => $data['restaurant'],
+                // 'favorite_restaurant' => $data['favorite_restaurant'],
+                // 'self_introduction' => $data['self_introduction'],
+                ]);
+            } else {
+                $user = User::create([
+                    'name' => $data['name'],
+                    'email' => $data['email'],
+                    'password' => Hash::make($data['password']),
+                    'sex' => $data['sex'],
+                    'age' => $data['age'],
+                    // 'image' => $fileNameToStore,
+                    // 'address' => $data['address'],
+                    // 'married' => $data['married'],
+                    // 'type_of_wine' => $data['type_of_wine'], 
+                    // 'verify_of_wine' => $data['verify_of_wine'],
+                    // 'producing_area' => $data['producing_area'],
+                    // 'favorite_food' => $data['favorite_food'],
+                    // 'price_range' => $data['price_range'],
+                    // 'favorite_restaurant' => $data['restaurant'],
+                    // 'favorite_restaurant' => $data['favorite_restaurant'],
+                    // 'self_introduction' => $data['self_introduction'],
+                    ]);
+            }
 
             $this->redirectTo = '/users/register/'.$user->id;
            return $user;

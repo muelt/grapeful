@@ -12,7 +12,11 @@
   <!-- <div id="tinderslide"> -->
     <div class='userInfo'>
       <div class='userInfo_img'>
-      <img src="/storage/images/{{$user -> image}}">
+        @if($user->image)
+          <img src="/storage/images/{{$user -> image}}">
+        @else
+          <img src="/storage/images/person.jpg">
+        @endif
       </div>
       <div class='userInfo_name'>いいね済{{ $user -> name }}</div>
 

@@ -7,7 +7,11 @@
   <header class="js-chatHeader" style="width:100%">
     <a href="{{route('matching')}}" class="linkToMatching"></a>
     <div class="chatPartner">
+    @if($chat_room_user->image)
       <div class="chatPartner_img"><img src="/storage/images/{{$chat_room_user -> image}}"></div>
+    @else
+      <div class="chatPartner_img"><img src="/storage/images/person.jpg"></div>
+    @endif
       <div class="chatPartner_name">{{ $chat_room_user -> name }}</div>
     </div>
   </header>

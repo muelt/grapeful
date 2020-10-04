@@ -7,8 +7,14 @@
 
     <div class='userInfo'>
       <div class='userInfo_img'>
+      @if($user->image)
         <img src="/storage/images/{{$user -> image}}">
+      @else
+        <img src="/storage/images/person.jpg">
+      @endif
       </div>
+
+
       <div class='userInfo_name'>{{ $user -> name }}</div>
 
       <!-- ここから -->

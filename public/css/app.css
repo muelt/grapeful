@@ -18064,6 +18064,7 @@ body {
   border-radius: 50%;
   overflow: hidden;
   margin-right: 10px;
+  display: inline-block;
 }
 
 .matchingPage .matchingList .matchingPerson_img > img {
@@ -18072,6 +18073,7 @@ body {
 
 .matchingPage .matchingList .matchingPerson_name {
   line-height: 50px;
+  display: inline-block;
 }
 
 .matchingPage .matchingList .matchingPerson form {
