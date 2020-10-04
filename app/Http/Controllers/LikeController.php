@@ -73,7 +73,8 @@ class LikeController extends Controller
  
          $checkLike = Like::where([
          ['to_user_id', $to_user_id],
-         ['from_user_id', $from_user_id]
+         ['from_user_id', $from_user_id],
+         ['status', 0],
          ])->get();
 
          Log::debug($checkLike);

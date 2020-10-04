@@ -46,5 +46,20 @@ $(document).ready(function() {
         }
     });
 
+    $(function(){
+        var imgHeight = $('.js-chatPage').outerHeight(); //画像の高さを取得。これがイベント発火位置になる
+        var pageHeader = $('.js-chatHeader'); //ヘッダーコンテンツ
+      
+        $(window).on('load scroll', function(){
+           if ($(window).scrollTop() < pageHeader) {
+             //メインビジュアル内にいるので、クラスを外す。
+             pageHeader.removeClass('headerColor-default');
+           }else {
+             //メインビジュアルより下までスクロールしたので、クラスを付けて色を変える
+             pageHeader.addClass('headerColor-default');
+           }
+        });
+
+    });
 
 });

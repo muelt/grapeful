@@ -43481,6 +43481,21 @@ $(document).ready(function () {
       $('.messages').append('<div class="message"><div class="message-right"><span>' + chat_room_user_name + '</span><div class="commonMessage"><div>' + e.message.message + '</div></div></div></div>');
     }
   });
+  $(function () {
+    var imgHeight = $('.js-chatPage').outerHeight(); //画像の高さを取得。これがイベント発火位置になる
+
+    var pageHeader = $('.js-chatHeader'); //ヘッダーコンテンツ
+
+    $(window).on('load scroll', function () {
+      if ($(window).scrollTop() < pageHeader) {
+        //メインビジュアル内にいるので、クラスを外す。
+        pageHeader.removeClass('headerColor-default');
+      } else {
+        //メインビジュアルより下までスクロールしたので、クラスを付けて色を変える
+        pageHeader.addClass('headerColor-default');
+      }
+    });
+  });
 });
 
 /***/ }),
@@ -43558,7 +43573,7 @@ $(function () {
     }
   }
 
-  $('.reactions .like').click(function () {
+  $('.reactions .like').on('click', function () {
     window.console.log('ajaxは動いてるよ');
     $(this).addClass('is-liked');
     document.getElementById("text").innerHTML = "いいね済み";

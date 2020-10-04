@@ -17425,6 +17425,7 @@ body {
   flex-wrap: wrap;
   width: 80%;
   margin: 0 auto;
+  transform: translateX(20px);
 }
 
 @media screen and (max-width: 768px) {
@@ -17437,6 +17438,7 @@ body {
   .restaurants-page .restaurants-wrapper {
     display: block;
     width: 100%;
+    transform: translate(-3px);
   }
 }
 
@@ -17471,8 +17473,26 @@ body {
 }
 
 .restaurants-page .restaurants-wrapper button {
-  float: left;
   background: #C3ACE6;
+  display: block;
+  width: 150px;
+  height: 60px;
+  border-radius: 40px;
+  margin-left: auto;
+  margin-right: 35px;
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+.restaurants-page .restaurants-wrapper .pagination-link {
+  margin-top: 40px;
+  width: 100%;
+  height: 50px;
+}
+
+.restaurants-page .restaurants-wrapper .pagination-link .pagination {
+  width: 300px;
+  margin: 0 auto;
 }
 
 html,
@@ -17592,7 +17612,7 @@ body {
 
 #tinderslide ul > li {
   width: 155px;
-  height: 215px;
+  height: 230px;
   margin-left: 20px;
   margin-bottom: 30px;
 }
@@ -17652,7 +17672,9 @@ body {
 }
 
 #tinderslide ul > li .userInfo .favorites {
-  display: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 @media screen and (max-width: 414px) {
@@ -17662,6 +17684,17 @@ body {
     position: absolute;
     bottom: 260px;
   }
+}
+
+#tinderslide ul > li .userInfo .favorites div {
+  font-size: 7px;
+  display: inline-block;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 2px 2px;
+  margin-right: 5px;
+  margin-bottom: 3px;
+  box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
 }
 
 @media screen and (max-width: 414px) {
@@ -18064,16 +18097,25 @@ body {
   outline: 0;
 }
 
-.chatPage .header {
+.chatPage .headerColor-default {
+  transition: 0.3s;
+  background: rgba(255, 255, 255, 0.9);
+  /* （画像よりも下までスクロールした時に変えたい文字色） */
+}
+
+.chatPage header {
   z-index: 100;
+  height: 130px;
+  position: fixed;
+  top: 72px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding-top: 30px;
   border-bottom: 1px solid #e8e8e8;
 }
 
-.chatPage .header .linkToMatching {
+.chatPage header .linkToMatching {
   width: 30px;
   height: 30px;
   position: absolute;
@@ -18084,23 +18126,24 @@ body {
   transform: rotate(45deg);
 }
 
-.chatPage .header .chatPartner_name {
+.chatPage header .chatPartner_name {
   margin-top: 10px;
   text-align: center;
 }
 
-.chatPage .header .chatPartner_img {
+.chatPage header .chatPartner_img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   overflow: hidden;
 }
 
-.chatPage .header .chatPartner_img > img {
+.chatPage header .chatPartner_img > img {
   width: 100%;
 }
 
 .chatPage .messagesArea {
+  margin-top: 250px;
   overflow: scroll;
   height: 72vh;
 }

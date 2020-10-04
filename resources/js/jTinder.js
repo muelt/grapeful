@@ -67,7 +67,7 @@ function checkUserNum() {
   }
 }
 
-$('.reactions .like').click(function () {
+$('.reactions .like').on('click', function () {
     window.console.log('ajaxは動いてるよ');
     $(this).addClass('is-liked');
     document.getElementById("text").innerHTML ="いいね済み";

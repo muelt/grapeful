@@ -49,16 +49,15 @@ class MatchingController extends Controller
             ['from_user_id', Auth::id()],
             ['status', Status::LIKE]
         ])->pluck('to_user_id');//pluckでID情報のみ取得できる
-        Log::debug('$send_like_ids→自分がいいねした人のID');
+        Log::debug('$send_like_ids→自分がいいねした人のIDは↓');
         Log::debug($send_like_ids);
 
         $from_me_users = User::whereIn('id', $send_like_ids)->get();
-        Log::debug('$from_users_users->自分がいいねした人の情報');
+        Log::debug('$from_users_users->自分がいいねした人の情報↓');
         Log::debug($from_me_users);
-        // dd($from_me_users);
 
         $from_me_users_count = count($send_like_ids);
-        Log::debug('$from_me_users_count->マッチングした人の数');
+        Log::debug('$from_me_users_count->自分がいいねした人の数↓');
         Log::debug($from_me_users_count);
 
         return view('users.from_me', compact('from_me_users', 'from_me_users_count'));
@@ -74,12 +73,12 @@ class MatchingController extends Controller
         Log::debug($got_like_ids);
 
         $from_users = User::whereIn('id', $got_like_ids)->get();
-        Log::debug('$from_users->いいねしてくれた人の情報');
+        Log::debug('$from_users->いいねしてくれた人の情報↓');
         Log::debug($from_users);
         // dd($from_me_users);
 
         $from_users_count = count($got_like_ids);
-        Log::debug('$from_users_count->マッチングした人の数');
+        Log::debug('$from_users_count->いいねしてくれた人の数↓');
         Log::debug($from_users_count);
 
         return view('users.from_users', compact('from_users', 'from_users_count'));

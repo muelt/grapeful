@@ -110,7 +110,7 @@ html, body {
     }
     & > li {
       width: 155px;
-      height: 215px;
+      height: 230px;
       margin-left: 20px;
       margin-bottom: 30px;
       @include mq(sm){
@@ -176,7 +176,10 @@ html, body {
         }
 
         .favorites {
-          display: none;
+          // display: none;
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
           @include mq(sm){
             // width: 100%;
             display: flex;
@@ -185,9 +188,16 @@ html, body {
             bottom: 260px;
           }
           div {
+            font-size: 7px;
+            display: inline-block;
+            font-weight: bold;
+            border-radius: 5px;
+            padding: 2px 2px;
+            margin-right: 5px;
+            margin-bottom: 3px;
+            box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
             @include mq(sm) {
             display: inline-block;
-            // background: #cebbea;
             border-radius: 10px;
             margin-right: 5px;
             padding: 2px 10px;

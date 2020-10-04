@@ -9,7 +9,6 @@
   <form class="searchBox" action="{{ route('index_searched') }}" method="POST">
     @csrf
     <input type="search" placeholder="プロフィールからキーワードでさがす(ワインのタイプ、年齢など)" class="searchText ac" name="freeword">
-    <input type="search" placeholder="" class="searchText" name="freeword">
     <button class="btn" type="submit" name="button">
       <i class="fas fa-search" aria-hidden="true"></i>
     </button>
@@ -32,13 +31,13 @@
                 @endif -->
                 <div class="favorites">
                 @if($user->verify_of_wine)
-                  <div class="verify_of_wine" style="background-color: #cebbea">{{ $user->type_of_wine }}</div>
+                  <div class="verify_of_wine">{{ $user->type_of_wine }}</div>
                 @endif
                 @if($user->type_of_wine)  
-                  <div class="verify_of_wine" style="background: #cebbea">{{ $user->verify_of_wine }}</div>
+                  <div class="verify_of_wine">{{ $user->verify_of_wine }}</div>
                 @endif
                 @if($user->favorite_food)
-                  <div class="verify_of_wine" style="background: #cebbea">{{ $user->favorite_food }}</div>
+                  <div class="verify_of_wine">{{ $user->favorite_food }}</div>
                 @endif
                 </div>
 

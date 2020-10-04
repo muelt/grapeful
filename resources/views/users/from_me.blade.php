@@ -17,12 +17,11 @@
               <div class="matchingPerson_name"><a href=" {{ route('users.show', ['id' => $user->id]) }} ">{{ $user->name }}</a></div>
             </div>
             @foreach ($user->toUserIds as $obj)
-                @if($obj->from_user_id == Auth::id())
+                @if($obj->from_user_id == Auth::id() && $obj->status == 0)
                   <span>{{ $obj->created_at }}</span>
                 @endif
             @endforeach
           </div>
-
         @endforeach
       </div>
     <div>

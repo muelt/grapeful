@@ -29,13 +29,13 @@
                 @endif -->
                 <div class="favorites">
                 @if($user->verify_of_wine)
-                  <div class="verify_of_wine" style="background-color: #cebbea">{{ $user->type_of_wine }}</div>
+                  <div class="verify_of_wine">{{ $user->type_of_wine }}</div>
                 @endif
                 @if($user->type_of_wine)  
-                  <div class="verify_of_wine" style="background: #cebbea">{{ $user->verify_of_wine }}</div>
+                  <div class="verify_of_wine">{{ $user->verify_of_wine }}</div>
                 @endif
                 @if($user->favorite_food)
-                  <div class="verify_of_wine" style="background: #cebbea">{{ $user->favorite_food }}</div>
+                  <div class="verify_of_wine">{{ $user->favorite_food }}</div>
                 @endif
                 </div>
 
@@ -45,7 +45,7 @@
         @endforeach
       </ul>
       <div class="noUser"><p>ユーザーはもういません<p>
-        <a class="search-link" href="{{ route('index') }}"><i class="fas fa-user-friends" style="color: #563e7b; font-size:16px; font-weight:bold"></i> もう一度さがす</a>
+        <a class="search-link" href="{{ route('index') }}">もう一度さがす</a><i class="fas fa-user-friends" style="color: #563e7b; font-size:16px; font-weight:bold; display:block"></i>
       </div>
     </div>
     <div class="actions" id="actionBtnArea">

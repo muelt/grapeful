@@ -3,8 +3,6 @@
 @section('content')
 
 <div class="matchingPage">
-  <header class="header">
-  </header>
   <div class="container">
     <div class="mt-5">
       <div class="matchingNum">{{ $match_users_count }}人とマッチングしています</div>

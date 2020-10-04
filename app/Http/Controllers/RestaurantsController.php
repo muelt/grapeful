@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Collection;
-use Illuminate\Pagination\Paginator;
+// use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
 use App\Services\Gurunavi;
 use App\Restaurant;
@@ -37,7 +38,7 @@ class RestaurantsController extends Controller
     // }
 
     $array = [];
-    // dd($gurunaviResponse);
+    // dd($gurunaviResponse['rest']);
     foreach($gurunaviResponse['rest'] as $restaurant) {
       
         $array[] = [
@@ -59,30 +60,15 @@ class RestaurantsController extends Controller
       if($request->page){
         $page = $request->page;
       }
-      $pagination = new Paginator($gurunaviResponse['rest'], 15, $page, array('path'=>'/restaurants/search/?freeword='.$request->freeword));
-      // dd($pagination);リンク用
-        
-      // view側で表示させるために成形する
-      $page = $pagination->getCollection()->push();
-      foreach($pagination->getCollection()->push() as $page){
-        $paginations[] =  [
-          'shop_name' => $page['name'],
-          'url' => $page['url'],
-          'image_url' => $page['image_url']['shop_image1'],
-          'tel' =>  $page['tel'],
-          'address' => $page['address'],
-          'access' => $page['access'],
-          // 'open_time' => $page['open_time'],
-          // 'close_time' => $page['close_time'],
-          'holiday' => $page['holiday'],
-          // 'category_name' => $page['category_name'],
-        ];
-      } 
-      // dd($paginations);
-      // dd($array);
+      // dd($page);
+
+      $all_num = count($array);
+      $chunk = array_chunk($array, 15);
+      $pagination = new LengthAwarePaginator($chunk[$page-1], $all_num, 15, $page, array('path'=>'/restaurants/search/?freeword='.$request->freeword));
+
       // ページネーションはここまで============================================================
 
-    return view('restaurants.search', compact('array', 'request', 'paginations', 'pagination'));    
+    return view('restaurants.search', compact('array', 'request',  'pagination'));    
 }
 
   // ======ここからユーザーが選択した店舗を保存する@save======

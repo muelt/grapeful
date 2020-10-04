@@ -3,13 +3,21 @@
     outline: 0;
     // border-color: orange;
   }
-  .header {
+  .headerColor-default {
+  transition: .3s;
+  background: rgba(255, 255, 255, 0.9);
+  /* （画像よりも下までスクロールした時に変えたい文字色） */
+  }
+
+  header {
     z-index:100;
-    // position: fixed;
+    height: 130px;
+    position: fixed;
+    top: 72px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding-top: 30px;
     border-bottom: 1px solid #e8e8e8;
     .linkToMatching {
       width: 30px;
@@ -41,6 +49,7 @@
 
 // ここからメッセージエリア
   .messagesArea {
+    margin-top: 250px;
     overflow: scroll;
     height: 72vh;
     .message {
