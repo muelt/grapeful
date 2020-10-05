@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Collection;
-// use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
 use App\Services\Gurunavi;
@@ -29,16 +28,14 @@ class RestaurantsController extends Controller
     // $request->freewordでユーザーが入力したキーワードを取り出す。検索結果の連想配列が$gurunaviResponseに入る
     $gurunaviResponse = $gurunavi->searchRestaurants($request->freeword);
 
+
     // ぐるなびAPIのレスポンスがエラーだった場合の処理
-    // if (array_key_exists('error', $gurunaviResponse)) {
-    //     $replyText = $gurunaviResponse['error'][0]['message'];
-    //     $replyToken = $event->getReplyToken();
-    //     $lineBot->replyText($replyToken, $replyText);
-    //     continue;
-    // }
+    if (array_key_exists('error', $gurunaviResponse)) {
+        $gurunavi_error = $gurunaviResponse['error'][0]['message'];
+    }
 
     $array = [];
-    // dd($gurunaviResponse['rest']);
+    // dd($gurunaviResponse);
     foreach($gurunaviResponse['rest'] as $restaurant) {
       
         $array[] = [
@@ -67,8 +64,11 @@ class RestaurantsController extends Controller
       $pagination = new LengthAwarePaginator($chunk[$page-1], $all_num, 15, $page, array('path'=>'/restaurants/search/?freeword='.$request->freeword));
 
       // ページネーションはここまで============================================================
-
-    return view('restaurants.search', compact('array', 'request',  'pagination'));    
+    // if(isset($gurunavi_error)){
+    //   return view('restaurants.search', compact('array', 'request',  'pagination', 'gurunavi_error'));    
+    // } else {
+      return view('restaurants.search', compact('array', 'request',  'pagination'));  
+    // }
 }
 
   // ======ここからユーザーが選択した店舗を保存する@save======

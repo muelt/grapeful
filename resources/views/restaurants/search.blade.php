@@ -5,6 +5,7 @@
 <div class="restaurants-page">
   <form action="/restaurants/search" method="get" class="search_wrapper">
   @csrf
+
     <input type="text" name="freeword" id="freeword" value="{{ $request->freeword }}">
 
     <button class="btn btn-primary" type="submit" name="button">
