@@ -40,7 +40,7 @@ class User extends Authenticatable
     public function toUserIds(){
         // [User->多Like]という関係のためhasManyを使う
         // hasMany(紐付けたい子のフルパス, 紐付けたい子の外部キー, 自(親)モデルの主キー)
-        return $this->hasMany('App\Like', 'to_user_id', 'id');
+        return $this->hasMany('App\Like', 'to_user_id', 'id')->orderBy('created_at', 'desc');
     }
 
     public function fromUserIds(){

@@ -10,6 +10,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Log;
+use Illuminate\Support\Facades\Mail; //追記
+use App\Mail\RegisterMail; //追記
 
 
 // サービスファイルの読み込み
@@ -153,8 +155,11 @@ class RegisterController extends Controller
                     ]);
             }
 
+            $name = $data['name'];
+            Mail::to($data['email'])->send(new RegisterMail($name));
+
             $this->redirectTo = '/users/register/'.$user->id;
-           return $user;
+            return $user;
 
     }
 
