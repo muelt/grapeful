@@ -52,7 +52,10 @@ class MatchingController extends Controller
         Log::debug('$send_like_ids→自分がいいねした人のIDは↓');
         Log::debug($send_like_ids);
 
-        $from_me_users = User::whereIn('id', $send_like_ids)->get();
+        $from_me_users = User::with('toUserIds')->whereIn('id', $send_like_ids)->orderBy('created_at', 'desc')->get();
+        // $from_me_created = Like::whereIn('to_user_id', $send_like_ids)->where('from_user_id', Auth::id())
+        // ->where('status', Status::LIKE)->orderBy('created_at', 'desc')->get();
+        // dd($from_me_created);
         Log::debug('$from_users_users->自分がいいねした人の情報↓');
         Log::debug($from_me_users);
 
@@ -72,7 +75,7 @@ class MatchingController extends Controller
         Log::debug('$got_like_ids→いいねしてくれた人のID');
         Log::debug($got_like_ids);
 
-        $from_users = User::whereIn('id', $got_like_ids)->get();
+        $from_users = User::with('fromUserIds')->whereIn('id', $got_like_ids)->orderBy('created_at', 'desc')->get();
         Log::debug('$from_users->いいねしてくれた人の情報↓');
         Log::debug($from_users);
         // dd($from_me_users);

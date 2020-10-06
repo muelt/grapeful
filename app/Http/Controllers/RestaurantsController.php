@@ -30,9 +30,9 @@ class RestaurantsController extends Controller
 
 
     // ぐるなびAPIのレスポンスがエラーだった場合の処理
-    if (array_key_exists('error', $gurunaviResponse)) {
-        $gurunavi_error = $gurunaviResponse['error'][0]['message'];
-    }
+    // if (array_key_exists('error', $gurunaviResponse)) {
+    //     $gurunavi_error = $gurunaviResponse['error'][0]['message'];
+    // }
 
     $array = [];
     // dd($gurunaviResponse);

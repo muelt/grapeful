@@ -16999,12 +16999,17 @@ readers do not read off random characters that represent icons */
   font-weight: 400;
 }
 
+.beginningPage {
+  color: #40444a;
+  letter-spacing: 0.1rem;
+}
+
 .beginningPage_contents {
   height: 400px;
 }
 
 .beginningPage_contents_title {
-  margin-top: 30vh;
+  margin-top: 10vh;
   float: left;
   text-align: left;
 }
@@ -17014,7 +17019,7 @@ readers do not read off random characters that represent icons */
 }
 
 .beginningPage_contents_title .title {
-  font-size: 30px;
+  font-size: 35px;
 }
 
 .beginningPage_contents_btn {
@@ -17022,17 +17027,27 @@ readers do not read off random characters that represent icons */
   max-width: 400px;
   padding: 20px;
   margin: 0 auto;
+  border: 4px solid #fff;
   border-radius: 30px;
-  background: #A173E6;
   color: #fff;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+}
+
+.beginningPage .btn-wrapper {
+  background-color: #ccbdc9;
+  height: 300px;
 }
 
 .beginningPage .question_contents {
   width: 100%;
+  margin-bottom: 100px;
 }
 
 .beginningPage .question_contents .container {
-  background: #CEBBEA;
+  background: #f1e3fc;
   border-radius: 20px;
   padding: 48px 72px;
 }
@@ -17040,24 +17055,119 @@ readers do not read off random characters that represent icons */
 .beginningPage .question_contents .container .question_contents_title {
   padding-bottom: 4px;
   display: inline-block;
-  border-bottom: 4px solid #7AE5E6;
+  border-bottom: 4px solid #d39eff;
+  left: 50%;
   font-size: 32px;
   text-align: center;
-  margin: 0 auto 30px;
+  margin-bottom: 30px;
 }
 
 .beginningPage .question_contents .container .question_contents_wrapper .question_contents_item {
-  list-style: none;
   text-align: left;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
 }
 
 .beginningPage .question_contents .container .question_contents_wrapper .question_contents_item h3 {
-  font-size: 24px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .beginningPage .question_contents .container .question_contents_wrapper .question_contents_item p {
   font-size: 18px;
+  font-weight: normal;
+}
+
+.beginningPage .answer_contents {
+  width: 1100px;
+  margin: 50px auto;
+}
+
+.beginningPage .answer_contents .answer-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.beginningPage .answer_contents .answer-title::before {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  top: 24px;
+  content: "";
+  right: 24px;
+  border-right: 4px solid #fff4c1;
+  transform: rotate(-45deg);
+}
+
+.beginningPage .answer_contents .answer-title::after {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  top: 24px;
+  content: "";
+  left: 24px;
+  border-left: 4px solid #fff4c1;
+  transform: rotate(45deg);
+}
+
+.beginningPage .answer_contents .answers {
+  display: flex;
+  justify-content: space-between;
+}
+
+.beginningPage .answer_contents .answers div {
+  width: 500px;
+  height: 200px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 200px;
+  vertical-align: middle;
+  font-size: 20px;
+  border: 2px solid #80498C;
+  background-color: #fff;
+  box-shadow: -2px 5px 5px #80498C;
+}
+
+.beginningPage .answer_contents .answer {
+  width: 450px;
+  height: 200px;
+  margin: 0 auto;
+  border-radius: 50%;
+  line-height: 200px;
+  text-align: center;
+  padding: auto;
+  font-size: 20px;
+  border: 2px solid #80498C;
+  background-color: #fff;
+  box-shadow: -2px 5px 5px #80498C;
+}
+
+.beginningPage .answer_contents .recommend {
+  margin-top: 130px;
+  margin-bottom: 200px;
+}
+
+.beginningPage .answer_contents .arrow {
+  display: block;
+  margin: 0 auto;
+  height: 40px;
+  width: 80px;
+  transform: rotate(90deg);
+  background-color: #F2DE1D;
+  position: relative;
+  top: 40px;
+}
+
+.beginningPage .answer_contents .arrow:before {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  border: 60px solid transparent;
+  border-left: 60px solid #F2DE1D;
+  left: 80px;
+  top: -37px;
 }
 
 body {
@@ -18218,6 +18328,7 @@ body {
 }
 
 .navbar {
+  letter-spacing: 0.1rem;
   padding-top: 12px;
   padding-bottom: 12px;
   border-top: 5px #563e7b solid;
@@ -18281,6 +18392,7 @@ body {
 
 main {
   margin-top: 130px;
+  color: #40444a;
 }
 
 @media screen and (max-width: 414px) {

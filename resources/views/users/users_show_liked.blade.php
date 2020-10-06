@@ -18,7 +18,7 @@
           <img src="/storage/images/person.jpg">
         @endif
       </div>
-      <div class='userInfo_name'>いいね済{{ $user -> name }}</div>
+      <div class='userInfo_name'>{{ $user -> name }}</div>
 
         <!-- ここから -->
         <div class="user_info_group">

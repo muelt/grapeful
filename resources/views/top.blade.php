@@ -15,10 +15,10 @@
 
   <div class="question_contents">
     <div class="container">
-      <h2 class="question_contents_title">こんなお悩みありませんか？</h2>
+      <h2 style="text-align:center"><span class="question_contents_title">ワイン好きのみなさん、こんなお悩みありませんか？<span></h2>
       <div class="question_contents_wrapper">
         <div class="question_contents_item">
-          <h3>ワインが大好きなのにワイン好きが周りにいない<h3>
+          <h3>ワインが大好きなのにワイン好きが周りにいない。美味しいお店の情報交換がしたい。<h3>
           <p>周りはビールやハイボール党ばかり…</p>
         </div>
         <div class="question_contents_item">
@@ -27,32 +27,31 @@
         </div>
         <div class="question_contents_item">
           <h3>グルメも大好き。気になったお店にはどんどん行ってみたい。<h3>
-          <p>ワインとのマリアージュを楽しみたいけど一人だとなかなか…予約も取りづらい</p>
+          <p>ワインとのペアリングも楽しみたいけど一人だとなかなか…予約も取りづらい。</p>
         </div>
         <div class="question_contents_item">
           <h3>大人になると新たな友達って難しい…<h3>
-          <p>趣味が合う友達が欲しいなぁ</p>
+          <p>コロナでイベントの参加とかは難しいし、出会う場所がないな…。<br>ワイン✖️グルメを一緒に楽しめる友達が欲しい。</p>
         </div>
       </div>
     </div>
   </div>
 
   <div class="answer_contents">
-    <h2>そんな悩みをgrapefulが解決！</h2>
-    <ul>
-      <li>ワイン好きだけが集まるマッチングアプリ</li>
-      <li>好きな品種や食べ物から好みが似ている人を探せる</li>
-      <p>好みが似てそう…と思ったら良いね！</p>
-      <li>お気に入りのお店をみんなでシェア</li>
-      <li>ワイン友達を見つけよう</li>
-    </ul>
+    <h2 class="answer-title">そんなお悩みをgrapefulが解決！</span></h2>
+    <div class="answers">
+      <div>ワイン好きだけが集まるマッチングアプリ</div>
+      <div>ワインや食べ物から好みが似ている人を探せる</div>
+    </div>
+    <div class="answer">お気に入りのお店をみんなでシェア</div>
+    <a href="" class="arrow"></a>
+    <div class="answer recommend">楽しく飲める友達を見つけよう</div>
+    <!-- <p style="display: inline-block">好みが似てそう…と思ったら良いね！</p> -->
   </div>
 
-
-
-
+  <div class="btn-wrapper">
     <div class="btn beginningPage_contents_btn"><a class="text-white" href="{{ route('login') }}">メールアドレスでログインする</a></div>
-    </div>
+  </div>
 </div>
 
 @endsection

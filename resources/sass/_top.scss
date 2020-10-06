@@ -1,10 +1,12 @@
 // 最初のアプリ説明画面
 
 .beginningPage {
+  color: #40444a;
+  letter-spacing: 0.1rem;
   &_contents {
     height: 400px;
     &_title {
-      margin-top: 30vh;
+      margin-top: 10vh;
       float: left;
       text-align: left;
       .sub-title {
@@ -12,7 +14,7 @@
 
       }
       .title {
-        font-size: 30px;
+        font-size: 35px;
       }
     }
     &_btn {
@@ -20,39 +22,144 @@
       max-width: 400px;
       padding: 20px;
       margin: 0 auto;
+      border: 4px solid #fff;
       border-radius: 30px;
-      background: #A173E6;
       color: #fff;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: bold;
     }
-  }
+  } 
 
-  .question_contents {
-    width: 100%;
-    .container{
-      background: #CEBBEA;
-      border-radius: 20px;
-      padding: 48px 72px;
-      .question_contents_title{
-        padding-bottom: 4px;
-        display: inline-block;
-        border-bottom: 4px solid #7AE5E6;
-        font-size: 32px;
-        text-align: center;
-        margin: 0 auto 30px;
-      }
-      .question_contents_wrapper {
-        .question_contents_item{
-          list-style: none;
-          text-align: left;
-          margin-bottom: 24px;
-          h3 {
-            font-size:24px;
-          }
-          p {
-            font-size: 18px;
+  .btn-wrapper {
+    background-color: #ccbdc9;
+    height: 300px;
+  }
+    .question_contents {
+      width: 100%;
+      margin-bottom: 100px;
+      .container{
+        background: #f1e3fc;
+        border-radius: 20px;
+        padding: 48px 72px;
+        .question_contents_title{
+          padding-bottom: 4px;
+          display: inline-block;
+          border-bottom: 4px solid #d39eff;
+          left: 50%;
+          font-size: 32px;
+          text-align: center;
+          margin-bottom: 30px;
+        }
+        .question_contents_wrapper {
+          .question_contents_item{
+            text-align: left;
+            margin-bottom: 30px;
+            h3 {
+              font-size: 20px;
+              font-weight: bold;
+            }
+            p {
+              font-size: 18px;
+              font-weight: normal;
+            }
           }
         }
       }
+    }
+  .answer_contents {
+    width: 1100px;
+    margin: 50px auto;
+    .answer-title {
+      text-align: center;
+      margin-bottom: 50px;
+      &::before {
+        position: relative;
+        display: inline-block;
+        width: 48px;
+        height: 48px;
+        top: 24px;
+        content: "";
+        right: 24px;
+        border-right: 4px solid #fff4c1;
+        transform: rotate(-45deg);
+      }
+      &::after {
+        position: relative;
+        display: inline-block;
+        width: 48px;
+        height: 48px;
+        top: 24px;
+        content: "";
+        left: 24px;
+        border-left: 4px solid #fff4c1;
+        transform: rotate(45deg);
+      }
+    }
+    .answers {
+      display: flex;
+      justify-content: space-between;
+      div {
+        width: 500px;
+        height: 200px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 200px;
+        vertical-align: middle;
+        font-size: 20px;
+        border: 2px solid #80498C;
+        background-color: #fff;
+        box-shadow: -2px 5px 5px #80498C;
+      }
+    }
+    .answer {
+      width: 450px;
+      height: 200px;
+      margin: 0 auto;
+      border-radius: 50%;
+      line-height: 200px;
+      text-align: center;
+      padding: auto;
+      font-size: 20px;
+      border: 2px solid #80498C;
+      background-color: #fff;
+      box-shadow: -2px 5px 5px #80498C;
+    }
+    .recommend {
+      margin-top: 130px;
+      margin-bottom: 200px;
+    }
+    // .arrow {
+    //   width: 30px;
+    //   height: 30px;
+    //   position: absolute;
+    //   left: 40px;
+    //   border: 5px solid;
+    //   border-radius: 4px;
+    //   border-color:  transparent transparent #fd5068 #fd5068;
+    //   transform: rotate(-45deg);
+    // }
+    .arrow {
+      display: block;
+      margin: 0 auto;
+      height: 40px;
+      width: 80px;
+      transform: rotate(90deg);
+      background-color:#F2DE1D;
+      position: relative;
+      top:40px;
+    }
+    
+    .arrow:before {
+      position:absolute;
+      content:"";
+      width:0;
+      height:0;
+      border:60px solid transparent;
+      border-left:60px solid #F2DE1D;
+      left:80px;
+      top:-37px;
     }
   }
 }
