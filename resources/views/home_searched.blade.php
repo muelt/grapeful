@@ -25,7 +25,7 @@
               @if($user->image)
                 <img src="/storage/images/{{$user -> image}}">
               @else
-                <img src="/storage/images/person.jpg">
+                <img src=c>
               @endif
               <div class="userInfo">
                 <div class="userName"><a href=" {{ route('users.show', ['id' => $user->id]) }} " class="name">{{ $user->name }}  </a><span class="age">{{ $user->age }}歳</span><span class="age"> {{ $user->address }}</span></div>

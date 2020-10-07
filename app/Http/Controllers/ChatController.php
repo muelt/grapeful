@@ -37,15 +37,14 @@ class ChatController extends Controller
 
             $chat_room_id = $latest_chat_room->id;
 
-            
             // 新規登録、モデル側、$fillableで許可したフィールドを指定して保存
             ChatRoomUser::create(
                 ['chat_room_id' => $chat_room_id, 'user_id' => Auth::id()]);
 
             ChatRoomUser::create(
                 ['chat_room_id' => $chat_room_id, 'user_id' => $matching_user_id]);
-        
         }
+
 
         // チャットルーム取得時はオブジェクト型なので数値に変換
         if(is_object($chat_room_id)){
@@ -61,6 +60,7 @@ class ChatController extends Controller
         $chat_room_user_name = $chat_room_user->name;
 
         $chat_messages = ChatMessage::where('chat_room_id', $chat_room_id)->orderby('created_at')->get();
+        // dd($chat_messages);
 
         Log::debug('ログイン中のユーザーです');
         Log::debug(Auth::user());
@@ -73,7 +73,6 @@ class ChatController extends Controller
         Log::debug('$chat_room_user_nameです');
         Log::debug($chat_room_user_name);
         return view('chat.show', compact('chat_room_id', 'chat_room_user', 'chat_messages', 'chat_room_user_name'));
-
 
         return view('chat.show');
     }

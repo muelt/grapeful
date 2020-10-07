@@ -25,6 +25,7 @@
       <!-- dd($message); -->
       @if($message->user_id == Auth::id())
       <div class="message-right">
+        <span style="margin-right:15px; position:relative; top:40px">{{$message->created_at->format('Y-m-d H:i:s')}}</span>
         <div class="commonMessage">
           <div>
           {{$message->message}}
@@ -40,6 +41,7 @@
           {{$message->message}}
           </div>
         </div>
+        <span style="margin-left:15px; position:relative; top:10px">{{$message->created_at->format('Y-m-d H:i:s')}}</span>
       </div>
       @endif
     </div>

@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class ChatMessage extends Model
 {
     protected $fillable = ['chat_room_id', 'user_id', 'message'];
-
+ 
+    // リレーション
     public function chatRoom(){
         return $this->belongsTo('App\ChatRoom', 'chat_room_id', 'id');
     }

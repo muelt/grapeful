@@ -3,8 +3,11 @@
 .beginningPage {
   color: #40444a;
   letter-spacing: 0.1rem;
+  width: 1100px;
+  margin: 0 auto;
   &_contents {
     height: 400px;
+    // background: url("/storage/images/top_image.jpg");
     &_title {
       margin-top: 10vh;
       float: left;
@@ -17,32 +20,16 @@
         font-size: 35px;
       }
     }
-    &_btn {
-      display: block;
-      max-width: 400px;
-      padding: 20px;
-      margin: 0 auto;
-      border: 4px solid #fff;
-      border-radius: 30px;
-      color: #fff;
-      position: relative;
-      top: 50%;
-      transform: translateY(-50%);
-      font-weight: bold;
-    }
   } 
 
-  .btn-wrapper {
-    background-color: #ccbdc9;
-    height: 300px;
-  }
+
     .question_contents {
       width: 100%;
-      margin-bottom: 100px;
+      margin-bottom: 130px;
       .container{
         background: #f1e3fc;
         border-radius: 20px;
-        padding: 48px 72px;
+        padding: 42px 100px;
         .question_contents_title{
           padding-bottom: 4px;
           display: inline-block;
@@ -70,7 +57,7 @@
     }
   .answer_contents {
     width: 1100px;
-    margin: 50px auto;
+    margin: 30px auto 100px;
     .answer-title {
       text-align: center;
       margin-bottom: 50px;
@@ -160,6 +147,68 @@
       border-left:60px solid #F2DE1D;
       left:80px;
       top:-37px;
+    }
+  }
+  .howTo {
+    width: 100%;
+    height: 800px;
+    &_title {
+      padding-bottom: 4px;
+      display: inline-block;
+      border-bottom: 4px solid #d39eff;
+      left: 50%;
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    p {
+      padding-top: 40px;
+      font-size: 18px;
+      text-align: center;
+    }
+    ul {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 50px;
+      li {
+        list-style: none;
+        width: 210px;
+        box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+        h4 {
+          text-align: center;
+          font-size: 30px;
+        }
+        img {
+          width: 100%;
+          height: 328px;
+        }
+        p {
+          text-align: center;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+.beginningPage_btn_wrapper {
+  background-color: #5F4573;
+  height: 300px;
+  transition: color 300ms, background-color 300ms;
+  .beginningPage_btn {
+    display: block;
+    width: 450px;
+    padding: 20px;
+    margin: 0 auto;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    color: #fff;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    &:hover {
+      opacity: .6;
     }
   }
 }

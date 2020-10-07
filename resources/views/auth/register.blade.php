@@ -106,8 +106,7 @@
           @endforeach
         </select>
       </div>
-
-
+      
       <div class="text-center">
         <button type="submit" class="btn submitBtn">登録をする</button>
         <div class="linkToLogin">

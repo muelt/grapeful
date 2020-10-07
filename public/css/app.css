@@ -17002,6 +17002,8 @@ readers do not read off random characters that represent icons */
 .beginningPage {
   color: #40444a;
   letter-spacing: 0.1rem;
+  width: 1100px;
+  margin: 0 auto;
 }
 
 .beginningPage_contents {
@@ -17022,34 +17024,15 @@ readers do not read off random characters that represent icons */
   font-size: 35px;
 }
 
-.beginningPage_contents_btn {
-  display: block;
-  max-width: 400px;
-  padding: 20px;
-  margin: 0 auto;
-  border: 4px solid #fff;
-  border-radius: 30px;
-  color: #fff;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  font-weight: bold;
-}
-
-.beginningPage .btn-wrapper {
-  background-color: #ccbdc9;
-  height: 300px;
-}
-
 .beginningPage .question_contents {
   width: 100%;
-  margin-bottom: 100px;
+  margin-bottom: 130px;
 }
 
 .beginningPage .question_contents .container {
   background: #f1e3fc;
   border-radius: 20px;
-  padding: 48px 72px;
+  padding: 42px 100px;
 }
 
 .beginningPage .question_contents .container .question_contents_title {
@@ -17079,7 +17062,7 @@ readers do not read off random characters that represent icons */
 
 .beginningPage .answer_contents {
   width: 1100px;
-  margin: 50px auto;
+  margin: 30px auto 100px;
 }
 
 .beginningPage .answer_contents .answer-title {
@@ -17170,6 +17153,78 @@ readers do not read off random characters that represent icons */
   top: -37px;
 }
 
+.beginningPage .howTo {
+  width: 100%;
+  height: 800px;
+}
+
+.beginningPage .howTo_title {
+  padding-bottom: 4px;
+  display: inline-block;
+  border-bottom: 4px solid #d39eff;
+  left: 50%;
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.beginningPage .howTo p {
+  padding-top: 40px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.beginningPage .howTo ul {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.beginningPage .howTo ul li {
+  list-style: none;
+  width: 210px;
+  box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+}
+
+.beginningPage .howTo ul li h4 {
+  text-align: center;
+  font-size: 30px;
+}
+
+.beginningPage .howTo ul li img {
+  width: 100%;
+  height: 328px;
+}
+
+.beginningPage .howTo ul li p {
+  text-align: center;
+  font-size: 18px;
+}
+
+.beginningPage_btn_wrapper {
+  background-color: #5F4573;
+  height: 300px;
+  transition: color 300ms, background-color 300ms;
+}
+
+.beginningPage_btn_wrapper .beginningPage_btn {
+  display: block;
+  width: 450px;
+  padding: 20px;
+  margin: 0 auto;
+  border: 1px solid #fff;
+  border-radius: 30px;
+  color: #fff;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+}
+
+.beginningPage_btn_wrapper .beginningPage_btn:hover {
+  opacity: 0.6;
+}
+
 body {
   overflow: visible;
 }
@@ -17177,6 +17232,10 @@ body {
 .notice,
 .alert {
   display: none;
+}
+
+.signupPage .container {
+  margin-bottom: 70px;
 }
 
 .signupPage .header {
@@ -17263,7 +17322,6 @@ body {
   padding: 10px;
   border-radius: 90px;
   transition: opacity 0.5s;
-  margin-bottom: 70px;
   margin-top: 30px;
 }
 
@@ -18216,7 +18274,7 @@ body {
 }
 
 .chatPage header {
-  z-index: 100;
+  z-index: 10;
   height: 130px;
   position: fixed;
   top: 72px;
@@ -18334,7 +18392,7 @@ body {
   border-top: 5px #563e7b solid;
   border-bottom: 1px #d9d9d9 solid;
   box-shadow: 0 0 3px 3px #d9d9d9;
-  z-index: 20;
+  z-index: 100;
 }
 
 @media screen and (max-width: 414px) {

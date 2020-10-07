@@ -64,7 +64,7 @@ $main-text-color: #fff;
   border-top: 5px #563e7b solid;
   border-bottom: 1px #d9d9d9 solid;
   box-shadow: 0 0 3px 3px #d9d9d9;
-  z-index: 20;
+  z-index: 100;
   @include mq(){
     padding: 0;
   }

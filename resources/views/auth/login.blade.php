@@ -30,10 +30,10 @@
       </div>
 
       <div class="form-group text-center">
-      <button type="submit" class="loginBtn">ログイン</button>
-      </div>
-      <div class="linkToLogin">
-        <a href="{{ route('register') }}">アカウント作成はこちら</a>
+        <button type="submit" class="loginBtn">ログイン</button>
+        <div class="linkToLogin">
+          <a href="{{ route('register') }}">アカウント作成はこちら</a>
+        </div>
       </div>
     </form>
   </div>
