@@ -3,14 +3,16 @@
 @section('content')
 
 <div class="beginningPage">
-  <div class="container">
-    <div class="beginningPage_contents">
-      <div class="beginningPage_contents_title">
-        <h2 class="sub-title">ワイン好きとつながれる</h2>
-        <h2 class="sub-title">楽しく飲める友達を探そう</h2>
-        <h1 class="title">grapeful</h1>
-      </div>
-    </div>  
+  <div class="beginningPage_contents">
+    <div class="beginningPage_contents_title">
+      <h2 class="sub-title">ワイン好きとつながれる。楽しく飲める友達を探そう</h2>
+      <!-- <h2 class="sub-title">楽しく飲める友達を探そう</h2> -->
+      <h1 class="title">grapeful</h1>
+      <p>
+        「ワインが好き」という人は、近年増えてきたものの、やはりビール、日本酒好きの方が多い印象の日本。誰かと飲んで語り合うことでより一層美味しく感じられるワインだから、ワインに興味がある人と一緒に楽しく飲みたい…って思うけれど、なかなか周りにはいなかったり…。
+        ワインを誰かと楽しみたい方、趣味を通して交友関係を広げたい方へ、ワインという共通言語を使って新たな友達を探してみませんか。
+      </p>
+    </div>
   </div>
 
   <div class="question_contents">
@@ -38,15 +40,17 @@
   </div>
 
   <div class="answer_contents">
-    <h2 class="answer-title">そんなお悩みをgrapefulが解決！</h2>
-    <div class="answers">
-      <div>ワイン好きだけが集まるマッチングアプリ</div>
-      <div>ワインや食べ物から好みが似ている人を探せる</div>
+    <div class="bg-mask">
+      <h2 class="answer-title">grapefulの特徴</h2>
+      <div class="answers">
+        <div style="margin-right:20px">ワイン好きだけが集まる<br>マッチングアプリ</div>
+        <div>ワインや食べ物から好みが<br>似ている人を探せる</div>
+      </div>
+      <div class="answer">お気に入りのお店をみんなでシェア<br>(ぐるなびと連携)</div>
+      <!-- <a href="" class="arrow"></a>
+      <div class="answer recommend">楽しく飲める友達を見つけよう</div> -->
+      <!-- <p style="display: inline-block">好みが似てそう…と思ったら良いね！</p> -->
     </div>
-    <div class="answer">お気に入りのお店をみんなでシェア</div>
-    <!-- <a href="" class="arrow"></a>
-    <div class="answer recommend">楽しく飲める友達を見つけよう</div> -->
-    <!-- <p style="display: inline-block">好みが似てそう…と思ったら良いね！</p> -->
   </div>
 
   <div class="howTo">
@@ -56,17 +60,17 @@
       <li class="step">
         <h4>step1</h4>
         <img src="" alt="">
-        <p>気が合いそうな<br>ユーザーを探す</p>
+        <p>自分と好みが合う<br>人を探す</p>
       </li>
       <li class="step">
         <h4>step2</h4>
         <img src="" alt="">
-        <p>気になるユーザーに<br>「いいね！」をしよう</p>
+        <p>気になる人に<br>「いいね！」をしよう</p>
       </li>
       <li class="step">
         <h4>step3</h4>
         <img src="" alt="">
-        <p>お相手も「いいね！」<br>をしたらマッチング</p>
+        <p>お相手も「いいね！」<br>をしたらマッチング</p>
       </li>
       <li class="step">
         <h4>step4</h4>
@@ -80,7 +84,10 @@
 
 
   <div class="beginningPage_btn_wrapper">
-    <div class="btn beginningPage_btn"><a class="text-white" href="{{ route('register') }}">さっそくはじめてみる</a></div>
+    <div class="btn_wrapper">
+      <p>人との出会いは一期一会</p>
+      <a class="btn beginningPage_btn" href="{{ route('register') }}">さっそくはじめてみる</a>
+    </div>
   </div>
 
 @endsection
