@@ -49,7 +49,8 @@
         @endforeach
       </ul>
       <div class="noUser"><p>ユーザーはもういません<p>
-        <a class="search-link" href="{{ route('index') }}">もう一度さがす</a><i class="fas fa-user-friends" style="color: #563e7b; font-size:16px; font-weight:bold; display:block"></i>
+        <a class="search-link" href="{{ route('index') }}">もう一度さがす<i class="fas fa-user-friends" style="color: #563e7b; font-size:16px; font-weight:bold; margin-left: 10px; display:inline-block"></i>
+        </a>
       </div>
     </div>
     <div class="actions" id="actionBtnArea">

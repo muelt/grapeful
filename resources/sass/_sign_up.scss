@@ -18,16 +18,23 @@ body {
   .header {
     padding: 20px;
     text-align: center;
-    background: $main-color;
-    color: $main-text-color;
-    font-size: 20px;
+    background: url("/storage/images/grape.jpg");
+    opacity: 0.4;
+    // color: $main-color;
+  }
+
+  .title {
+    margin: 20px 0;
+    text-align: center;
+    color: $main-color;
+    font-size: 24px;
   }
   .userProfileImg {
     position: relative;
     margin: 0 auto 10px auto;
     width: 100px;
     height: 100px;
-    background: $main-color;
+    background: linear-gradient(to right top,#f1e3fc 0,#f1e3fc 34%,#fbe7a2 55%,#ecffd4);
     display: flex;
     cursor: pointer;
     align-items: center;

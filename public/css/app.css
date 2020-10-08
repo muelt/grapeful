@@ -17005,6 +17005,12 @@ readers do not read off random characters that represent icons */
   width: 100%;
 }
 
+@media screen and (max-width: 414px) {
+  .beginningPage {
+    width: 375px;
+  }
+}
+
 .beginningPage_contents {
   height: 561px;
   background: linear-gradient(to right top, #f1e3fc 0, #f1e3fc 34%, #fbe7a2 55%, #ecffd4);
@@ -17013,14 +17019,34 @@ readers do not read off random characters that represent icons */
   letter-spacing: 0.2rem;
 }
 
+@media screen and (max-width: 414px) {
+  .beginningPage_contents {
+    margin-bottom: 20px;
+    height: 430px;
+  }
+}
+
 .beginningPage_contents_title {
   display: block;
   padding-top: 100px;
   text-align: center;
 }
 
+@media screen and (max-width: 414px) {
+  .beginningPage_contents_title {
+    padding-top: 50px;
+  }
+}
+
 .beginningPage_contents_title .sub-title {
   font-size: 15px;
+}
+
+@media screen and (max-width: 414px) {
+  .beginningPage_contents_title .sub-title {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
 }
 
 .beginningPage_contents_title .sub-title::before {
@@ -17032,6 +17058,12 @@ readers do not read off random characters that represent icons */
   margin-right: 36px;
 }
 
+@media screen and (max-width: 414px) {
+  .beginningPage_contents_title .sub-title::before {
+    display: none;
+  }
+}
+
 .beginningPage_contents_title .sub-title::after {
   display: inline-block;
   width: 100px;
@@ -17039,6 +17071,12 @@ readers do not read off random characters that represent icons */
   content: "";
   vertical-align: middle;
   margin-left: 36px;
+}
+
+@media screen and (max-width: 414px) {
+  .beginningPage_contents_title .sub-title::after {
+    display: none;
+  }
 }
 
 .beginningPage_contents_title .title {
@@ -17049,6 +17087,13 @@ readers do not read off random characters that represent icons */
   font-weight: bold;
 }
 
+@media screen and (max-width: 414px) {
+  .beginningPage_contents_title .title {
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+}
+
 .beginningPage_contents_title p {
   width: 600px;
   margin: 0 auto;
@@ -17057,13 +17102,26 @@ readers do not read off random characters that represent icons */
   text-align: left;
 }
 
+@media screen and (max-width: 414px) {
+  .beginningPage_contents_title p {
+    width: 300px;
+  }
+}
+
 .beginningPage .question_contents {
   margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 
 .beginningPage .question_contents .container {
   border-radius: 20px;
   padding: 42px 100px 0;
+}
+
+@media screen and (max-width: 414px) {
+  .beginningPage .question_contents .container {
+    padding: 22px 30px 0;
+  }
 }
 
 .beginningPage .question_contents .container .question_contents_title {
@@ -17073,6 +17131,13 @@ readers do not read off random characters that represent icons */
   font-size: 32px;
   text-align: center;
   margin-bottom: 30px;
+}
+
+@media screen and (max-width: 414px) {
+  .beginningPage .question_contents .container .question_contents_title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
 }
 
 .beginningPage .question_contents .container .question_contents_title::after {
@@ -17085,7 +17150,13 @@ readers do not read off random characters that represent icons */
 
 .beginningPage .question_contents .container .question_contents_wrapper .question_contents_item {
   text-align: left;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+}
+
+@media screen and (max-width: 414px) {
+  .beginningPage .question_contents .container .question_contents_wrapper .question_contents_item {
+    margin-bottom: 30px;
+  }
 }
 
 .beginningPage .question_contents .container .question_contents_wrapper .question_contents_item h3 {
@@ -17093,9 +17164,21 @@ readers do not read off random characters that represent icons */
   font-weight: bold;
 }
 
+@media screen and (max-width: 414px) {
+  .beginningPage .question_contents .container .question_contents_wrapper .question_contents_item h3 {
+    font-size: 15px;
+  }
+}
+
 .beginningPage .question_contents .container .question_contents_wrapper .question_contents_item p {
   font-size: 18px;
   font-weight: normal;
+}
+
+@media screen and (max-width: 414px) {
+  .beginningPage .question_contents .container .question_contents_wrapper .question_contents_item p {
+    font-size: 13px;
+  }
 }
 
 .beginningPage .answer_contents {
@@ -17116,6 +17199,12 @@ readers do not read off random characters that represent icons */
   width: 260px;
 }
 
+@media screen and (max-width: 414px) {
+  .beginningPage .answer_contents .answer-title {
+    font-size: 20px;
+  }
+}
+
 .beginningPage .answer_contents .answer-title::after {
   display: block;
   height: 2px;
@@ -17127,6 +17216,12 @@ readers do not read off random characters that represent icons */
 .beginningPage .answer_contents .answers {
   display: flex;
   justify-content: center;
+}
+
+@media screen and (max-width: 414px) {
+  .beginningPage .answer_contents .answers {
+    display: block;
+  }
 }
 
 .beginningPage .answer_contents .answers div {
@@ -17141,6 +17236,16 @@ readers do not read off random characters that represent icons */
   padding-top: 70px;
 }
 
+@media screen and (max-width: 414px) {
+  .beginningPage .answer_contents .answers div {
+    width: 300px;
+    height: 120px;
+    margin: 20px auto;
+    font-size: 15px;
+    padding-top: 35px;
+  }
+}
+
 .beginningPage .answer_contents .answer {
   width: 450px;
   height: 200px;
@@ -17153,6 +17258,15 @@ readers do not read off random characters that represent icons */
   background-color: #fff;
   box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
   padding-top: 70px;
+}
+
+@media screen and (max-width: 414px) {
+  .beginningPage .answer_contents .answer {
+    width: 300px;
+    height: 120px;
+    font-size: 15px;
+    padding-top: 40px;
+  }
 }
 
 .beginningPage .answer_contents .recommend {
@@ -17188,10 +17302,22 @@ readers do not read off random characters that represent icons */
   margin: 0 auto;
 }
 
+@media screen and (max-width: 414px) {
+  .beginningPage .howTo {
+    width: 100%;
+  }
+}
+
 .beginningPage .howTo_title {
   font-size: 36px;
   text-align: center;
   display: inline-block;
+}
+
+@media screen and (max-width: 414px) {
+  .beginningPage .howTo_title {
+    font-size: 25px;
+  }
 }
 
 .beginningPage .howTo_title::after {
@@ -17208,16 +17334,39 @@ readers do not read off random characters that represent icons */
   text-align: center;
 }
 
+@media screen and (max-width: 414px) {
+  .beginningPage .howTo p {
+    font-size: 15px;
+    padding-top: 20px;
+  }
+}
+
 .beginningPage .howTo ul {
   display: flex;
   justify-content: space-between;
   margin-top: 50px;
 }
 
+@media screen and (max-width: 414px) {
+  .beginningPage .howTo ul {
+    display: block;
+    margin-top: 30px;
+    width: 80%;
+  }
+}
+
 .beginningPage .howTo ul li {
   list-style: none;
   width: 210px;
   box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+}
+
+@media screen and (max-width: 414px) {
+  .beginningPage .howTo ul li {
+    width: 300px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
 }
 
 .beginningPage .howTo ul li h4 {
@@ -17228,6 +17377,12 @@ readers do not read off random characters that represent icons */
 .beginningPage .howTo ul li img {
   width: 100%;
   height: 328px;
+}
+
+@media screen and (max-width: 414px) {
+  .beginningPage .howTo ul li img {
+    height: 250px;
+  }
 }
 
 .beginningPage .howTo ul li p {
@@ -17244,21 +17399,42 @@ readers do not read off random characters that represent icons */
   transition: color 300ms, background-color 300ms;
 }
 
+@media screen and (max-width: 414px) {
+  .beginningPage_btn_wrapper {
+    width: 100%;
+    margin-top: 1000px;
+    margin-bottom: 0;
+    height: 250px;
+  }
+}
+
 .beginningPage_btn_wrapper .btn_wrapper {
   padding: 20px;
   display: inline-block;
   width: 500px;
   color: #fff;
-  margin: 100px auto;
+  margin: 30px auto;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+}
+
+@media screen and (max-width: 414px) {
+  .beginningPage_btn_wrapper .btn_wrapper {
+    width: 100%;
+  }
 }
 
 .beginningPage_btn_wrapper .btn_wrapper p {
   text-align: center;
   font-size: 30px;
   letter-spacing: 0.2em;
+}
+
+@media screen and (max-width: 414px) {
+  .beginningPage_btn_wrapper .btn_wrapper p {
+    font-size: 20px;
+  }
 }
 
 .beginningPage_btn_wrapper .btn_wrapper .beginningPage_btn {
@@ -17270,6 +17446,12 @@ readers do not read off random characters that represent icons */
   border-radius: 30px;
   color: #fff;
   font-weight: bold;
+}
+
+@media screen and (max-width: 414px) {
+  .beginningPage_btn_wrapper .btn_wrapper .beginningPage_btn {
+    width: 80%;
+  }
 }
 
 .beginningPage_btn_wrapper .btn_wrapper .beginningPage_btn:hover {
@@ -17292,9 +17474,15 @@ body {
 .signupPage .header {
   padding: 20px;
   text-align: center;
-  background: #C3ACE6;
-  color: #fff;
-  font-size: 20px;
+  background: url("/storage/images/grape.jpg");
+  opacity: 0.4;
+}
+
+.signupPage .title {
+  margin: 20px 0;
+  text-align: center;
+  color: #C3ACE6;
+  font-size: 24px;
 }
 
 .signupPage .userProfileImg {
@@ -17302,7 +17490,7 @@ body {
   margin: 0 auto 10px auto;
   width: 100px;
   height: 100px;
-  background: #C3ACE6;
+  background: linear-gradient(to right top, #f1e3fc 0, #f1e3fc 34%, #fbe7a2 55%, #ecffd4);
   display: flex;
   cursor: pointer;
   align-items: center;
@@ -17408,11 +17596,12 @@ body {
   height: 120px;
   border-radius: 50%;
   margin: 0 auto;
-  background: #C3ACE6;
+  background: linear-gradient(to right top, #f1e3fc 0, #f1e3fc 34%, #fbe7a2 55%, #ecffd4);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 40px;
 }
 
 .signinPage .loginBtn {
@@ -18444,11 +18633,13 @@ body {
   border-bottom: 1px #d9d9d9 solid;
   box-shadow: 0 0 3px 3px #d9d9d9;
   z-index: 100;
+  width: 100%;
 }
 
 @media screen and (max-width: 414px) {
   .navbar {
     padding: 0;
+    width: 375px;
   }
 }
 

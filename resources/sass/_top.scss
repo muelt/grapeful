@@ -1,3 +1,22 @@
+
+// メディアクエリのブレークポイント設定
+$breakpoints: (
+  'sm': 'screen and (max-width: 414px)',
+  'md': 'screen and (max-width: 768px)',
+  'lg': 'screen and (max-width: 1000px)',
+  'xl': 'screen and (max-width: 1200px)',
+) !default;
+
+// ==============================
+// mixin
+// ==============================
+@mixin mq($breakpoint: sm) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+// ==============================================================
+
 // 最初のアプリ説明画面
 
 .beginningPage {
@@ -5,21 +24,38 @@
   letter-spacing: 0.1rem;
   width: 100%;
   // margin: 0 auto;
+  @include mq(){
+    width: 375px;
+  }
   &_contents {
     height: 561px;
     background: linear-gradient(to right top,#f1e3fc 0,#f1e3fc 34%,#fbe7a2 55%,#ecffd4);
     box-sizing: border-box;
     margin-bottom: 50px;
     letter-spacing: 0.2rem;
+    @include mq(){
+      margin-bottom: 20px;
+      height: 430px;
+    }
     &_title {
       display: block;
       // margin-top: 10vh;
       // float: left;
       padding-top: 100px;
       text-align: center;
+      @include mq(){
+        padding-top: 50px;
+      }
       .sub-title {
         font-size: 15px;
+        @include mq(){
+          padding-right: 20px;
+          padding-left: 20px;
+        }
         &::before {
+          @include mq(){
+            display: none;
+          }
           display: inline-block;
           width: 100px;
           border-top: 1px solid rgba(0,0,0,.4);
@@ -28,6 +64,9 @@
           margin-right: 36px;
         }
         &::after {
+          @include mq(){
+            display: none;
+          }
           display: inline-block;
           width: 100px;
           border-top: 1px solid rgba(0,0,0,.4);
@@ -42,6 +81,10 @@
         margin-top: 72px;
         color: #563e7b;
         font-weight: bold;
+        @include mq(){
+          margin-top: 20px;
+          margin-bottom:40px;
+        }
       }
       p {
         width: 600px;
@@ -49,7 +92,9 @@
         letter-spacing: .04em;
         line-height: 1.9em;
         text-align: left;
-        // text-align: right;
+        @include mq(){
+          width: 300px;
+        }
       }
     }
   } 
@@ -58,10 +103,14 @@
     .question_contents {
       // width: 100%;
       margin-bottom: 80px;
+      margin-bottom: 40px;
       .container{
         // background: #f1e3fc;
         border-radius: 20px;
         padding: 42px 100px 0;
+        @include mq(){
+          padding: 22px 30px 0;
+        }
         .question_contents_title{
           padding-bottom: 4px;
           display: inline-block;
@@ -70,6 +119,10 @@
           font-size: 32px;
           text-align: center;
           margin-bottom: 30px;
+          @include mq(){
+            font-size: 20px;
+            margin-bottom: 20px;
+          }
           &::after {
             display: block;
             height: 2px;
@@ -81,14 +134,23 @@
         .question_contents_wrapper {
           .question_contents_item{
             text-align: left;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            @include mq(){
+              margin-bottom: 30px;
+            }
             h3 {
               font-size: 20px;
               font-weight: bold;
+              @include mq(){
+                font-size: 15px;
+              }
             }
             p {
               font-size: 18px;
               font-weight: normal;
+              @include mq(){
+                font-size: 13px;
+              }
             }
           }
         }
@@ -107,7 +169,9 @@
       margin: 0 auto 30px;
       font-size: 36px;
       width: 260px;
-      // display: inline-block;
+      @include mq(){
+        font-size: 20px;
+      }
       &::after {
         display: block;
         height: 2px;
@@ -120,6 +184,9 @@
     .answers {
       display: flex;
       justify-content: center;
+      @include mq(){
+        display: block;
+      }
       div {
         width: 450px;
         height: 200px;
@@ -130,6 +197,13 @@
         background-color: #fff;
         box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
         padding-top: 70px;
+        @include mq(){
+          width: 300px;
+          height: 120px;
+          margin: 20px auto;
+          font-size: 15px;
+          padding-top: 35px;
+        }
       }
     }
     .answer {
@@ -144,6 +218,12 @@
       background-color: #fff;
       box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
       padding-top: 70px;
+      @include mq(){
+        width: 300px;
+        height: 120px;
+        font-size: 15px;
+        padding-top: 40px;
+      }
     }
     .recommend {
       margin-top: 130px;
@@ -176,10 +256,16 @@
     width: 1100px;
     height: 800px;
     margin: 0 auto;
+    @include mq(){
+      width: 100%;
+    }
     &_title {
       font-size: 36px;
       text-align: center;
       display: inline-block;
+      @include mq(){
+        font-size: 25px;
+      }
       &::after {
         display: block;
         height: 2px;
@@ -192,15 +278,29 @@
       padding-top: 40px;
       font-size: 18px;
       text-align: center;
+      @include mq(){
+        font-size: 15px;
+        padding-top: 20px;
+      }
     }
     ul {
       display: flex;
       justify-content: space-between;
       margin-top: 50px;
+      @include mq(){
+        display: block;
+        margin-top: 30px;
+        width: 80%;
+      }
       li {
         list-style: none;
         width: 210px;
         box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+        @include mq(){
+          width: 300px;
+          margin: 0 auto;
+          margin-bottom: 20px;
+        }
         h4 {
           text-align: center;
           font-size: 30px;
@@ -208,6 +308,9 @@
         img {
           width: 100%;
           height: 328px;
+          @include mq(){
+            height: 250px;
+          }
         }
         p {
           text-align: center;
@@ -225,19 +328,31 @@
   background-color: #5F4573;
   height: 350px;
   transition: color 300ms, background-color 300ms;
+  @include mq(){
+    width: 100%;
+    margin-top: 1000px;
+    margin-bottom: 0;
+    height: 250px;
+  }
   .btn_wrapper {
     padding: 20px;
     display: inline-block;
     width: 500px;
     color: #fff;
-    margin: 100px auto;
+    margin: 30px auto;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+    @include mq(){
+      width: 100%;
+    }
     p {
       text-align: center;
       font-size: 30px;
       letter-spacing: .2em;
+      @include mq(){
+        font-size: 20px;
+      }
     }
     .beginningPage_btn {
       display: block;
@@ -248,6 +363,10 @@
       border-radius: 30px;
       color: #fff;
       font-weight: bold;
+      @include mq(){
+        width: 80%;
+
+      }
       &:hover {
         opacity: .6;
       }

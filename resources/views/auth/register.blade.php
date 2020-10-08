@@ -3,7 +3,6 @@
 @section('content')
 <div class="signupPage">
   <header class="header">
-    <div>アカウントを作成</div>
   </header>
   <div class='container'>
 
@@ -18,6 +17,7 @@
               {{ $message }}
             </span>
           @enderror -->
+        <div class="title">アカウントを作成</div>
         <label for="file_photo" class="rounded-circle userProfileImg">
           <div class="userProfileImg_description">画像をアップロード</div>
           <i class="fas fa-camera fa-3x"></i>

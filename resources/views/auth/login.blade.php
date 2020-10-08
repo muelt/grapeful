@@ -2,6 +2,13 @@
 
 @section('content')
 <div class='signinPage'>
+
+  <div class="signupPage" style="margin-bottom: 30px;">
+    <header class="header">
+      <div class="bg-mask">
+      </div>
+    </header>
+  </div>
   <div class='container'>
     <div class='userIcon'>
       <i class="fas fa-user fa-3x"></i>

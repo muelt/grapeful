@@ -3,7 +3,6 @@
 @section('content')
 <div class="signupPage userEditPage">
   <header class="header">
-    <div>プロフィールを編集</div>
   </header>
   <div class='container'>
     <form class="form mt-5" method="POST" action="/users/update/{{ $user->id }}" enctype="multipart/form-data">
@@ -16,7 +15,7 @@
         {{ $message }}
       </span>
     @enderror
-
+    <div class="title">プロフィールを編集</div>
       <label for="file_photo" class="rounded-circle userProfileImg">
         @if($user->image)
         <div class="userProfileImg_description">画像を編集</div>
