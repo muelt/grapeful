@@ -25,13 +25,13 @@
       <!-- dd($message); -->
       @if($message->user_id == Auth::id())
       <div class="message-right">
-        <span style="margin-right:15px; position:relative; top:40px">{{$message->created_at->format('Y-m-d H:i:s')}}</span>
+        <span style="margin-right:10px; position:relative; top:40px; color:#d6d6d6">{{$message->created_at->format('m-d H:i')}}</span>
         <div class="commonMessage">
           <div>
           {{$message->message}}
           </div>
         </div>
-        <span style="padding-top:30px; padding-right:18px">{{Auth::user()->name}}</span>
+        <!-- <span style="padding-top:30px; padding-right:18px">{{Auth::user()->name}}</span> -->
       </div>
       @else
       <div class="message-left">
@@ -41,7 +41,7 @@
           {{$message->message}}
           </div>
         </div>
-        <span style="margin-left:15px; position:relative; top:10px">{{$message->created_at->format('Y-m-d H:i:s')}}</span>
+        <span style="margin-left:10px; position:relative; top:10px; color:#d6d6d6">{{$message->created_at->format('m-d H:i')}}</span>
       </div>
       @endif
     </div>

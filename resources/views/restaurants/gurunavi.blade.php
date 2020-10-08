@@ -4,10 +4,9 @@
 
 <div class="signupPage">
   <header class="header">
-    <div>ぐるなび検索<i class="fas fa-utensils" style="margin: 0 10px"></i>お気に入りのお店を登録</div>
   </header>
+  <div class="title">ぐるなび検索<i class="fas fa-utensils" style="margin-right:10px; margin-left:10px"></i>お気に入りのお店を登録</div>
   <div class='container'>
-
   <div class="restaurants-page">
     <form action="/restaurants/search" method="get" class="search_wrapper">
     @csrf

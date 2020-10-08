@@ -2,8 +2,14 @@
 
 @section('content')
 
-<div class="matchingPage">
+<div class="signupPage" style="margin-bottom: 30px;">
+  <header class="header">
+    <div class="bg-mask">
+    </div>
+  </header>
+</div>
 
+<div class="matchingPage">
   <div class="container">
     <div class="mt-5">
     <div class="matchingNum">{{ $from_me_users_count }}人にあなたからいいね！しました</div>

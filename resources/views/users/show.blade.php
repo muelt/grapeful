@@ -2,9 +2,15 @@
 
 @section('content')
 
+<div class="signupPage" style="margin-bottom: 30px;">
+  <header class="header">
+    <div class="bg-mask">
+    </div>
+  </header>
+</div>
+
 <div class='usershowPage'>
   <div class='container'>
-
     <div class='userInfo'>
       <div class='userInfo_img'>
       @if($user->image)
@@ -13,8 +19,6 @@
         <img src="/storage/images/person.jpg">
       @endif
       </div>
-
-
       <div class='userInfo_name'>{{ $user -> name }}</div>
 
       <!-- ここから -->
@@ -65,7 +69,7 @@
 
       <div class="user_info_group">
         <label for="self_introduction">自己紹介</label>
-        <p class='userInfo_self_introduction' style="width:300px; padding:10px 20px; text-align:left">{{ $user -> self_introduction }}</p>
+        <p class='userInfo_self_introduction'>{{ $user -> self_introduction }}</p>
       </div>
 
       <div class="user_info_group shop">

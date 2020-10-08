@@ -17110,12 +17110,12 @@ readers do not read off random characters that represent icons */
 
 .beginningPage .question_contents {
   margin-bottom: 80px;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
 }
 
 .beginningPage .question_contents .container {
   border-radius: 20px;
-  padding: 42px 100px 0;
+  padding: 42px 30px 0;
 }
 
 @media screen and (max-width: 414px) {
@@ -17143,46 +17143,69 @@ readers do not read off random characters that represent icons */
 .beginningPage .question_contents .container .question_contents_title::after {
   display: block;
   height: 2px;
-  margin-top: 20px;
+  margin-top: 10px 15px;
   background: linear-gradient(90deg, #ff6161 0, #ffa12c 30%, #ffb428 47%, #fac03e 53%, #dfffb8);
   content: "";
 }
 
+.beginningPage .question_contents .container .question_contents_wrapper {
+  margin-bottom: -30px;
+  margin-right: -15px;
+  display: flex;
+}
+
+@media screen and (max-width: 414px) {
+  .beginningPage .question_contents .container .question_contents_wrapper {
+    display: block;
+  }
+}
+
 .beginningPage .question_contents .container .question_contents_wrapper .question_contents_item {
+  flex: 1;
+  height: 260px;
   text-align: left;
   margin-bottom: 40px;
+  margin-right: 15px;
+  box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+  padding: 25px;
 }
 
 @media screen and (max-width: 414px) {
   .beginningPage .question_contents .container .question_contents_wrapper .question_contents_item {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    height: 150px;
   }
 }
 
 .beginningPage .question_contents .container .question_contents_wrapper .question_contents_item h3 {
-  font-size: 20px;
+  height: 74px;
+  font-size: 18px;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
 @media screen and (max-width: 414px) {
   .beginningPage .question_contents .container .question_contents_wrapper .question_contents_item h3 {
+    height: 30px;
     font-size: 15px;
+    margin-bottom: 10px;
   }
 }
 
 .beginningPage .question_contents .container .question_contents_wrapper .question_contents_item p {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: normal;
 }
 
 @media screen and (max-width: 414px) {
   .beginningPage .question_contents .container .question_contents_wrapper .question_contents_item p {
     font-size: 13px;
+    margin-bottom: 0;
   }
 }
 
 .beginningPage .answer_contents {
-  margin: 30px auto 80px;
+  margin: 0px auto 80px;
   background: url("/storage/images/grape.jpg");
 }
 
@@ -17201,7 +17224,7 @@ readers do not read off random characters that represent icons */
 
 @media screen and (max-width: 414px) {
   .beginningPage .answer_contents .answer-title {
-    font-size: 20px;
+    font-size: 25px;
   }
 }
 
@@ -17299,12 +17322,14 @@ readers do not read off random characters that represent icons */
 .beginningPage .howTo {
   width: 1100px;
   height: 800px;
-  margin: 0 auto;
+  margin: -20px auto;
 }
 
 @media screen and (max-width: 414px) {
   .beginningPage .howTo {
     width: 100%;
+    height: 100%;
+    margin: 0 auto;
   }
 }
 
@@ -17345,12 +17370,13 @@ readers do not read off random characters that represent icons */
   display: flex;
   justify-content: space-between;
   margin-top: 50px;
+  padding-left: 0;
 }
 
 @media screen and (max-width: 414px) {
   .beginningPage .howTo ul {
     display: block;
-    margin-top: 30px;
+    margin: 30px auto 0;
     width: 80%;
   }
 }
@@ -17364,7 +17390,6 @@ readers do not read off random characters that represent icons */
 @media screen and (max-width: 414px) {
   .beginningPage .howTo ul li {
     width: 300px;
-    margin: 0 auto;
     margin-bottom: 20px;
   }
 }
@@ -17375,6 +17400,7 @@ readers do not read off random characters that represent icons */
 }
 
 .beginningPage .howTo ul li img {
+  display: block;
   width: 100%;
   height: 328px;
 }
@@ -17402,7 +17428,7 @@ readers do not read off random characters that represent icons */
 @media screen and (max-width: 414px) {
   .beginningPage_btn_wrapper {
     width: 100%;
-    margin-top: 1000px;
+    margin-top: 70px;
     margin-bottom: 0;
     height: 250px;
   }
@@ -17427,7 +17453,7 @@ readers do not read off random characters that represent icons */
 
 .beginningPage_btn_wrapper .btn_wrapper p {
   text-align: center;
-  font-size: 30px;
+  font-size: 20px;
   letter-spacing: 0.2em;
 }
 
@@ -17476,13 +17502,19 @@ body {
   text-align: center;
   background: url("/storage/images/grape.jpg");
   opacity: 0.4;
+  margin-bottom: 30px;
 }
 
 .signupPage .title {
-  margin: 20px 0;
   text-align: center;
   color: #C3ACE6;
-  font-size: 24px;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 414px) {
+  .signupPage .title {
+    font-size: 15px;
+  }
 }
 
 .signupPage .userProfileImg {
@@ -17670,7 +17702,7 @@ body {
 }
 
 .usershowPage .userInfo {
-  margin-top: 60px;
+  margin-top: 30px;
 }
 
 .usershowPage .userInfo #actionBtnArea a {
@@ -17694,7 +17726,6 @@ body {
 
 .usershowPage .userInfo_name {
   text-align: center;
-  margin-top: 25px;
   font-size: 25px;
 }
 
@@ -17711,6 +17742,12 @@ body {
 }
 
 @media screen and (max-width: 414px) {
+  .usershowPage .userInfo .user_info_group {
+    padding-bottom: 5px;
+    padding-top: 5px;
+    font-size: 10px;
+  }
+
   .usershowPage .userInfo .user_info_group.shop {
     display: block;
   }
@@ -17728,8 +17765,24 @@ body {
 
 @media screen and (max-width: 414px) {
   .usershowPage .userInfo .user_info_group .shop_image {
-    width: 200px;
+    width: 100%;
     height: 150px;
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+
+.usershowPage .userInfo .user_info_group .userInfo_self_introduction {
+  display: block;
+  width: 300px;
+  padding: 10px 20px;
+  text-align: left;
+}
+
+@media screen and (max-width: 414px) {
+  .usershowPage .userInfo .user_info_group .userInfo_self_introduction {
+    padding: 0;
+    max-width: 150px;
   }
 }
 
@@ -17921,7 +17974,6 @@ body {
   align-items: center;
   padding: 0 10px;
   box-sizing: border-box;
-  margin-bottom: 50px;
   z-index: 10;
 }
 
@@ -17983,7 +18035,7 @@ body {
   width: 90vw;
   height: 100%;
   max-width: 920px;
-  margin: 100px auto;
+  margin: 70px auto;
   z-index: 0;
 }
 
@@ -18561,55 +18613,54 @@ body {
 .chatPage .messagesArea .message .message-right {
   display: flex;
   justify-content: flex-end;
-  margin-right: 35px;
+  margin-right: 15px;
+}
+
+@media screen and (max-width: 414px) {
+  .chatPage .messagesArea .message .message-right {
+    margin-right: 0;
+  }
 }
 
 .chatPage .messagesArea .message .message-right .commonMessage {
   position: relative;
   display: inline-block;
-  margin: 1.5em 15px 1.5em 0;
+  margin: 1.5em 10px 1.5em 0;
   padding: 7px 10px;
-  max-width: 100%;
-  color: #555;
+  width: 180px;
+  color: #fff;
   font-size: 16px;
   border-radius: 7px;
-  background: #f1f1f1;
+  background: #377cf6;
 }
 
-.chatPage .messagesArea .message .message-right .commonMessage:before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: -20px;
-  margin-top: -10px;
-  border: 10px solid transparent;
-  border-left: 10px solid #f1f1f1;
+@media screen and (max-width: 414px) {
+  .chatPage .messagesArea .message .message-right .commonMessage {
+    margin-right: 0;
+    font-size: 14px;
+  }
 }
 
 .chatPage .messagesArea .message .message-left .commonMessage {
   position: relative;
   display: inline-block;
-  margin: 1.5em 0 1.5em 15px;
+  margin: 1em 0 1em 8px;
   padding: 7px 10px;
-  max-width: 100%;
+  width: 180px;
   color: #555;
+  border: 1px solid #d6d6d6;
   font-size: 16px;
   border-radius: 7px;
-  background: #f1f1f1;
+}
+
+@media screen and (max-width: 414px) {
+  .chatPage .messagesArea .message .message-left .commonMessage {
+    font-size: 14px;
+  }
 }
 
 .chatPage .messagesArea .message .message-left .commonMessage > p {
   margin: 0;
-}
-
-.chatPage .messagesArea .message .message-left .commonMessage:before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: -20px;
-  margin-top: -10px;
-  border: 10px solid transparent;
-  border-right: 10px solid #f1f1f1;
 }
 
 .chatPage .messageInputForm {

@@ -2,7 +2,12 @@
 
 @section('content')
 
-
+<div class="signupPage" style="margin-bottom: 30px;">
+  <header class="header">
+    <div class="bg-mask">
+    </div>
+  </header>
+</div>
 
 <div class="topPage">
 <!-- ユーザーが入力したキーワードで絞り込み -->

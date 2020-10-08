@@ -35,8 +35,8 @@ $(document).ready(function() {
         if(e.message.user_id === user_id){
             console.log(true);
         $('.messages').append(
-            '<div class="message"><div class="message-right"><span style="padding-top:40px; padding-right:18px">' + e.message.created_at + '</span><div class="commonMessage"><div>' + 
-            e.message.message + '</div></div>' + '<span style="padding-top:30px; padding-right:18px">' + current_user_name + '</span>' + '</div></div>');
+            '<div class="message"><div class="message-right"><span style="padding-top:40px; text-align:left; color:#d6d6d6">' + e.message.created_at + '</span><div class="commonMessage"><div>' + 
+            e.message.message + '</div></div>' + '</div></div>');
         }else{
             console.log(false);
         $('.messages').append(

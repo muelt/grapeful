@@ -2,6 +2,12 @@
 
 @section('content')
 
+<div class="signupPage" style="margin-bottom: 30px;">
+  <header class="header">
+    <div class="bg-mask">
+    </div>
+  </header>
+</div>
 <div class="matchingPage">
   <div class="container">
     <div class="mt-5">

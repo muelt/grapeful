@@ -2,6 +2,12 @@
 
 @section('content')
 
+<div class="signupPage" style="margin-bottom: 30px;">
+  <header class="header">
+    <div class="bg-mask">
+    </div>
+  </header>
+</div>
 <!-- ユーザーが入力したキーワードで絞り込み -->
 <div class="topPage">
   <form class="searchBox" action="{{ route('index_searched') }}" method="POST">

@@ -103,11 +103,11 @@ $breakpoints: (
     .question_contents {
       // width: 100%;
       margin-bottom: 80px;
-      margin-bottom: 40px;
+      margin-bottom: 80px;
       .container{
         // background: #f1e3fc;
         border-radius: 20px;
-        padding: 42px 100px 0;
+        padding: 42px 30px 0;
         @include mq(){
           padding: 22px 30px 0;
         }
@@ -126,38 +126,56 @@ $breakpoints: (
           &::after {
             display: block;
             height: 2px;
-            margin-top: 20px;
+            margin-top: 10px 15px;
             background: linear-gradient(90deg,#ff6161 0,#ffa12c 30%,#ffb428 47%,#fac03e 53%,#dfffb8);
             content: "";
           }
         }
         .question_contents_wrapper {
+          margin-bottom: -30px;
+          margin-right: -15px;
+          display: flex;
+          @include mq(){
+            display: block;
+          }
           .question_contents_item{
+            flex: 1;
+            height: 260px;
             text-align: left;
             margin-bottom: 40px;
+            margin-right: 15px;
+            box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+            padding: 25px;
             @include mq(){
-              margin-bottom: 30px;
+              margin-bottom: 20px;
+              height: 150px;
             }
             h3 {
-              font-size: 20px;
+              height: 74px;
+              font-size: 18px;
               font-weight: bold;
+              margin-bottom: 10px;
               @include mq(){
+                height: 30px;
                 font-size: 15px;
+                margin-bottom: 10px;
               }
             }
             p {
-              font-size: 18px;
+              font-size: 15px;
               font-weight: normal;
               @include mq(){
-                font-size: 13px;
+              font-size: 13px;
+              margin-bottom: 0;
               }
             }
           }
         }
       }
     }
+
   .answer_contents {
-    margin: 30px auto 80px;
+    margin: 0px auto 80px;
     background: url("/storage/images/grape.jpg");
     .bg-mask {
       background: rgba(255,255,255,0.7);
@@ -170,7 +188,7 @@ $breakpoints: (
       font-size: 36px;
       width: 260px;
       @include mq(){
-        font-size: 20px;
+        font-size: 25px;
       }
       &::after {
         display: block;
@@ -255,9 +273,11 @@ $breakpoints: (
   .howTo {
     width: 1100px;
     height: 800px;
-    margin: 0 auto;
+    margin: -20px auto;
     @include mq(){
       width: 100%;
+      height: 100%;
+      margin: 0 auto;
     }
     &_title {
       font-size: 36px;
@@ -287,9 +307,10 @@ $breakpoints: (
       display: flex;
       justify-content: space-between;
       margin-top: 50px;
+      padding-left: 0;
       @include mq(){
         display: block;
-        margin-top: 30px;
+        margin: 30px auto 0;
         width: 80%;
       }
       li {
@@ -298,7 +319,6 @@ $breakpoints: (
         box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
         @include mq(){
           width: 300px;
-          margin: 0 auto;
           margin-bottom: 20px;
         }
         h4 {
@@ -306,6 +326,7 @@ $breakpoints: (
           font-size: 30px;
         }
         img {
+          display: block;
           width: 100%;
           height: 328px;
           @include mq(){
@@ -330,7 +351,7 @@ $breakpoints: (
   transition: color 300ms, background-color 300ms;
   @include mq(){
     width: 100%;
-    margin-top: 1000px;
+    margin-top: 70px;
     margin-bottom: 0;
     height: 250px;
   }
@@ -348,7 +369,7 @@ $breakpoints: (
     }
     p {
       text-align: center;
-      font-size: 30px;
+      font-size: 20px;
       letter-spacing: .2em;
       @include mq(){
         font-size: 20px;

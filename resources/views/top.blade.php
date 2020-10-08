@@ -23,19 +23,19 @@
       <h2 style="text-align:center"><span class="question_contents_title">こんなお悩みありませんか？</span></h2>
       <div class="question_contents_wrapper">
         <div class="question_contents_item">
-          <h3>ワインが大好きなのにワイン好きが周りにいない。美味しいお店の情報交換がしたい。<h3>
-          <p>周りはビールやハイボール党ばかり…</p>
+          <h3>ワイン好きが周りにいなくて、一緒に楽しむ相手がいない。</h3>
+          <p>周りはビールやハイボール党ばかり…。ワイン好きと美味しい美味しいお店の情報交換がしたい。</p>
         </div>
         <div class="question_contents_item">
-          <h3>たくさんの種類が飲めない<h3>
+          <h3>ひとりだとたくさんの種類が飲めない。</h3>
           <p>一人だとボトルが開けられず、飲めるワインが限られてしまう…</p>
         </div>
         <div class="question_contents_item">
-          <h3>グルメも大好き。気になったお店にはどんどん行ってみたい。<h3>
+          <h3>グルメも大好き。気になったお店にはどんどん行ってみたい。</h3>
           <p>ワインとのペアリングも楽しみたいけど一人だとなかなか…予約も取りづらい。</p>
         </div>
         <div class="question_contents_item">
-          <h3>大人になると新たな友達作りって難しい…<h3>
+          <h3>大人になると新たな友達作りって難しい…</h3>
           <p>コロナでイベントへの参加は難しいし、出会う場所がないな…。<br>ワイン✖️グルメを一緒に楽しめる友達が欲しい。</p>
         </div>
       </div>

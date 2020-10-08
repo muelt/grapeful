@@ -54,7 +54,7 @@ $breakpoints: (
   }
 
   .userInfo {
-    margin-top: 60px;
+    margin-top: 30px;
 
     #actionBtnArea {
       a {
@@ -80,7 +80,6 @@ $breakpoints: (
 
     &_name {
       text-align: center;
-      margin-top: 25px;
       font-size: 25px;
     }
 
@@ -90,7 +89,10 @@ $breakpoints: (
 
 
     .user_info_group {
-      @include mq(sm){
+      @include mq(){
+        padding-bottom: 5px;
+        padding-top: 5px;
+        font-size: 10px;
         &.shop {
           display: block;
         }
@@ -110,8 +112,20 @@ $breakpoints: (
       }
       .shop_image {
         @include mq(sm) {
-          width:200px;
+          width: 100%;
           height: 150px;
+          margin-left: 0;
+          margin-right: auto;
+        }
+      }
+      .userInfo_self_introduction {
+        display: block;
+        width:300px;
+        padding: 10px 20px;
+        text-align: left;
+        @include mq(){
+          padding: 0;
+          max-width: 150px;
         }
       }
     }
@@ -132,7 +146,6 @@ $breakpoints: (
         @include mq(sm){
           width: 60px;
           height: 60px;
-          
         }
         width: 80px;
         height: 80px;

@@ -36,7 +36,6 @@ html, body {
   align-items: center;
   padding: 0 10px;
   box-sizing: border-box;
-  margin-bottom: 50px;
   z-index: 10;
   @include mq(sm){
     width: 90%;
@@ -83,7 +82,7 @@ html, body {
   width: 90vw;
   height: 100%;
   max-width: 920px;
-  margin: 100px auto;
+  margin: 70px auto;
   z-index: 0;
   @include mq(sm){
     position: relative;

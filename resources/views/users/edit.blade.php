@@ -117,7 +117,7 @@
 
       <div class="form-group">
         <label>自己紹介文</label>
-        <textarea class="form-control" name="self_introduction" rows="10" style="width:400px" value="{{ $user->self_introduction }}">{{$user->self_introduction}}
+        <textarea class="form-control" name="self_introduction" rows="10" style="width:100%" value="{{ $user->self_introduction }}">{{$user->self_introduction}}
         </textarea>
       </div>
 
